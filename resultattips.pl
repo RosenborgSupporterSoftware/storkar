@@ -1,8 +1,9 @@
 #!/usr/bin/env perl
 
-# Parse the resultattips.csv file and dump
+# Parse the resultattips.csv file and dump phpBB postable tables into
+# round-wise html files.
 
-$ext = "html";
+$bbcode = 1; # set to 0 to produce pure html for local browsing usage
 
 %player = ();
 
@@ -45,15 +46,10 @@ $counter = 0;
 
 %score = ();
 %scores = ();
-$scorescount = 0;
 %ranking = ();
 
-
 $linenum = 0;
-
 $round = 0;
-
-$bbcode = 0;
 
 sub BBColor {
   ($color, $text) = (@_);
@@ -191,7 +187,6 @@ while ($line = <DATA>) {
 
     %score = ();
     %scores = ();
-    $scorescount = 0;
     %roundwinner = ();
 
     $forlengs = 0;
@@ -274,7 +269,7 @@ while ($line = <DATA>) {
       }
     }
 
-    &WriteTable("tabell-$round.html", 0, "Runde $round<br>$game", %roundwinner);
+    &WriteTable("runde-$round.html", 0, "Runde $round\n$game", %roundwinner);
     foreach $player (keys(%roundwinner)) {
       if (not exists $winner{$player}) {
         $winner{$player} = $roundwinner{$player};
@@ -287,8 +282,7 @@ while ($line = <DATA>) {
         $winner{$player} = join(':', @w);
       }
     }
-    # FIXME: merge inn round winners into total winners
-    &WriteTable("tabell-1-$round.html", 1, "Resultat etter runde $round", %winner);
+    &WriteTable("tabell-$round.html", 1, "Resultat etter runde $round", %winner);
 
   }
   else {
@@ -322,7 +316,6 @@ while ($line = <DATA>) {
         $scores{$goalee} = 0;
       }
       ++$scores{$goalee};
-      ++$scorescount;
     }
   }
 }
