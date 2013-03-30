@@ -1,29 +1,36 @@
 #!/usr/bin/env perl
 
+# Parse the resultattips.csv file and dump
+
+$ext = "html";
+
 %player = ();
 
 $player{'-'} = '-';
 $player{'Alas'} = 'Jaime Alas';
 $player{'Bille'} = 'Nicki Bille Nielsen';
-$player{'Bråthen'} = 'Erik Mellevold Bråthen';
+$player{'Braathen'} = 'Erik Mellevold Bråthen';
 $player{'Chibbe'} = 'John Chibuike';
 $player{'Dockal'} = 'Bořek Dočkal';
 $player{'Dorsin'} = 'Micke Dorsin';
 $player{'Fredrik'} = 'Fredrik Midtsjø';
 $player{'Gamboa'} = 'Cristian Gamboa';
-$player{'Jensen'} = 'Mike Jensen';
 $player{'Lunna'} = 'Alexander Lund Hansen';
+$player{'Mike'} = 'Mike Jensen';
 $player{'Mikkelsen'} = 'Tobias Mikkelsen';
 $player{'Mix'} = 'Mix';
 $player{'Perry'} = 'Per Joar Hansen';
-$player{'Reginiussen'} = 'Tore Reginiussen';
-$player{'Rønning'} = 'Per Verner Rønning';
-$player{'Selnæs'} = 'Ole Kristian Selnæs';
+$player{'Reg'} = 'Tore Reginiussen';
+$player{'Roenning'} = 'Per Verner Rønning';
+$player{'Selnaes'} = 'Ole Kristian Selnæs';
 $player{'Svensson'} = 'Jonas Svensson';
 $player{'Tarik'} = 'Tarik Elyounoussi';
-$player{'Ørlund'} = 'Daniel Örlund';
+$player{'Oerlund'} = 'Daniel Örlund';
+
+@warnings = ();
 
 %winner = ();
+%roundwinner = ();
 
 $game = "";
 $home = 1;
@@ -40,51 +47,84 @@ $counter = 0;
 %scores = ();
 $scorescount = 0;
 %ranking = ();
-  
+
 
 $linenum = 0;
 
 $round = 0;
 
-sub WriteTable {
-  $tablefile = "resultattips-$round.bb";
-  print "Writing BBCode to '$tablefile'\n";
+$bbcode = 0;
 
-  open(BBCODE, ">$tablefile") || die "could not open '$tablefile' for writing.";
+sub BBColor {
+  ($color, $text) = (@_);
+  if ($bbcode) {
+    $text = "[color=".$color."]".$text."[/color]";
+  }
+  else {
+    $text = "<font color=\"".$color."\"/>".$text."</font>";
+  }
+  return $text;
+}
+
+sub BBImg {
+  ($url) = (@_);
+  $img = "";
+  if ($bbcode) {
+    $img = "[img]".$url."[/img]";
+  }
+  else {
+    $img = "<img src=\"$url\"/>";
+  }
+  return $img;
+}
+
+sub BBText {
+  ($text) = (@_);
+  if ($bbcode) {
+    $text = "[b][size=11]".$text."[/size][/b]";
+  }
+  return $text;
+}
+
+
+
+sub WriteTable {
+  ($filename, $do_rank, $heading, %table) = @_;
+
+  print "\n";
+  print "Writing BBCode to '$filename'\n";
+
+  open(BBCODE, ">$filename") || die "could not open '$filename' for writing.";
 
   print BBCODE "<center>";
   print BBCODE "<table border=\"2\" bordercolor=\"black\">";
-  # print BBCODE "\n";
 
   $fulltimeurl = "http://coresoccer.com/wp-content/uploads/2012/10/whistle.png"; # 32x32
-  $halftimeurl = "http://www.grigsoft.com/wincmp3/help/source/images/tb_side.gif"; # 
-  # $goaleesurl = "http://i633.photobucket.com/albums/uu53/metallie_blog/Soccer-Ball-16x16.png";
+  $halftimeurl = "http://www.grigsoft.com/wincmp3/help/source/images/tb_side.gif";
   $goaleesurl = "http://icons.iconarchive.com/icons/kevin-andersson/sportset/32/Soccer-icon.png";
 
   $green = "green";
   $red = "red";
 
-  $open = "[b][size=11]";
-  $close = "[/size][/b]";
-
   print BBCODE "<tr>";
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"6\">$open Runde $round: $game$close</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"6\">".&BBText($heading)."</td>";
   print BBCODE "</tr>";
+
   # position, nick, scores, halftimes, goals, total
   print BBCODE "<tr>";
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">$open [color=".$green."]&#9650;[/color][color=".$red."]&#9660;[/color]$close</td>"; # position
-  print BBCODE "<td bgcolor=\"lightblue\">$open Navn $close</td>"; # nick
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">[img]".$fulltimeurl."[/img]</td>"; # full-time
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">[img]".$halftimeurl."[/img]</td>"; # half-time
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">[img]".$goaleesurl."[/img]</td>"; # goalees
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">$open TOT $close</td>"; # total
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">".&BBText(&BBColor($green, "&#9650;").&BBColor($red, "&#9660;"))."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\">".&BBText("Navn")."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">".&BBImg($fulltimeurl)."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">".&BBImg($halftimeurl)."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">".&BBImg($goaleesurl)."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\">".&BBText("TOT")."</td>";
   print BBCODE "</tr>";
 
   $line = 0;
   $rank = 0;
   $lasttotal = 0;
-  foreach $user (sort { $winner{$b} <=> $winner{$a} } keys %winner) {
-    ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $winner{$user});
+  foreach $user (sort { $table{$b} <=> $table{$a} } keys %table) {
+    ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $table{$user});
     $fulltime = $rh + $ra;
     $halftime = $ph + $pa;
     $goalees = $gh + $ga;
@@ -96,37 +136,33 @@ sub WriteTable {
     $rank = $line if ($s != $lasttotal);
     $lasttotal = $s;
 
-    $rankcolor = "white";
-
-    if (exists $ranking{$user}) {
-      if ($ranking{$user} < $rank) {
-        $rankcolor = "red";
-        # moving down
+    $rankcolor = $linecolor;
+    if ($do_rank) {
+      if (exists $ranking{$user}) {
+        if ($ranking{$user} < $rank) { # moving down
+          $rankcolor = "red";
+        }
+        elsif ($ranking{$user} > $rank) { # moving up
+          $rankcolor = "green";
+        }
+        else { # steady
+          $rankcolor = "yellow";
+        }
       }
-      elsif ($ranking{$user} > $rank) {
-        $rankcolor = "green";
-        # moving up
+      else { # new ranking
+        $rankcolor = "lightblue";
       }
-      else {
-        $rankcolor = "yellow";
-        # steady
-      }
+      $ranking{$user} = $rank;
     }
-    else {
-      # new ranking
-      $rankcolor = "lightblue";
-    }
-    $ranking{$user} = $rank;
 
     print BBCODE "<tr>";
-    print BBCODE "<td align=\"center\" bgcolor=\"".$rankcolor."\">$open$rank$close</td>"; # position
-    print BBCODE "<td bgcolor=\"".$linecolor."\">$open$user$close</td>"; # nick
-    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">$open$fulltime$close</td>"; # full-time
-    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">$open$halftime$close</td>"; # half-time
-    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">$open$goalees$close</td>"; # goalees
-    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">$open$s$close</td>"; # total
+    print BBCODE "<td align=\"center\" bgcolor=\"".$rankcolor."\">".&BBText("$rank")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\">".&BBText("$user")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$fulltime")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$halftime")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$goalees")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$s")."</td>";
     print BBCODE "</tr>";
-    # print BBCODE "\n";
   }
 
   print BBCODE "</table></center>";
@@ -134,7 +170,6 @@ sub WriteTable {
 
   close(BBCODE);
 }
-
 
 
 open(DATA, "resultattips.csv") || die "could not open resultattips.csv\n";
@@ -157,6 +192,7 @@ while ($line = <DATA>) {
     %score = ();
     %scores = ();
     $scorescount = 0;
+    %roundwinner = ();
 
     $forlengs = 0;
     $baklengs = 0;
@@ -171,7 +207,7 @@ while ($line = <DATA>) {
     ++$round;
     foreach $key (keys(%guess)) {
       if ($guess{$key} eq $result) {
-        if (!exists $score{$key}) { $score{$key} = 0; }
+        if (not exists $score{$key}) { $score{$key} = 0; }
         $score{$key} += 3;
         $p = 0;
         $g = 0;
@@ -190,10 +226,7 @@ while ($line = <DATA>) {
             }
           }
         }
-        if (!exists $winner{$key}) {
-          $winner{$key} = "0:0:0:0:0:0:0";
-        }
-        ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $winner{$key});
+        ($s,$rh,$ph,$gh,$ra,$pa,$ga) = (0, 0, 0, 0, 0, 0, 0);
         $s += $score{$key};
         if ($home) {
           $rh += 1;
@@ -204,13 +237,13 @@ while ($line = <DATA>) {
           $pa += $p;
           $ga += $g;
         }
-        $winner{$key} = "$s:$rh:$ph:$gh:$ra:$pa:$ga";
+        $roundwinner{$key} = "$s:$rh:$ph:$gh:$ra:$pa:$ga";
       }
     }
 
     # guess summaries
     print "\n";
-    print "Kamp: $game ".($home?"(hjemme)":"(borte)")."\n";
+    print "Kamp: $game\n";
     print "Tips: $counter\n";
     if ($counter > 0) {
       $for = $forlengs / $counter;
@@ -218,27 +251,44 @@ while ($line = <DATA>) {
       printf "Snitt: %1.0f-%1.0f ( %3.1f-%3.1f ) ($forlengs-$baklengs totalt)\n",
              $for, $bak, $for, $bak;
       print "Målscorere:\n";
-  
+
       if ($home) {
         $scores{'-'} *= $for;
       } else {
         $scores{'-'} *= $bak;
       }
-  
+
       $goalcount = 0;
       foreach $player (keys(%scores)) {
         $goalcount += $scores{$player};
       }
-  
+
       if ($goalcount > 0) {
         foreach $player (sort { $scores{$b} <=> $scores{$a} } keys %scores) {
+          if (not exists $player{$player}) {
+            printf "No player '%s'\n", $player;
+          }
           printf "  %4.1f%% : $player{$player}\n",
                  ($scores{$player} / $goalcount) * 100.0;
         }
       }
     }
 
-    &WriteTable();
+    &WriteTable("tabell-$round.html", 0, "Runde $round<br>$game", %roundwinner);
+    foreach $player (keys(%roundwinner)) {
+      if (not exists $winner{$player}) {
+        $winner{$player} = $roundwinner{$player};
+      } else {
+        (@w) = split(/:/, $winner{$player});
+        (@r) = split(/:/, $roundwinner{$player});
+        for ($i = 0; $i < 7; ++$i) {
+          $w[$i] += $r[$i];
+        }
+        $winner{$player} = join(':', @w);
+      }
+    }
+    # FIXME: merge inn round winners into total winners
+    &WriteTable("tabell-1-$round.html", 1, "Resultat etter runde $round", %winner);
 
   }
   else {
@@ -257,37 +307,36 @@ while ($line = <DATA>) {
 
     # fake-integrate the no-goals stats as well
     if ($home == 0 and $b == 0) {
-      $scores{'-'} = 0 if (! exists $scores{'-'});
+      $scores{'-'} = 0 if (not exists $scores{'-'});
       ++$scores{'-'};
     }
     if ($home == 1 and $f == 0) {
-      $scores{'-'} = 0 if (! exists $scores{'-'});
+      $scores{'-'} = 0 if (not exists $scores{'-'});
       ++$scores{'-'};
     }
 
     # print "SCORE: $result\n";
     foreach $goalee (@goalees) {
       # print "GOAL: $goalee\n";
-      if (! exists $scores{$goalee}) {
+      if (not exists $scores{$goalee}) {
         $scores{$goalee} = 0;
       }
       ++$scores{$goalee};
       ++$scorescount;
     }
   }
-
-
-
 }
 close(DATA);
 
 print "\n";
 print "Tabell:\n";
 
+print "+----------------------+---+\n";
 foreach $user (sort { $winner{$b} <=> $winner{$a} } keys %winner) {
   ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $winner{$user});
-  print "  $user: $s\n";
+  printf "| %20s | %d |\n", $user, $s;
 }
+print "+----------------------+---+\n";
 
 print "\n";
 
@@ -297,9 +346,3 @@ if (@warnings > 0) {
     print "WARNING: $warning\n";
   }
 }
-
-
-
-# <tr align="center" height="30" bgcolor="#254117"><td>[color=lawngreen][b][size=13]&#9650;[/size][/b][/color][color=red][b][size=13]&#9660;[/size][/b][/color]</td><td>[b][color=white][size=12]R01[/size][/b][/color]</td><td>[b][color=white][size=12]R00[/size][/b][/color]</td><td>[b][color=white][size=12]R00[/size][/b][/color]</td><td>[b][color=white][size=12]R00[/size][/b][/color]</td><td>[b][color=white][size=12]SUM[/size][/b][/color]</td><td>[b][color=white][size=12]%[/size][/b][/color]</td><td>[b][color=white][size=12]RPL[/size][/b][/color]</td><td>[b][color=white][size=12]NAVN/NICK[/size][/b][/color]</td></tr>
-# 
-# <tr align="center" height="20"><td bgcolor="indianred">[size=10][b]	51	[/size][/b]</td><td bgcolor="skyblue">[b][size=10]	65	[/size][/b]</td><td bgcolor="lightblue">[b][size=10]	14	[/size][/b]</td><td bgcolor="lightblue">[b][size=10]	0	[/size][/b]</td><td bgcolor="lightblue">[b][size=10]	0	[/size][/b]</td><td bgcolor="#FFF8C6">[b][size=10]	80	[/size][/b]</td><td bgcolor="#ECE5B6">[b][size=10]	41,18	[/size][/b]</td><td bgcolor="#C9C299">[b][size=10
