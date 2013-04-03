@@ -172,6 +172,7 @@ open(DATA, "resultattips.csv") || die "could not open resultattips.csv\n";
 while ($line = <DATA>) {
   ++$linenum;
   next if ($line =~ /^;/);
+  next if ($line =~ /^$/);
   chomp($line);
 
   if ($line =~ /^#/) {
@@ -248,9 +249,9 @@ while ($line = <DATA>) {
       print "Målscorere:\n";
 
       if ($home) {
-        $scores{'-'} *= $for;
+        $scores{'-'} *= $for if (exists $scores{'-'});
       } else {
-        $scores{'-'} *= $bak;
+        $scores{'-'} *= $bak if (exists $scores{'-'});
       }
 
       $goalcount = 0;
