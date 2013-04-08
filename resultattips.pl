@@ -2,24 +2,44 @@
 
 # Parse the resultattips.csv file and dump phpBB postable tables into
 # round-wise html files.
+#
+# Mye norsk i dette scriptet da det i fremtiden sikkert må skje en handover
+# til en annen rbkweb-bruker.
+#
+# TODO:
+# - Norske bokstaver for både HTML og BBCode
+# - Sortere rundetabell og resultattabell på pauseresultat foran målscorere
+# - Målscoreres popularitet i endring over tid
+#   &#9601;&#9602;&#9603;&#9604;&#9605;&#9606;&#9607;&#9608;
+# - Automatisk utregning av rbkweb.no's snitt-tips (målscorere)
+#   - Opsjon for å vekte tipspoolen etter brukerenes poeng
+#   - Opsjon for å filtrere tipsene etter brukerenes poeng
+# - Mulighet for å liste opp alle som har deltatt men som ikke har fått
+#   poeng ennå.
+# - Gjøre --bbcode til en kommandolinjeopsjon
+# - La resultattips-filen være input-argument
+# - Refaktoriser scriptet grundig!
 
 $bbcode = 1; # set to 0 to produce pure html for local browsing usage
+$matrixsize = 7;
 
 %player = ();
 
 $player{'-'} = '-';
-$player{'Alas'} = 'Jaime Alas';
-$player{'Bille'} = 'Nicki Bille Nielsen';
+$player{'Alas'} = 'Jaime Alas'; # Jaime Enrique Alas Morales
+$player{'Bille'} = 'Nicki Bille Nielsen'; # Nicki Niels Bille Nielsen
+$player{'Berntsen'} = 'Daniel Berntsen';
 $player{'Braathen'} = 'Erik Mellevold Br&aring;then';
 $player{'Chibbe'} = 'John Chibuike';
 $player{'Dockal'} = 'Bo&rcaron;ek Do&ccaron;kal';
-$player{'Dorsin'} = 'Micke Dorsin';
+$player{'Dorsin'} = 'Micke Dorsin'; # Mikael Frank Dorsin
 $player{'Fredrik'} = 'Fredrik Midtsj&oslash;';
 $player{'Gamboa'} = 'Cristian Gamboa';
 $player{'Lunna'} = 'Alexander Lund Hansen';
 $player{'Mike'} = 'Mike Jensen';
 $player{'Mikkelsen'} = 'Tobias Mikkelsen';
-$player{'Mix'} = 'Mix';
+$player{'Mix'} = 'Mix'; # Mikkel Diskerud
+$player{'Moe'} = 'Brede Moe'; # Brede Mathias Moe
 $player{'Perry'} = 'Per Joar Hansen';
 $player{'Reg'} = 'Tore Reginiussen';
 $player{'Roenning'} = 'Per Verner R&oslash;nning';
@@ -28,10 +48,22 @@ $player{'Svensson'} = 'Jonas Svensson';
 $player{'Tarik'} = 'Tarik Elyounoussi';
 $player{'Oerlund'} = 'Daniel &Ouml;rlund';
 
-$logourl{'RBK'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png";
+$logourl{'Aalesund'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/403.png";
 $logourl{'Brann'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/302.png";
+$logourl{'Haugesund'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/306.png";
+$logourl{'Hoenefoss'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/327.png";
+$logourl{'Lillestroem'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/308.png";
+$logourl{'Molde'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/309.png";
+$logourl{'Odd'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/311.png";
+$logourl{'RBK'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png";
+$logourl{'Sandnes Ulf'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/496.png";
+$logourl{'Sarpsborg 08'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/541.png";
 $logourl{'Sogndal'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/326.png";
-
+$logourl{'Start'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/305.png";
+$logourl{'Stroemsgodset'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/328.png";
+$logourl{'Tromsoe'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/315.png";
+$logourl{'Viking'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/303.png";
+$logourl{'Vaalerenga'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/314.png";
 
 @warnings = ();
 
@@ -40,6 +72,13 @@ $logourl{'Sogndal'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x
 
 $game = "";
 $home = 1;
+
+$wins = 0;
+$draws = 0;
+$losses = 0;
+$wins_h = 0;
+$draws_h = 0;
+$losses_h = 0;
 
 %guess = ();
 %pause = ();
@@ -65,6 +104,26 @@ $round = 0;
 
 sub DeGlyph {
   ($text) = (@_);
+#  $text =~ s/&ae;/æ/g;
+#  $text =~ s/&oe;/ø/g;
+#  $text =~ s/&aa;/å/g;
+#  $text =~ s/&AE;/Æ/g;
+#  $text =~ s/&OE;/Ø/g;
+#  $text =~ s/&AA;/Å/g;
+
+  $text =~ s/&ae;/�/g;
+  $text =~ s/&oe;/�/g;
+  $text =~ s/&o\.\.;/�/g;
+  $text =~ s/&aa;/�/g;
+  $text =~ s/&AE;/�/g;
+  $text =~ s/&OE;/�/g;
+  $text =~ s/&AA;/�/g;
+  $text =~ s/&O\.\.;/�/g;
+
+  $text =~ s/&c;/,/g;
+  $text =~ s/&rcaron;/&#345;/g;
+  $text =~ s/&ccaron;/&#269;/g;
+
   return $text if ($bbcode == 0);
   $text =~ s/&aelig;/æ/g;
   $text =~ s/&oslash;/ø/g;
@@ -73,8 +132,6 @@ sub DeGlyph {
   $text =~ s/&Oslash;/Ø/g;
   $text =~ s/&Aring;/Å/g;
   $text =~ s/&Ouml;/Ö/g;
-  $text =~ s/&rcaron;/r/g; # FIXME: find caret-versions of letters
-  $text =~ s/&ccaron;/c/g;
   return $text;
 }
 
@@ -109,6 +166,8 @@ sub BBTextBig {
   $text = &DeGlyph($text);
   if ($bbcode) {
     $text = "[b][size=20]".$text."[/size][/b]";
+  } else {
+    $text = "<b><font size=+3>".$text."</font></b>";
   }
   return $text;
 }
@@ -119,6 +178,8 @@ sub BBText {
   $text = &DeGlyph($text);
   if ($bbcode) {
     $text = "[b][size=11]".$text."[/size][/b]";
+  } else {
+    $text = "<b><font size=-1>".$text."</font></b>";
   }
   return $text;
 }
@@ -142,7 +203,7 @@ sub WriteTable {
   $red = "red";
 
   print BBCODE "<tr>";
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"6\">".&BBText($heading)."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"$matrixsize\">".&BBText($heading)."</td>";
   print BBCODE "</tr>";
 
   # position, nick, scores, halftimes, goals, total
@@ -158,11 +219,8 @@ sub WriteTable {
   $line = 0;
   $rank = 0;
   $lasttotal = 0;
-  foreach $user (sort { $table{$b} <=> $table{$a} } keys %table) {
-    ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $table{$user});
-    $fulltime = $rh + $ra;
-    $halftime = $ph + $pa;
-    $goalees = $gh + $ga;
+  foreach $user (sort { $table{$b} <=> $table{$a} or $table{$b} cmp $table{$a} } keys %table) {
+    ($s,$fulltime,$halftime,$goalees,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $table{$user});
 
     ++$line;
     $linecolor = "white";
@@ -192,7 +250,7 @@ sub WriteTable {
 
     print BBCODE "<tr>";
     print BBCODE "<td align=\"center\" bgcolor=\"".$rankcolor."\">".&BBText("$rank")."</td>";
-    print BBCODE "<td bgcolor=\"".$linecolor."\">".&BBText("$user")."</td>";
+    print BBCODE "<td bgcolor=\"".$linecolor."\">".&BBText(&DeGlyph($user))."</td>";
     print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$fulltime")."</td>";
     print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$halftime")."</td>";
     print BBCODE "<td bgcolor=\"".$linecolor."\" align=\"center\">".&BBText("$goalees")."</td>";
@@ -223,11 +281,17 @@ sub WriteStats {
   print BBCODE "<td align=\"center\" valign=\"middle\">";
   $sluttres = sprintf("%1.0f-%1.0f", $for, $bak);
   $pauseres = sprintf("%1.0f-%1.0f", $for_h, $bak_h);
-  print BBCODE &BBTextBig($sluttres) . "<br>" . &BBText("($pauseres)");
+  print BBCODE &BBTextBig($sluttres);
+  if ($bbcode) {
+    print BBCODE "\n";
+  } else {
+    print BBCODE "<br>";
+  }
+  print BBCODE &BBText("($pauseres)");
   print BBCODE "</td>";
   print BBCODE "<td>";
   print BBCODE "</td>";
-  print BBCODE "<td colspan=\"6\" align=\"center\">";
+  print BBCODE "<td colspan=\"$matrixsize\" align=\"center\">";
   if (exists $logourl{$awayteam}) {
     print BBCODE &BBImg($logourl{$awayteam});
   } else {
@@ -242,17 +306,17 @@ sub WriteStats {
   print BBCODE "<td>";
   print BBCODE &BBImg($goaleesurl);
   print BBCODE "</td>";
-  for ($ag = 0; $ag < 6; ++$ag) {
+  for ($ag = 0; $ag < $matrixsize; ++$ag) {
     print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("$ag");
     print BBCODE "</td>";
   }
   print BBCODE "</tr>";
 
-  for ($hg = 0; $hg < 6; ++$hg) {
+  for ($hg = 0; $hg < $matrixsize; ++$hg) {
     print BBCODE "<tr>";
     if ($hg == 0) {
-      print BBCODE "<td rowspan=\"6\">";
+      print BBCODE "<td rowspan=\"$matrixsize\">";
       if (exists $logourl{$hometeam}) {
         print BBCODE &BBImg($logourl{$hometeam});
       } else {
@@ -263,7 +327,7 @@ sub WriteStats {
     print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("$hg");
     print BBCODE "</td>";
-    for ($ag = 0; $ag < 6; ++$ag) {
+    for ($ag = 0; $ag < $matrixsize; ++$ag) {
       $scorestr = sprintf("%d-%d", $hg, $ag);
       $cellcolor = "yellow";
       if ($home) {
@@ -297,8 +361,69 @@ sub WriteStats {
 
   return if ($counter == 0);
 
+  $cellcolor = "lightblue";
+  print BBCODE "<center>\n";
+  print BBCODE "<table border=\"0\" bgcolor=\"white\">";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\"></td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\">".&BBText("90. min")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\">".&BBText("45. min")."</td>";
+  print BBCODE "</tr>";
+
+  $cellcolor = "beige";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Tips")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$counter")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$counter_h")."</td>";
+  print BBCODE "</tr>";
+
+  $cellcolor = "white";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Seire")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$wins")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$wins_h")."</td>";
+  print BBCODE "</tr>";
+
+  $cellcolor = "beige";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Uavgjort")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$draws")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$draws_h")."</td>";
+  print BBCODE "</tr>";
+
+  $cellcolor = "white";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Tap")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$losses")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$losses_h")."</td>";
+  print BBCODE "</tr>";
+
+  $cellcolor = "beige";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Resultat")."</td>";
+  printf BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("%1.0f-%1.0f")."</td>", $for, $bak;
+  printf BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("%1.0f-%1.0f")."</td>", $for_h, $bak_h;
+  print BBCODE "</tr>";
+
+  $cellcolor = "white";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Eksakt")."</td>";
+  printf BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("%3.1f-%3.1f")."</td>", $for, $bak;
+  printf BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("%3.1f-%3.1f")."</td>", $for_h, $bak_h;
+  print BBCODE "</tr>";
+
+  $cellcolor = "beige";
+  print BBCODE "<tr>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"right\">".&BBText("Sum m&aring;l")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$forlengs-$baklengs")."</td>";
+  print BBCODE "<td bgcolor=\"$cellcolor\" align=\"center\">".&BBText("$forlengs_h-$baklengs_h")."</td>";
+  print BBCODE "</tr>";
+
+  print BBCODE "</table>\n";
+  print BBCODE "</center>\n";
+
+
   if ($goalcount > 0) {
-    print BBCODE "\n\n";
     print BBCODE "<center>\n";
     # goalee stats
     print BBCODE "<table border=\"0\" bordercolor=\"black\">";
@@ -323,7 +448,9 @@ sub WriteStats {
       }
 
       print BBCODE "<tr bgcolor=\"$rowcolor\">";
-      print BBCODE "<td align=\"center\">" . &BBText(sprintf("%.3g", $scores{$player})) . "</td>";
+      $scoresstr = sprintf("%6.1f", $scores{$player});
+      $scoresstr =~ s/\.0$//;
+      print BBCODE "<td align=\"center\">" . &BBText($scoresstr) . "</td>";
       print BBCODE "<td align=\"center\">" . &BBText(sprintf("%4.1f%%", ($scores{$player} / $goalcount) * 100.0)) .  "</td>";
       print BBCODE "<td>" . &BBText($player{$player}) . "</td>";
       print BBCODE "</tr>";
@@ -332,17 +459,6 @@ sub WriteStats {
     print BBCODE "</center>\n";
   }
 
-  print BBCODE "\n";
-
-  printf BBCODE "Snitt slutt: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d p&aring; %d tips)\n",
-                $for, $bak, $for, $bak,
-                $forlengs, $baklengs, $counter;
-  if ($counter_h > 0) {
-    printf BBCODE "Snitt pause: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d p&aring; %d tips)\n",
-                  $for_h, $bak_h, $for_h, $bak_h,
-                  $forlengs_h, $baklengs_h, $counter_h;
-  }
-  print BBCODE "\n";
   print BBCODE "\n";
 
   close(BBCODE);
@@ -371,6 +487,13 @@ while ($line = <DATA>) {
     %guess = ();
     %pause = ();
     %goals = ();
+
+    $wins = 0;
+    $draws = 0;
+    $losses = 0;
+    $wins_h = 0;
+    $draws_h = 0;
+    $losses_h = 0;
 
     %score = ();
     %scores = ();
@@ -405,27 +528,35 @@ while ($line = <DATA>) {
         }
         @guesses = split(' ', $goals{$key});
         foreach $goalee (@goalees) {
+          $goaleestr = $goalee;
           for ($i = 0; $i < scalar(@guesses); ++$i) {
             $guess = $guesses[$i];
-            if ($guess eq $goalee) {
+            if ($guess eq $goaleestr) {
               $score{$key} += 1;
               $g += 1;
               $guesses[$i] = '*'.$guesses[$i];
+              $goaleestr = 'break';
             }
           }
         }
-        ($s,$rh,$ph,$gh,$ra,$pa,$ga) = (0, 0, 0, 0, 0, 0, 0);
+        ($s,$rb,$pb,$gb,$rh,$ph,$gh,$ra,$pa,$ga) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         $s += $score{$key};
         if ($home) {
           $rh += 1;
           $ph += $p;
           $gh += $g;
+          $rb += 1;
+          $pb += $p;
+          $gb += $g;
         } else {
           $ra += 1;
           $pa += $p;
           $ga += $g;
+          $rb += 1;
+          $pb += $p;
+          $gb += $g;
         }
-        $roundwinner{$key} = "$s:$rh:$ph:$gh:$ra:$pa:$ga";
+        $roundwinner{$key} = "$s:$rb:$pb:$gb:$rh:$ph:$gh:$ra:$pa:$ga";
       }
     }
 
@@ -472,10 +603,14 @@ while ($line = <DATA>) {
 
       print "\n";
       print "       $awayteam\n";
-      print "  ___0___1___2___3___4___5\n";
-      for ($hg = 0; $hg < 6; ++$hg) {
+      print "  ";
+      for ($ag = 0; $ag < $matrixsize; ++$ag) {
+        print "___$ag";
+      }
+      print "\n";
+      for ($hg = 0; $hg < $matrixsize; ++$hg) {
         print "$hg: ";
-        for ($ag = 0; $ag < 6; ++$ag) {
+        for ($ag = 0; $ag < $matrixsize; ++$ag) {
           $scorestr = sprintf("%d-%d", $hg, $ag);
           $guesses = 0;
           $guesses = $fulltimes{$scorestr} if exists $fulltimes{$scorestr};
@@ -498,7 +633,7 @@ while ($line = <DATA>) {
       } else {
         (@w) = split(/:/, $winner{$player});
         (@r) = split(/:/, $roundwinner{$player});
-        for ($i = 0; $i < 7; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
           $w[$i] += $r[$i];
         }
         $winner{$player} = join(':', @w);
@@ -524,6 +659,17 @@ while ($line = <DATA>) {
 
     $forlengs += ($f + 0);
     $baklengs += ($b + 0);
+
+    if ($home) {
+      $wins += 1 if ($f > $b);
+      $draws += 1 if ($f == $b);
+      $losses += 1 if ($f < $b);
+    } else {
+      $wins += 1 if ($f < $b);
+      $draws += 1 if ($f == $b);
+      $losses += 1 if ($f > $b);
+    }
+
     if ($halftime !~ /^-$/) {
       $halftimes{$halftime} = 0 if (not exists $halftimes{$halftime});
       $halftimes{$halftime} += 1;
@@ -531,6 +677,16 @@ while ($line = <DATA>) {
       $forlengs_h += ($fh + 0);
       $baklengs_h += ($bh + 0);
       $counter_h += 1;
+
+      if ($home) {
+        $wins_h += 1 if ($fh > $bh);
+        $draws_h += 1 if ($fh == $bh);
+        $losses_h += 1 if ($fh < $bh);
+      } else {
+        $wins_h += 1 if ($fh < $bh);
+        $draws_h += 1 if ($fh == $bh);
+        $losses_h += 1 if ($fh > $bh);
+      }
     }
     $counter += 1;
 
@@ -561,8 +717,8 @@ print "Tabell:\n";
 
 print "+----------------------+---+\n";
 foreach $user (sort { $winner{$b} <=> $winner{$a} } keys %winner) {
-  ($s,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $winner{$user});
-  printf "| %20s | %d |\n", $user, $s;
+  ($s,$rb,$pb,$gb,$rh,$ph,$gh,$ra,$pa,$ga) = split(':', $winner{$user});
+  printf "| %20s | %d |\n", &DeGlyph($user), $s;
 }
 print "+----------------------+---+\n";
 
