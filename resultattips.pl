@@ -9,8 +9,6 @@
 # TODO:
 # - Norske bokstaver for både HTML og BBCode
 # - Sortere rundetabell og resultattabell på pauseresultat foran målscorere
-# - Målscoreres popularitet i endring over tid
-#   &#9601;&#9602;&#9603;&#9604;&#9605;&#9606;&#9607;&#9608;
 # - Automatisk utregning av rbkweb.no's snitt-tips (målscorere)
 #   - Opsjon for å vekte tipspoolen etter brukerenes poeng
 #   - Opsjon for å filtrere tipsene etter brukerenes poeng
@@ -19,51 +17,56 @@
 # - Gjøre --bbcode til en kommandolinjeopsjon
 # - La resultattips-filen være input-argument
 # - Refaktoriser scriptet grundig!
+# - Skriv ut tips utenfor matrisen.
 
 $bbcode = 1; # set to 0 to produce pure html for local browsing usage
 $matrixsize = 7;
+$trustsize = 6;
 
-%player = ();
+%player = (
+  '-'         => '-',
+  'Alas'      => 'Jaime Alas',  # Jaime Enrique Alas Morales
+  'Bille'     => 'Nicki Bille Nielsen',  # Nicki Niels Bille Nielsen
+  'Berntsen'  => 'Daniel Berntsen',
+  'Braathen'  => 'Erik Mellevold Br&aring;then',
+  'Chibbe'    => 'John Chibuike',
+  'Dockal'    => 'Bo&rcaron;ek Do&ccaron;kal',
+  'Dorsin'    => 'Micke Dorsin',  # Mikael Frank Dorsin
+  'Fredrik'   => 'Fredrik Midtsj&oslash;',
+  'Gamboa'    => 'Cristian Gamboa',
+  'Lunna'     => 'Alexander Lund Hansen',
+  'Mike'      => 'Mike Jensen',
+  'Mikkelsen' => 'Tobias Mikkelsen',
+  'Mix'       => 'Mix',  # Mikkel Diskerud
+  'Moe'       => 'Brede Moe',  # Brede Mathias Moe
+  'Perry'     => 'Per Joar Hansen',
+  'Reg'       => 'Tore Reginiussen',
+  'Roenning'  => 'Per Verner R&oslash;nning',
+  'Selnaes'   => 'Ole Kristian Seln&aelig;s',
+  'Svensson'  => 'Jonas Svensson',
+  'Tarik'     => 'Tarik Elyounoussi',
+  'Oerlund'   => 'Daniel &Ouml;rlund'
+);
 
-$player{'-'} = '-';
-$player{'Alas'} = 'Jaime Alas'; # Jaime Enrique Alas Morales
-$player{'Bille'} = 'Nicki Bille Nielsen'; # Nicki Niels Bille Nielsen
-$player{'Berntsen'} = 'Daniel Berntsen';
-$player{'Braathen'} = 'Erik Mellevold Br&aring;then';
-$player{'Chibbe'} = 'John Chibuike';
-$player{'Dockal'} = 'Bo&rcaron;ek Do&ccaron;kal';
-$player{'Dorsin'} = 'Micke Dorsin'; # Mikael Frank Dorsin
-$player{'Fredrik'} = 'Fredrik Midtsj&oslash;';
-$player{'Gamboa'} = 'Cristian Gamboa';
-$player{'Lunna'} = 'Alexander Lund Hansen';
-$player{'Mike'} = 'Mike Jensen';
-$player{'Mikkelsen'} = 'Tobias Mikkelsen';
-$player{'Mix'} = 'Mix'; # Mikkel Diskerud
-$player{'Moe'} = 'Brede Moe'; # Brede Mathias Moe
-$player{'Perry'} = 'Per Joar Hansen';
-$player{'Reg'} = 'Tore Reginiussen';
-$player{'Roenning'} = 'Per Verner R&oslash;nning';
-$player{'Selnaes'} = 'Ole Kristian Seln&aelig;s';
-$player{'Svensson'} = 'Jonas Svensson';
-$player{'Tarik'} = 'Tarik Elyounoussi';
-$player{'Oerlund'} = 'Daniel &Ouml;rlund';
-
-$logourl{'Aalesund'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/403.png";
-$logourl{'Brann'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/302.png";
-$logourl{'Haugesund'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/306.png";
-$logourl{'Hoenefoss'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/327.png";
-$logourl{'Lillestroem'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/308.png";
-$logourl{'Molde'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/309.png";
-$logourl{'Odd'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/311.png";
-$logourl{'RBK'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png";
-$logourl{'Sandnes Ulf'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/496.png";
-$logourl{'Sarpsborg 08'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/541.png";
-$logourl{'Sogndal'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/326.png";
-$logourl{'Start'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/305.png";
-$logourl{'Stroemsgodset'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/328.png";
-$logourl{'Tromsoe'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/315.png";
-$logourl{'Viking'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/303.png";
-$logourl{'Vaalerenga'} = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/314.png";
+$urlprefix = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/";
+%logourl = (
+  'Aalesund'      => $urlprefix."403.png",
+  'Brann'         => $urlprefix."302.png",
+  'Haugesund'     => $urlprefix."306.png",
+  'Hoenefoss'     => $urlprefix."327.png",
+  'Lillestroem'   => $urlprefix."308.png",
+  'Molde'         => $urlprefix."309.png",
+  'Odd'           => $urlprefix."311.png",
+  'RBK'           => $urlprefix."313.png",
+  'Sandnes Ulf'   => $urlprefix."496.png",
+  'Sarpsborg 08'  => $urlprefix."541.png",
+  'Sogndal'       => $urlprefix."326.png",
+  'Start'         => $urlprefix."305.png",
+  'Stroemsgodset' => $urlprefix."328.png",
+  'Tromsoe'       => $urlprefix."315.png",
+  'Viking'        => $urlprefix."303.png",
+  'Vaalerenga'    => $urlprefix."314.png"
+);
 
 @warnings = ();
 
@@ -97,6 +100,7 @@ $counter_h = 0;
 
 %halftimes = ();
 %fulltimes = ();
+%tillit = ();
 
 $linenum = 0;
 $round = 0;
@@ -137,7 +141,7 @@ sub DeGlyph {
 
 
 sub BBColor {
-  ($color, $text) = (@_);
+  my ($color, $text) = (@_);
   if ($bbcode) {
     $text = "[color=".$color."]".$text."[/color]";
   }
@@ -149,8 +153,8 @@ sub BBColor {
 
 
 sub BBImg {
-  ($url) = (@_);
-  $img = "";
+  my ($url) = (@_);
+  my $img = "";
   if ($bbcode) {
     $img = "[img]".$url."[/img]";
   }
@@ -162,7 +166,7 @@ sub BBImg {
 
 
 sub BBTextBig {
-  ($text) = (@_);
+  my ($text) = (@_);
   $text = &DeGlyph($text);
   if ($bbcode) {
     $text = "[b][size=20]".$text."[/size][/b]";
@@ -173,8 +177,58 @@ sub BBTextBig {
 }
 
 
+sub BBColorOpen {
+  my ($color) = (@_);
+  if ($bbcode) {
+    return "[color=".$color."]";
+  } else {
+    return "<font color=\"$color\">";
+  }
+}
+
+
+sub BBColorClose {
+  if ($bbcode) {
+    return "[/color]";
+  } else {
+    return "</font>";
+  }
+}
+
+sub BBTillitGraf {
+  my ($text) = (@_);
+
+  my $level = 0;
+  my $lastcolor = 'black';
+  my $color = 'black';
+  my $newtext = "";
+
+  foreach $char (split("", substr($text,-$trustsize))) {
+    if (int($char) >= $level) {
+      $color = 'green';
+    } else {
+      $color = 'red';
+    }
+    $level = int($char);
+    if ($color ne $lastcolor) {
+      $newtext = $newtext . &BBColorClose() if ($lastcolor ne 'black');
+      $newtext = $newtext . &BBColorOpen($color);
+      $lastcolor = $color;
+    }
+
+    if ($char eq "0") {
+      $newtext = $newtext . "&#12288;";
+    } else {
+      $newtext = $newtext . "&#960" . $char . ";";
+    }
+  }
+  $newtext = $newtext . &BBColorClose();
+  return $newtext;
+}
+
+
 sub BBText {
-  ($text) = (@_);
+  my ($text) = (@_);
   $text = &DeGlyph($text);
   if ($bbcode) {
     $text = "[b][size=11]".$text."[/size][/b]";
@@ -186,7 +240,7 @@ sub BBText {
 
 
 sub WriteTable {
-  ($filename, $do_rank, $heading, %table) = @_;
+  my ($filename, $do_rank, $heading, %table) = @_;
 
   # print "Writing BBCode to '$filename'\n";
 
@@ -266,7 +320,7 @@ sub WriteTable {
 
 
 sub WriteStats {
-  ($filename) = @_;
+  my ($filename) = @_;
   # print "Writing BBCode to '$filename'\n";
 
   $goaleesurl = "http://icons.iconarchive.com/icons/kevin-andersson/sportset/32/Soccer-icon.png";
@@ -434,10 +488,17 @@ sub WriteStats {
     print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("%");
     print BBCODE "</td>";
-    print BBCODE "<td>";
+    print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("Spiller");
     print BBCODE "</td>";
+    print BBCODE "<td align=\"center\">";
+    print BBCODE &BBText("Tillit");
+    print BBCODE "</td>";
     print BBCODE "</tr>";
+
+    foreach $player (keys %tillit) {
+      $tillit{$player} .= "0";
+    }
 
     $row = 0;
     foreach $player (sort { $scores{$b} <=> $scores{$a} } keys %scores) {
@@ -451,8 +512,22 @@ sub WriteStats {
       $scoresstr = sprintf("%6.1f", $scores{$player});
       $scoresstr =~ s/\.0$//;
       print BBCODE "<td align=\"center\">" . &BBText($scoresstr) . "</td>";
+
+      $percentage = ($scores{$player} / $goalcount) * 100.0;
+      $tillit = $percentage / 50.0; # taket er satt p� 50%
+      $tillit = 1.0 if ($tillit > 1.0);
+      $tillit = sprintf("%1.0f", $tillit * 7.0); # gir tegn 0-7 (8 rendres feil)
+      if (not exists $tillit{$player}) {
+        $tillit{$player} = $tillit;
+      } else {
+        $tillit{$player} =~ s/0$/$tillit/;
+      }
+
       print BBCODE "<td align=\"center\">" . &BBText(sprintf("%4.1f%%", ($scores{$player} / $goalcount) * 100.0)) .  "</td>";
       print BBCODE "<td>" . &BBText($player{$player}) . "</td>";
+      print BBCODE "<td align=\"right\">";
+      print BBCODE &BBText(&BBTillitGraf($tillit{$player}));
+      print BBCODE "</td>";
       print BBCODE "</tr>";
     }
     print BBCODE "</table>\n";
