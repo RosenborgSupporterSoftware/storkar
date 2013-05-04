@@ -367,13 +367,13 @@ Valderrama,6-0,4-0,Bille,Bille,Tarik,PVR,Bille,Dockal
 hellvikrunner,3-0,-
 Jondahl,3-1,-,Bille,Bille,Bille
 EspN,2-0,-,Bille,Bille
-Ræven,2-1,-,Reg,Chibbe
+R&ae;ven,2-1,-,Reg,Chibbe
 rbkweb.no,4-1,1-0,Bille,Tarik,Bille,Mix
 *FASIT*,1-1,1-0,Tarik
 
 # Buvik - RBK 2013-04-17 18:00
 Mustrum Ridcully,0-9,-
-Ræven,0-11,-,Dockal,Dockal,Dockal,Dockal,Dockal,Berntsen,Fredrik,Fredrik,Hoiland,OKS,Moe
+R&ae;ven,0-11,-,Dockal,Dockal,Dockal,Dockal,Dockal,Berntsen,Fredrik,Fredrik,JIH,OKS,Moe
 Thulian,2-5,-
 vegran,0-7,-
 stolavs,0-8,-
@@ -384,7 +384,7 @@ Zeno,0-5,-
 O-Rex,0-7,-
 kristobal,0-5,-
 Bongo,0-7,-
-Sløvsekken,0-8,-
+Sl&oe;vsekken,0-8,-
 moomoo,1-42,-
 Megafritz,1-9,0-3
 larsarus,1-7,0-4
@@ -393,7 +393,7 @@ pingvin,2-8,-
 Svovel,1-9,-
 Hjelde,0-6,-
 josino,2-6,-
-Gænser,0-4,0-2
+G&ae;nser,0-4,0-2
 gisp!,1-7,-
 Vegard2711,0-9,-
 Iruretagoyena,0-17,-
@@ -414,7 +414,7 @@ joakleis,0-10,0-6,Bille,Bille,Bille,Fredrik,Fredrik,Chibbe,Chibbe,Dockal,Dockal,
 Attaboy,0-6,0-2
 Bananskrue,0-3,0-1
 Brego,2-8,-
-jacsonø,0-14,0-6
+jacson&oe;,0-14,0-6
 trondgoran,0-8,-
 Valderrama,0-13,0-7
 Eksil,0-7,-
@@ -425,20 +425,19 @@ kettler,0-7,-
 Balljenta,1-4,-
 Hentesveis,1-5,1-2
 rbkweb.no,0-9,0-4
-
-*FASIT*,0-11,0-6,OKS,Moe,Hoiland,Bille,Bille,Chibbe,Tarik,Chibbe,Dockal,Tarik,Tarik
+*FASIT*,0-11,0-6,OKS,Moe,JIH,Bille,Bille,Chibbe,Tarik,Chibbe,Dockal,Tarik,Tarik
 
 # Haugesund - RBK 2013-04-21 19:00
 Mustrum Ridcully,1-3,1-1,Bille,Tarik,Mike
 Cessna,0-2,-,Tarik,Reg
 v_olden,2-1,0-1,Tarik
 Hentesveis,2-2,1-1
-Brego,1-3,-,Tarik,Bille,Dockal
+Brego,1-3,1-1,Tarik,Bille,Dockal
 pingvin,0-2,0-0,Bille,Bille
-Sløvsekken,0-2,0-1
+Sl&oe;vsekken,0-2,0-1
 O-Rex,1-2,-
 kettler,1-2,-,Bille,Tarik
-Gænser,3-4,1-2,Bille,Bille,Dockal,Dockal
+G&ae;nser,3-4,1-2,Bille,Bille,Dockal,Dockal
 Ivar,0-3,-,Chibbe,Chibbe,Chibbe
 steinmetz,1-2,-,Bille,Dockal
 Lerka,0-5,-,Bille,Bille,Svensson,Mix,Dockal
@@ -459,7 +458,7 @@ Knowrud,2-4,-.Reg,Bille,Tarik,Tarik
 Jangusk,2-3,-,Reg,Bille,Tarik
 stolavs,1-3,-,Bille,Bille,Tarik
 &OE;stlandsJokke,1-3,-,Tarik,Tarik,Mike
-Troillanpåtopp,2-2,0-0,Bille,Mix
+Troillanp&aa;topp,2-2,0-0,Bille,Mix
 Cyrilp,0-2,-,Gamboa,Tarik
 zaphod81,1-3,0-2,Dockal,Reg,Bille
 zinedinestrand,1-3,1-1,Chibbe,Bille,Tarik
@@ -483,13 +482,191 @@ ErikPerik,2-2,0-0,Reg,Dorsin
 Balljenta,1-2,0-1,Tarik,Bille
 stenex,1-2,-,Bille,Mix
 Bananskrue,0-1,0-0,Tarik
-
-; rbkweb.no,1-2,0-1,Bille,Tarik,Dockal
-*FASIT*,0-0,-
+moomoo,1-3,1-1,Bille,Bille,Chibbe
+Robert81,1-2,0-0,Tarik,Tarik
+HOFFA,1-3,0-1,Bille,Tarik,Dockal
+Eksil,1-2,0-1,Dorsin,Chibbe
+attach,1-1,0-1,Reg
+Sjiraff,0-3,-,Bille,Bille,Mikkelsen
+otters,1-3,-,Tarik,Tarik,Chibbe
+Hedon,0-2,-,Bille,Tarik
+S&oe;tvatten,2-2,-,Bille,Gamboa
+Valderrama,0-2,0-1,Tarik,Mix
+trondgoran,0-3,-,Gamboa,Mikkelsen,Tarik
+RBKong,1-3,-,Svensson,Bille,Tarik
+EspN,0-2,-,Bille,Tarik
+libido,1-2,0-0,Dockal,Tarik
+jacson&oe;,2-4,1-2,Bille,Bille,Tarik,Mikkelsen
+Snorkel,0-4,-,Mike,Bille,Bille,Dockal
+Konrad4Ever,1-3,-,Tarik,Tarik,Mix
+Tiger,1-3,1-1,Tarik,Bille,Bille
+Hjelde,0-3,-,Tarik,Reg,Svensson
+Bye,0-4,-,Tarik,Bille,Bille,Reg
+Raul,1-2,-,Mix,Tarik
+rbkweb.no,1-2,0-1,Tarik,Bille
+*FASIT*,3-1,2-0,Mix
 
 # RBK - Sandnes Ulf 2013-04-28 18:00
+Mustrum Ridcully,5-0,-,Dorsin,Tarik,Mike,Reg,Mikkelsen
+tr0ndern,0-1,-
+aero,4-0,-,Bille,Dorsin,Tarik,Tarik
+henningb,4-1,-,Bille,Bille,Dorsin,Mix
+Troillanp&aa;topp,2-0,0-0,OKS,Bille
+island etc.,3-0,3-0,Bille,Dockal,Moe
+Hjelde,6-1,-,Mikkelsen,Mikkelsen,Tarik,Tarik,Dorsin,Mix
+HOFFA,2-5,1-2,JIH,PVR
+R&ae;ven,2-2,PVR
+haavarl,3-0,2-0,Mix,Tarik,Bille
+Brego,4-1,3-0,Tarik,Chibbe,Bille,Dockal
+Vegard2711,5-0,2-0,Tarik,Tarik,Bille,Mikkelsen,Dockal
+Hedon,2-0,1-0,Tarik,Bille
+Bongo,6-0,Tarik,Tarik,Mikkelsen,Mix,Svensson,Dorsin
+G&ae;nser,2-1,0-1,Mikkelsen,Mix
+media,2-2,-,Svensson,Tarik
+steinmetz,4-1,1-0,Bille,Dockal,Tarik,Tarik
+SuperTimCahill,2-0,-,Dockal,Bille
+Vemundo,3-0,2-0,Dockal,Reg,Bille
+josinho,2-2,-
+JellyFish,3-0,1-0,Mikkelsen,Mikkelsen,Mike
+Ivar,3-2,-,JIH,JIH,JIH
+larsarus,4-2,1-1,Tarik,Mix,Dorsin,Mikkelsen
+Keenoir,2-2,-
+O-Rex,3-1,-
+Alex83,2-0,1-0,Tarik,Mike
+Jangusk,4-0,Tarik,Tarik,Reg,Mikkelsen
+pingvin,2-1,1-0,Dockal,Dorsin
+&OE;ystein,4-1,-,Dockal,Dockal,Dockal,Bille
+stolavs,4-0,-,Bille,Bille,Tarik,Mix
+zaphod81,3-1,1-0,Tarik,Dockal,Dockal
+hoboj0e,4-1,2-0,Bille,Tarik,Mix,Reg
+Megafritz,5-0,2-0,Bille,Tarik,Reg,Dorsin,Fredrik
+Sl&oe;vsekken,2-0,-,Tarik,Dockal
+ode,1-0,0-0,Dockal
+JellyFish,2-1,0-0,Tarik,Dockal
+libido,3-0,1-0,Dockal,Dockal,Tarik
+S&oe;tvatten,3-1,-,Tarik,Tarik,Dorsin
+Lerka,4-0,-,Bille,Bille,Tarik,Dockal
+Thulian,7-1,4-0,Bille,Mix,Mike,PVR,Dockal,Bille,Tarik
+Keenoir,1-1,-
+BBQsaus,3-0,-,Bille,Bille,Tarik
+AJ,3-0,1-0,Dockal,Tarik,Mix
+ErikPerik,6-0,5-0,Bille,Mix,Mix,Mix,Reg,Berntsen
+mortenlj77,2-0,0-0,Dockal
+Jonas,2-2,-,Dockal,Tarik
+Cessna,3-0,-,Mike,Bille,Tarik
+v_olden,4-0,1-0,Mikkelsen,Tarik,Bille,Dockal
+gisp!,4-1,1-0,Dockal,Bille,Tarik,Dorsin
+toreinar,6-1,-,Dockal,Bille,Tarik,JIH,Mix,Dorsin
+kim1990,5-0,2-0,Tarik,Tarik,Bille,Bille,Dockal
+Hedon,2-0,1-0,Tarik,Bille
+Brady,4-1,-,PVR,Bille,Bille,Mix
+Bananskrue,3-0,2-0,Tarik,Dockal,Mikkelsen
+Raul,2-0,-,Dockal,Bille
+Attaboy,4-0,3-0,Dorsin,Mikkelsen,Tarik,Tarik
+kettler,3-0,-,Bille,Bille,Tarik
+Snorkel,3-0,-,Bille,Bille,Dockal
+muppet,3-1,-,Bille,Mix,Mikkelsen
+Valderrama,4-0,2-0,Bille,Reg,Dockal,Mikkelsen
+Svovel,4-0,1-0,Dockal,Dockal,Tarik,Bille
+RBKong,2-0,-,Dockal,PVR
+Iruretagoyena,5-1,-,Tarik,Tarik,Bille,Mikkelsen,Dockal
+zinedinestrand,4-0,-,Mix,Dockal,Tarik,Dockal
+rbkweb.no,3-1,1-0,Tarik,Bille,Dockal
+*FASIT*,0-1,0-1
+
+# Strindheim - RBK 2013-05-01 18:00
+larsarus,0-7,0-2,Bille,Bille,Fredrik,Alas,OKS,JIH,Moe
+Ivar,0-10,-,Bille,Bille,Bille,Bille,Bille,Fredrik,OKS,Strandberg,Alas,Chibbe
+Sl&oe;vsekken,0-6,-,Bille,Bille,Chibbe,Chibbe,Fredrik,Strandberg
+Brego,1-4,0-1,Fredrik,Chibbe,Moe,Alas
+gisp!,0-6,0-2,Chibbe,Chibbe,Fredrik,Fredrik,Reg,Bille
+haavarl,0-5,0-2
+Megafritz,1-6,0-3,Bille,Bille,Chibbe,Fredrik,OKS,Alas
+Mustrum Ridcully,1-7,0-4,Chibbe,Chibbe,Reg,OKS,Fredrik,Mix,Dockal
+Lerka,1-9,-,Bille,Bille,Bille,Bille,Fredrik,Fredrik,Reg,Reg,OKS
+O-Rex,1-6,-
+Jangusk,0-7,-,Bille,Bille,Tarik,Tarik,Dockal,Dockal,Chibbe
+Hentesveis,1-2,-,Tarik,Oerlund
+pingvin,0-5,-,Bille,Bille,Chibbe,Chibbe,Fredrik
+libido,0-3,0-2,Bille,Moe,Fredrik
+v_olden,0-4,-,Bille,Fredrik,Alas
+R&ae;ven,0-8,-,Bille,Bille,Chibbe,Chibbe,Alas,Berntsen,Strandberg,Dockal
+Bongo,0-5,-
+aero,0-4,-,Chibbe,Chibbe,Fredrik,OKS
+toreinar,1-8,-,Bille,Bille,Chibbe,Chibbe,Fredrik,Fredrik,Tarik,Alas
+Svovel,0-7,0-3
+HOFFA,1-5,1-3
+ode,2-4,2-2,Bille,Bille,Berntsen,Chibbe
+Iruretagoyena,0-6,-,Bille,Reg,Bille,Reg,Bille,Reg
+Hjelde,0-6,Bille,OKS,Chibbe,Chibbe,Tarik,Alas
+kettler,0-4,-,Bille,Bille,Fredrik,Chibbe
+Balljenta,0-3,-,Bille,Bille,Chibbe
+Jomer,2-0,-
+Valderrama,0-7,0-3,Bille,Bille,Fredrik,Chibbe,Reg,OKS,Berntsen
+Bananskrue,1-5,-,Bille,Bille,Bille,Chibbe,OKS
+rbkweb.no,0-5,0-2,Bille,Chibbe,Fredrik,Bille,OKS
+*FASIT*,0-5,0-2,Bille,Chibbe,Fredrik,Bille,Bille
+
 # Aalesund - RBK 2013-05-04 18:00
-# RBK - Tromsoe¸ 2013-05-08 19:00
+v_olden,1-1,0-0,Dockal
+larsarus,2-2,0-1,Dockal,Gamboa
+Lerka,2-3,-,Chibbe,Mix,Mikkelsen
+Henning,2-0,0-0
+hoboj0e,2-2,0-2,Bille,Tarik
+toreinar,1-2,-,Dockal,Tarik
+Eksil,3-2,-
+joakleis,1-3,-,Tarik,Chibbe,PVR
+tr0ndern,3-0,-
+Brego,4-2,2-2,Chibbe,Fredrik
+haavarl,0-1,0-0,Dockal
+Hakkespett,1-4,-,Dockal,Tarik,Tarik,Mix
+mortenlj77,1-1,1-0,Dockal
+Ivar,2-4,-,Mikkelsen,Tarik,PVR,Dorsin
+libido,1-2,0-1,Mikkelsen,Dockal
+pingvin,2-2,1-1,Dockal,Dorsin
+josinho,2-1,-
+G&ae;nser,3-1,1-0,Reg
+Megafritz,1-3,1-1,Dorsin,Mix,Tarik
+Jonas,2-3,-,Chibbe,Tarik
+Sl&oe;vsekken,3-1,1-0,Tarik
+Jangusk,0-1,-,Tarik
+Troilonge,1-1,-,Lunna
+ode,1-2,1-0,Tarik,Mikkelsen
+island etc.,0-1,0-1,Dockal
+O-Rex,0-2,-
+AJ,2-2,1-0,Tarik,Dockal
+Thulian,3-1,-
+aero,2-2,0-1,Chibbe,Mike
+Cessna,0-2,-,Mikkelsen,Tarik
+henningb,1-3,1-1,Tarik,Tarik,Gamboa
+steinmetz,2-2,0-1,Svensson,Tarik
+Attaboy,0-3,0-1,Dockal,PVR,Tarik
+RBKSandvika,2-1,-,Fredrik
+JellyFish,2-4,-,Dockal,Tarik,Svensson,Gamboa
+Troillanp&aa;topp,2-2,0-1,Mikkelsen,Mix
+kettler,1-2,-,Tarik,Dockal
+R&ae;ven,2-1,-,Chibbe
+muppet,1-2,-,Tarik,Mikkelsen
+kim1990,0-2,0-0,Dockal,Tarik
+Fosningen,1-3,-,Tarik,Svensson,Dockal
+ErikPerik,1-3,0-2,Dockal,Svensson,Tarik
+Aristoteles,2-0,-
+Bananskrue,0-3,Dockal,Dockal,Tarik
+Balljenta,1-2,-,Dockal,Dorsin
+dreast,0-3,-,Tarik,Chibbe,Mix
+gisp!,1-2,0-0,Dockal,Dorsin
+Valderrama,1-2,0-1,Svensson,Tarik
+Svovel,1-3,1-0,Tarik,Dockal,Dorsin
+RBKong,0-3,0-2,PVR,Tarik,Tarik
+orz,1-3,1-1,Tarik,Mikkelsen,Dockal
+abjoern,0-2,-,Tarik,Mikkelsen
+Bongo,0-3,0-0,Tarik,Svensson,Dockal
+rbkweb.no,1-2,0-1,Tarik,Dockal
+*FASIT*,2-2,1-0,Tarik,Chibbe
+
+# RBK - Tromsoe 2013-05-08 19:00
+*FASIT*,0-0,-
+
 # Hoenefoss - RBK 2013-05-12 18:00
 # RBK - Sarpsborg 08 2013-05-16 18:00
 # RBK - Molde 2013-05-20 18:00

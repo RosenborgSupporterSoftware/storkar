@@ -7,7 +7,7 @@
 # til en annen rbkweb-bruker.
 #
 # TODO:
-# - Norske bokstaver for både HTML og BBCode
+# - Norske bokstaver for både HTML og BBCode (bruk &# unicode values)
 # - Sortere rundetabell og resultattabell på pauseresultat foran målscorere
 # - Automatisk utregning av rbkweb.no's snitt-tips (målscorere)
 #   - Opsjon for å vekte tipspoolen etter brukerenes poeng
@@ -18,34 +18,43 @@
 # - La resultattips-filen være input-argument
 # - Refaktoriser scriptet grundig!
 # - Skriv ut tips utenfor matrisen.
+# - St�tt � skrive gangefaktor bak m�lscrorere for � duplisere de ut
+# - BB-code-fungerende br->\n
 
 $bbcode = 1; # set to 0 to produce pure html for local browsing usage
-$matrixsize = 7;
+$matrixmaxsize = 12;
 $trustsize = 6;
 
+$matrixminwidth = 0;
+$matrixminheight = 0;
+
+$fontsize = 11;
+
 %player = (
-  '-'         => '-',
-  'Alas'      => 'Jaime Alas',  # Jaime Enrique Alas Morales
-  'Bille'     => 'Nicki Bille Nielsen',  # Nicki Niels Bille Nielsen
-  'Berntsen'  => 'Daniel Berntsen',
-  'Braathen'  => 'Erik Mellevold Br&aring;then',
-  'Chibbe'    => 'John Chibuike',
-  'Dockal'    => 'Bo&rcaron;ek Do&ccaron;kal',
-  'Dorsin'    => 'Micke Dorsin',  # Mikael Frank Dorsin
-  'Fredrik'   => 'Fredrik Midtsj&oslash;',
-  'Gamboa'    => 'Cristian Gamboa',
-  'Lunna'     => 'Alexander Lund Hansen',
-  'Mike'      => 'Mike Jensen',
-  'Mikkelsen' => 'Tobias Mikkelsen',
-  'Mix'       => 'Mix',  # Mikkel Diskerud
-  'Moe'       => 'Brede Moe',  # Brede Mathias Moe
-  'Perry'     => 'Per Joar Hansen',
-  'Reg'       => 'Tore Reginiussen',
-  'Roenning'  => 'Per Verner R&oslash;nning',
-  'Selnaes'   => 'Ole Kristian Seln&aelig;s',
-  'Svensson'  => 'Jonas Svensson',
-  'Tarik'     => 'Tarik Elyounoussi',
-  'Oerlund'   => 'Daniel &Ouml;rlund'
+  '-'          => '-',
+  'Alas'       => 'Jaime Alas',  # Jaime Enrique Alas Morales
+  'Bille'      => 'Nicki Bille Nielsen',  # Nicki Niels Bille Nielsen
+  'Berntsen'   => 'Daniel Berntsen',
+  'Braathen'   => 'Erik Mellevold Br&aring;then',
+  'Chibbe'     => 'John Chibuike',
+  'Dockal'     => 'Bo&rcaron;ek Do&ccaron;kal',
+  'Dorsin'     => 'Micke Dorsin',  # Mikael Frank Dorsin
+  'Fredrik'    => 'Fredrik Midtsj&oslash;',
+  'Gamboa'     => 'Cristian Gamboa',
+  'JIH'        => 'Jon Inge H&oslash;iland',
+  'Lunna'      => 'Alexander Lund Hansen',
+  'Mike'       => 'Mike Jensen',
+  'Mikkelsen'  => 'Tobias Mikkelsen',
+  'Mix'        => 'Mix',  # Mikkel Diskerud
+  'Moe'        => 'Brede Moe',  # Brede Mathias Moe
+  'OKS'        => 'Ole Kristian Seln&aelig;s',
+  'Perry'      => 'Per Joar Hansen',
+  'PVR'        => 'Per Verner R&oslash;nning',
+  'Reg'        => 'Tore Reginiussen',
+  'Strandberg' => 'Stefan Strandberg',
+  'Svensson'   => 'Jonas Svensson',
+  'Tarik'      => 'Tarik Elyounoussi',
+  'Oerlund'    => 'Daniel &Ouml;rlund'
 );
 
 $urlprefix = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/";
@@ -65,7 +74,8 @@ $urlprefix = "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/";
   'Stroemsgodset' => $urlprefix."328.png",
   'Tromsoe'       => $urlprefix."315.png",
   'Viking'        => $urlprefix."303.png",
-  'Vaalerenga'    => $urlprefix."314.png"
+  'Vaalerenga'    => $urlprefix."314.png",
+  'Strindheim'    => "http://strindheimtoppfotball.no/wp-content/uploads/2013/03/Strindheim_Idrettslag-100x94.png"
 );
 
 @warnings = ();
@@ -226,12 +236,22 @@ sub BBTillitGraf {
   return $newtext;
 }
 
+sub TillitNumber {
+  my ($percentage) = (@_);
+  my $limit = 1.0;
+  for (my $i = 1; $i < 8; ++$i) {
+    return "$i" if ($percentage < $limit);
+    $limit *= 2.154; # 2.51&5 = 100, 1.9305^7 = 100, 2.154^6 = 100
+  }
+  return "8";
+}
+
 
 sub BBText {
   my ($text) = (@_);
   $text = &DeGlyph($text);
   if ($bbcode) {
-    $text = "[b][size=11]".$text."[/size][/b]";
+    $text = "[b][size=$fontsize]".$text."[/size][/b]";
   } else {
     $text = "<b><font size=-1>".$text."</font></b>";
   }
@@ -257,7 +277,7 @@ sub WriteTable {
   $red = "red";
 
   print BBCODE "<tr>";
-  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"$matrixsize\">".&BBText($heading)."</td>";
+  print BBCODE "<td bgcolor=\"lightblue\" align=\"center\" colspan=\"6\">".&BBText($heading)."</td>";
   print BBCODE "</tr>";
 
   # position, nick, scores, halftimes, goals, total
@@ -278,7 +298,7 @@ sub WriteTable {
 
     ++$line;
     $linecolor = "white";
-    $linecolor = "beige" if ($line % 2 == 0);
+    $linecolor = "beige" if (($line % 2) == 0);
 
     $rank = $line if ($s != $lasttotal);
     $lasttotal = $s;
@@ -326,6 +346,19 @@ sub WriteStats {
   $goaleesurl = "http://icons.iconarchive.com/icons/kevin-andersson/sportset/32/Soccer-icon.png";
   $muted = "lightgrey";
 
+  $matrixminwidth = 6;
+  $matrixminheight = 6;
+  $maxcount = 0;
+  for ($hg = 0; $hg <= $matrixmaxsize; ++$hg) {
+    for ($ag = 0; $ag <= $matrixmaxsize; ++$ag) {
+      $scorestr = sprintf("%d-%d", $hg, $ag);
+      if (exists $fulltimes{$scorestr}) {
+        $matrixminheight = ($hg + 1) if ($hg + 1) > $matrixminheight;
+        $matrixminwidth = ($ag + 1) if ($ag + 1) > $matrixminwidth;
+        $maxcount = $fulltimes{$scorestr} if $fulltimes{$scorestr} > $maxcount;
+      }
+    }
+  }
 
   open(BBCODE, ">$filename") || die "could not open '$filename' for writing.";
 
@@ -345,7 +378,7 @@ sub WriteStats {
   print BBCODE "</td>";
   print BBCODE "<td>";
   print BBCODE "</td>";
-  print BBCODE "<td colspan=\"$matrixsize\" align=\"center\">";
+  print BBCODE "<td colspan=\"$matrixminwidth\" align=\"center\">";
   if (exists $logourl{$awayteam}) {
     print BBCODE &BBImg($logourl{$awayteam});
   } else {
@@ -360,17 +393,17 @@ sub WriteStats {
   print BBCODE "<td>";
   print BBCODE &BBImg($goaleesurl);
   print BBCODE "</td>";
-  for ($ag = 0; $ag < $matrixsize; ++$ag) {
+  for ($ag = 0; $ag < $matrixminwidth; ++$ag) {
     print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("$ag");
     print BBCODE "</td>";
   }
   print BBCODE "</tr>";
 
-  for ($hg = 0; $hg < $matrixsize; ++$hg) {
+  for ($hg = 0; $hg < $matrixminheight; ++$hg) {
     print BBCODE "<tr>";
     if ($hg == 0) {
-      print BBCODE "<td rowspan=\"$matrixsize\">";
+      print BBCODE "<td rowspan=\"$matrixminheight\">";
       if (exists $logourl{$hometeam}) {
         print BBCODE &BBImg($logourl{$hometeam});
       } else {
@@ -381,21 +414,21 @@ sub WriteStats {
     print BBCODE "<td align=\"center\">";
     print BBCODE &BBText("$hg");
     print BBCODE "</td>";
-    for ($ag = 0; $ag < $matrixsize; ++$ag) {
+    for ($ag = 0; $ag < $matrixminwidth; ++$ag) {
       $scorestr = sprintf("%d-%d", $hg, $ag);
-      $cellcolor = "yellow";
+      $cellcolor = "#ffff00";
       if ($home) {
         if ($hg > $ag) {
-          $cellcolor = "green";
+          $cellcolor = "#00cc00";
         } elsif ($hg < $ag) {
-          $cellcolor = "red";
+          $cellcolor = "#ff0000";
         }
       }
       else {
         if ($hg > $ag) {
-          $cellcolor = "red";
+          $cellcolor = "#ff0000";
         } elsif ($hg < $ag) {
-          $cellcolor = "green";
+          $cellcolor = "#00cc00";
         }
       }
       $guesses = 0;
@@ -477,7 +510,7 @@ sub WriteStats {
   print BBCODE "</center>\n";
 
 
-  if ($goalcount > 0) {
+  if ($goalcount > 0 and $round != 5) {
     print BBCODE "<center>\n";
     # goalee stats
     print BBCODE "<table border=\"0\" bordercolor=\"black\">";
@@ -497,33 +530,36 @@ sub WriteStats {
     print BBCODE "</tr>";
 
     foreach $player (keys %tillit) {
-      $tillit{$player} .= "0";
+      $tillit{$player} = $tillit{$player} . "0";
     }
 
     $row = 0;
     foreach $player (sort { $scores{$b} <=> $scores{$a} } keys %scores) {
       ++$row;
       $rowcolor = "white";
-      if ($row % 2 == 1) {
+      if (($row % 2) == 1) {
         $rowcolor = "beige";
       }
 
+      $percentage = ($scores{$player} / $goalcount) * 100.0;
+      $percentage *= $for if $home;
+      $percentage *= $bak if not $home;
+      $number = &TillitNumber($percentage);
+
+      $tillit{$player} = "0" if not exists $tillit{$player};
+      $tillit{$player} =~ s/0$/$number/;
+
+      # print "Spiller: $player{$player}: $tillit{$player} ($percentage ($scores{$player} / $goalcount) for $for bak $bak\n";
+
+      # $tillit = $percentage / 100.0;
+      # $tillit = 1.0 if ($tillit > 1.0); # taket er satt p� 100%
+      # $tillit = sprintf("%1.0f", $tillit * 7.0); # gir tegn 0-7 (8 rendres feil)
       print BBCODE "<tr bgcolor=\"$rowcolor\">";
       $scoresstr = sprintf("%6.1f", $scores{$player});
       $scoresstr =~ s/\.0$//;
       print BBCODE "<td align=\"center\">" . &BBText($scoresstr) . "</td>";
 
-      $percentage = ($scores{$player} / $goalcount) * 100.0;
-      $tillit = $percentage / 50.0; # taket er satt p� 50%
-      $tillit = 1.0 if ($tillit > 1.0);
-      $tillit = sprintf("%1.0f", $tillit * 7.0); # gir tegn 0-7 (8 rendres feil)
-      if (not exists $tillit{$player}) {
-        $tillit{$player} = $tillit;
-      } else {
-        $tillit{$player} =~ s/0$/$tillit/;
-      }
-
-      print BBCODE "<td align=\"center\">" . &BBText(sprintf("%4.1f%%", ($scores{$player} / $goalcount) * 100.0)) .  "</td>";
+      print BBCODE "<td align=\"center\">" . &BBText(sprintf("%4.1f%%", $percentage)) .  "</td>";
       print BBCODE "<td>" . &BBText($player{$player}) . "</td>";
       print BBCODE "<td align=\"right\">";
       print BBCODE &BBText(&BBTillitGraf($tillit{$player}));
@@ -635,72 +671,6 @@ while ($line = <DATA>) {
       }
     }
 
-    # guess summaries
-    print "\n";
-    print "Kamp: $game\n";
-    if ($counter > 0) {
-      $for = $forlengs / $counter;
-      $bak = $baklengs / $counter;
-      printf "Snitt slutt: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d på %d tips)\n",
-             $for, $bak, $for, $bak,
-             $forlengs, $baklengs, $counter;
-      if ($counter_h > 0) {
-        $for_h = $forlengs_h / $counter_h;
-        $bak_h = $baklengs_h / $counter_h;
-        printf "Snitt pause: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d på %d tips)\n",
-               $for_h, $bak_h, $for_h, $bak_h,
-               $forlengs_h, $baklengs_h, $counter_h;
-      }
-      print "Målscorere:\n";
-
-      if ($home) {
-        $scores{'-'} *= $for if (exists $scores{'-'});
-      } else {
-        $scores{'-'} *= $bak if (exists $scores{'-'});
-      }
-
-      $goalcount = 0;
-      foreach $player (keys(%scores)) {
-        if ($player !~ /^-$/) {
-          $goalcount += $scores{$player}
-        }
-      }
-
-      if ($goalcount > 0) {
-        foreach $player (sort { $scores{$b} <=> $scores{$a} } keys %scores) {
-          if (not exists $player{$player}) {
-            printf "No player '%s'\n", $player;
-          }
-          printf "  %4.1f%% : $player{$player} (%.3g)\n",
-                 ($scores{$player} / $goalcount) * 100.0, $scores{$player};
-        }
-      }
-
-      print "\n";
-      print "       $awayteam\n";
-      print "  ";
-      for ($ag = 0; $ag < $matrixsize; ++$ag) {
-        print "___$ag";
-      }
-      print "\n";
-      for ($hg = 0; $hg < $matrixsize; ++$hg) {
-        print "$hg: ";
-        for ($ag = 0; $ag < $matrixsize; ++$ag) {
-          $scorestr = sprintf("%d-%d", $hg, $ag);
-          $guesses = 0;
-          $guesses = $fulltimes{$scorestr} if exists $fulltimes{$scorestr};
-          if (exists $fulltimes{$scorestr}) {
-            printf "%3d ", $guesses;
-          } else {
-            printf "%4s", $scorestr;
-          }
-        }
-        print "\n";
-      }
-      print "\n";
-
-    }
-
     &WriteTable("runde-$round.html", 0, "Runde $round\n$game", %roundwinner);
     foreach $player (keys(%roundwinner)) {
       if (not exists $winner{$player}) {
@@ -716,7 +686,95 @@ while ($line = <DATA>) {
     }
     &WriteTable("tabell-$round.html", 1, "Resultat etter runde $round", %winner);
 
+    # console guess summaries
+    print "\n";
+    print "Kamp: $game\n";
+    if ($counter > 0) {
+      $for = $forlengs / $counter;
+      $bak = $baklengs / $counter;
+      printf "Snitt slutt: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d på %d tips)\n",
+             $for, $bak, $for, $bak,
+             $forlengs, $baklengs, $counter;
+      if ($counter_h > 0) {
+        $for_h = $forlengs_h / $counter_h;
+        $bak_h = $baklengs_h / $counter_h;
+        printf "Snitt pause: %1.0f-%1.0f (%3.1f-%3.1f) (%d-%d på %d tips)\n",
+               $for_h, $bak_h, $for_h, $bak_h,
+               $forlengs_h, $baklengs_h, $counter_h;
+      }
+
+      print "Målscorere:\n";
+
+      if ($home) {
+        $scores{'-'} *= $for if exists $scores{'-'};
+      } else {
+        $scores{'-'} *= $bak if exists $scores{'-'};
+      }
+
+      $goalcount = 0;
+      foreach $player (keys(%scores)) {
+        if ($player !~ /^-$/) {
+          $goalcount += $scores{$player}
+        }
+      }
+
+      if ($goalcount > 0) {
+        foreach $player (sort { $scores{$b} <=> $scores{$a} } keys %scores) {
+          if (not exists $player{$player}) {
+            printf "No player '%s'\n", $player;
+          }
+          if ($home) {
+            $percentage = ($scores{$player} / $goalcount) * 100.0 * $for;
+          } else {
+            $percentage = ($scores{$player} / $goalcount) * 100.0 * $bak;
+          }
+          printf "  %4.1f%% : $player{$player} (%.3g)   %s\n",
+                 $percentage, $scores{$player}, $tillit{$player};
+        }
+      }
+
+      $matrixminwidth = 6;
+      $matrixminheight = 6;
+      $maxcount = 0;
+      for ($hg = 0; $hg <= $matrixmaxsize; ++$hg) {
+        for ($ag = 0; $ag <= $matrixmaxsize; ++$ag) {
+          $scorestr = sprintf("%d-%d", $hg, $ag);
+          if (exists $fulltimes{$scorestr}) {
+            $matrixminheight = ($hg + 1) if ($hg + 1) > $matrixminheight;
+            $matrixminwidth = ($ag + 1) if ($ag + 1) > $matrixminwidth;
+            $maxcount = $fulltimes{$scorestr} if $fulltimes{$scorestr} > $maxcount;
+          }
+        }
+      }
+
+      print "\n";
+      print "       $awayteam\n";
+      print "  ";
+      for ($ag = 0; $ag < $matrixminwidth; ++$ag) {
+        print "___$ag";
+      }
+      print "\n";
+      for ($hg = 0; $hg < $matrixminheight; ++$hg) {
+        print "$hg: ";
+        for ($ag = 0; $ag < $matrixminwidth; ++$ag) {
+          $scorestr = sprintf("%d-%d", $hg, $ag);
+          $guesses = 0;
+          $guesses = $fulltimes{$scorestr} if exists $fulltimes{$scorestr};
+          if (exists $fulltimes{$scorestr}) {
+            printf "%3d ", $guesses;
+          } else {
+            printf "%4s", $scorestr;
+          }
+        }
+        print "\n";
+      }
+      print "\n";
+
+    }
+      print "max-count: $maxcount\n";
+
     &WriteStats("stats-$round.html");
+
 
   }
   else {
@@ -767,10 +825,12 @@ while ($line = <DATA>) {
 
     # fake-integrate the no-goals stats as well
     if ($home == 0 and $b == 0) {
+      print "No goals from $user\n";
       $scores{'-'} = 0 if (not exists $scores{'-'});
       ++$scores{'-'};
     }
     if ($home == 1 and $f == 0) {
+      print "No goals from $user\n";
       $scores{'-'} = 0 if (not exists $scores{'-'});
       ++$scores{'-'};
     }
@@ -778,9 +838,7 @@ while ($line = <DATA>) {
     # print "SCORE: $result\n";
     foreach $goalee (@goalees) {
       # print "GOAL: $goalee\n";
-      if (not exists $scores{$goalee}) {
-        $scores{$goalee} = 0;
-      }
+      $scores{$goalee} = 0 if not exists $scores{$goalee};
       ++$scores{$goalee};
     }
   }
@@ -788,6 +846,7 @@ while ($line = <DATA>) {
 close(DATA);
 
 print "\n";
+if ($halftime != "-") {
 print "Tabell:\n";
 
 print "+----------------------+---+\n";
@@ -804,4 +863,5 @@ if (@warnings > 0) {
   foreach $warning (@warnings) {
     print "WARNING: $warning\n";
   }
+}
 }
