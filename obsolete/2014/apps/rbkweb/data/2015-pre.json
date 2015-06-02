@@ -1,0 +1,3079 @@
+{
+    "images": {
+        "img/b00.png": "http://i.imgur.com/xNe24Oj.png", 
+        "img/b01.png": "http://i.imgur.com/KoFACOF.png", 
+        "img/b02.png": "http://i.imgur.com/TkiaiqV.png", 
+        "img/b10.png": "http://i.imgur.com/w4HKNic.png", 
+        "img/b20.png": "http://i.imgur.com/esi0lJW.png", 
+        "img/dummy.png": "http://i.imgur.com/P1n0HPZ.png", 
+        "img/face-berntsen.png": "http://i.imgur.com/AxKnz2b.png", 
+        "img/face-bille.png": "http://i.imgur.com/bdjoOCy.png", 
+        "img/face-chibbe.png": "http://i.imgur.com/uYTnj6P.png", 
+        "img/face-dorsin.png": "http://i.imgur.com/LWegIcK.png", 
+        "img/face-gamboa.png": "http://i.imgur.com/0Dw0xIL.png", 
+        "img/face-gamst.png": "http://i.imgur.com/n50CdPy.png", 
+        "img/face-helland.png": "http://i.imgur.com/wC7rg1N.png", 
+        "img/face-helmersen.png": "http://i.imgur.com/wC7rg1N.png", 
+        "img/face-holmar.png": "http://i.imgur.com/LrSXJDb.png", 
+        "img/face-jensen.png": "http://i.imgur.com/wLbnx2b.png", 
+        "img/face-lunna.png": "http://i.imgur.com/bjKeaEF.png", 
+        "img/face-malec.png": "http://i.imgur.com/r1bfLIg.png", 
+        "img/face-midtsjo.png": "http://i.imgur.com/OvAFiI7.png", 
+        "img/face-mikkelsen.png": "http://i.imgur.com/15MebqH.png", 
+        "img/face-mix.png": "http://i.imgur.com/bl2vj1L.png", 
+        "img/face-nielsen.png": "http://i.imgur.com/bdjoOCy.png", 
+        "img/face-orlund.png": "http://i.imgur.com/kjE8AEG.png", 
+        "img/face-reginiussen.png": "http://i.imgur.com/bCmfhhu.png", 
+        "img/face-riski.png": "http://i.imgur.com/vPaHgpd.png", 
+        "img/face-ronning.png": "http://i.imgur.com/xSWAMGe.png", 
+        "img/face-saeter.png": "http://i.imgur.com/aJJ7AfA.png", 
+        "img/face-selnas.png": "http://i.imgur.com/zoWagga.png", 
+        "img/face-skjelvik.png": "http://i.imgur.com/JViyXEj.png", 
+        "img/face-soderlund.png": "http://i.imgur.com/9LMOiiP.png", 
+        "img/face-soermo.png": "http://i.imgur.com/WCpBcqB.png", 
+        "img/face-sorloth.png": "http://i.imgur.com/xQswYVO.png", 
+        "img/face-strandberg.png": "http://i.imgur.com/rmNbWXz.png", 
+        "img/face-stubhaug.png": "http://i.imgur.com/uIYCYmY.png", 
+        "img/face-svensson.png": "http://i.imgur.com/PuyOXpZ.png", 
+        "img/h00.png": "http://i.imgur.com/Jbo3y5R.png", 
+        "img/h01.png": "http://i.imgur.com/9gL6sIP.png", 
+        "img/h02.png": "http://i.imgur.com/9FQRuYM.png", 
+        "img/h10.png": "http://i.imgur.com/yhTh16c.png", 
+        "img/h20.png": "http://i.imgur.com/GponyG2.png", 
+        "img/icon-ball-crop-high.png": "http://i.imgur.com/ja2lEwA.png", 
+        "img/icon-ball-crop.png": "http://i.imgur.com/KUcFmMX.png", 
+        "img/icon-clock.png": "http://i.imgur.com/q5t4A8E.png", 
+        "img/icon-goal.png": "http://i.imgur.com/qHkxy3g.png", 
+        "img/icon-player.png": "http://i.imgur.com/EeYicx0.png", 
+        "img/icon-score.png": "http://i.imgur.com/LHpRSLY.png", 
+        "img/icon-stats-crop.png": "http://i.imgur.com/XQfW34F.png", 
+        "img/icon-tipping.png": "http://i.imgur.com/2HyiM4n.png", 
+        "img/icon-trophy.png": "http://i.imgur.com/lAiOMOa.png", 
+        "img/icon-whistle.png": "http://i.imgur.com/5ke86Zg.png", 
+        "img/pattern.jpg": "http://imgur.com/L98qxtW.jpg", 
+        "img/xxx.png": "http://i.imgur.com/o7TC9tK.png"
+    }, 
+    "logos": {
+        "AIK": "http://imgur.com/UICelzp.png", 
+        "Aalesund": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/403.png", 
+        "Astra": "http://imgur.com/DtsLZzH.png", 
+        "Bodø/Glimt": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/307.png", 
+        "Brann": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/302.png", 
+        "Costuleni": "http://imgur.com/DMnqUkM.png", 
+        "Crusaders": "http://www.rbkweb.no/images/motstandere/crusaders.png", 
+        "Djurgården": "http://imgur.com/IfvT6sA.png", 
+        "GIF Sundsvall": "http://www.rbkweb.no/images/motstandere/gif.gif", 
+        "Haugesund": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/306.png", 
+        "Hønefoss": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/327.png", 
+        "Jelgava": "http://imgur.com/7dW0fmP.jpg", 
+        "Kalmar": "http://imgur.com/43GRfqC.png", 
+        "Karabukspor": "http://imgur.com/54s1ti0.jpg", 
+        "Kolstad": "http://imgur.com/uEXf5Bn.png", 
+        "Kristiansund": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/411.png", 
+        "Levanger": "http://i.imgur.com/r6j063i.jpg", 
+        "Lillestrøm": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/308.png", 
+        "Molde": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/309.png", 
+        "Odd": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/311.png", 
+        "Orkla": "http://imgur.com/Kc0lPjC.png", 
+        "Ostersund": "http://imgur.com/rQGcDAc.png", 
+        "RBK": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png", 
+        "Ranheim": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/414.png", 
+        "Sandnes Ulf": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/496.png", 
+        "Sarpsborg 08": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/541.png", 
+        "Sligo": "http://imgur.com/W9ORqTZ.jpg", 
+        "Sogndal": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/326.png", 
+        "St. Johnstone": "http://i.imgur.com/1C5FDip.jpg", 
+        "Stabæk": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/312.png", 
+        "Start": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/305.png", 
+        "Steinkjer": "http://profile.ak.fbcdn.net/hprofile-ak-snc7/c227.40.506.506/s100x100/404270_289125891149925_1697390848_n.jpg", 
+        "Strindheim": "http://strindheimtoppfotball.no/wp-content/uploads/2013/03/Strindheim_Idrettslag-100x94.png", 
+        "Strømsgodset": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/328.png", 
+        "Tromsø": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/315.png", 
+        "Viking": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/303.png", 
+        "Vålerenga": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/314.png"
+    }, 
+    "magic": [
+        " vim:sw=4 "
+    ], 
+    "matches": [
+        {
+            "game": "zero-dummy"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "2-0", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "gamst", 
+                        "reg", 
+                        "tm", 
+                        "mikkelsen"
+                    ], 
+                    "result": "4-2", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "mikkelsen", 
+                        "reg", 
+                        "malec"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-2", 
+                    "user": "Svangen"
+                }, 
+                {
+                    "goals": [
+                        "helm", 
+                        "Malec", 
+                        "Helland"
+                    ], 
+                    "result": "3-1", 
+                    "user": "ode"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "en"
+                    ], 
+                    "result": "3-0", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "helm", 
+                        "midtsjoe", 
+                        "holmar"
+                    ], 
+                    "result": "5-1", 
+                    "user": "Hakkespett"
+                }, 
+                {
+                    "goals": [
+                        "js", 
+                        "helm", 
+                        "helm", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "3-1", 
+                    "result": "4-1", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "midtsjoe", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "3-1", 
+                    "user": "AJ"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-3", 
+                    "user": "LFKer"
+                }, 
+                {
+                    "goals": [
+                        "fm", 
+                        "tm", 
+                        "søder", 
+                        "reg", 
+                        "pah", 
+                        "rr", 
+                        "gamst"
+                    ], 
+                    "result": "7-1", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "helm", 
+                        "hel", 
+                        "midtsjoe", 
+                        "tm"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "4-2", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "gamst", 
+                        "søder", 
+                        "helm", 
+                        "mikkelsen", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "3-0", 
+                    "result": "5-2", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "helm", 
+                        "pah"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-1", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "result": "3-1", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "helm", 
+                        "søder"
+                    ], 
+                    "result": "2-1", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "O-Rex"
+                }, 
+                {
+                    "goals": [
+                        "gamst", 
+                        "pah", 
+                        "tm", 
+                        "fm"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "4-2", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "fm", 
+                        "mikkelsen", 
+                        "Mikkel Jensen", 
+                        "helm"
+                    ], 
+                    "result": "4-0", 
+                    "user": "OrionPax"
+                }, 
+                {
+                    "goals": [
+                        "sød", 
+                        "mj", 
+                        "pah"
+                    ], 
+                    "result": "3-1", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "2-2", 
+                    "user": "RBKSandvika"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "4-0", 
+                    "result": "5-1", 
+                    "user": "Strominho"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "2-1", 
+                    "result": "4-1", 
+                    "user": "HOFFA"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "fm"
+                    ], 
+                    "halftime": "2-1", 
+                    "result": "3-1", 
+                    "user": "Megafritz"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "2-1", 
+                    "result": "6-2", 
+                    "user": "£"
+                }
+            ], 
+            "date": "2015-02-07", 
+            "game": "RBK - Levanger", 
+            "goals": [
+                "Helmersen", 
+                "Helland", 
+                "Helland", 
+                "Helland", 
+                "Malec", 
+                "Helland"
+            ], 
+            "halftime": "1-0", 
+            "result": "6-0"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "søder", 
+                        "fm"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "1-4", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "fm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "mikkelsen"
+                    ], 
+                    "result": "0-4", 
+                    "user": "Kleviño"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "1-5", 
+                    "user": "hellvikrunner"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "0-0", 
+                    "result": "0-0", 
+                    "user": "georgios"
+                }, 
+                {
+                    "goals": [
+                        "js", 
+                        "nielsen", 
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "1-4", 
+                    "user": "AlexanderHallberg"
+                }, 
+                {
+                    "goals": [
+                        "js", 
+                        "reg", 
+                        "mikkelsen", 
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "0-5", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-5", 
+                    "user": "caveman"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "Helland", 
+                        "Malec", 
+                        "Søder"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "0-4", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mikkelsen", 
+                        "tm"
+                    ], 
+                    "result": "0-3", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "ode"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "pah", 
+                        "helm"
+                    ], 
+                    "halftime": "2-2", 
+                    "result": "3-6", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "nielsen", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-2", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "fm", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "fm", 
+                        "pah"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-3", 
+                    "user": "Troillanpåtopp"
+                }, 
+                {
+                    "goals": [
+                        "pah"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-1", 
+                    "user": "Gænser"
+                }, 
+                {
+                    "goals": [
+                        "Søder", 
+                        "Helland", 
+                        "Malec", 
+                        "Svensson"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "1-4", 
+                    "user": "SuperTimChahill"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "søder", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-4", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-1", 
+                    "user": "Rånny"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "rr"
+                    ], 
+                    "result": "1-2", 
+                    "user": "megarbkfan"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "0-2", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mikkelsen", 
+                        "tm"
+                    ], 
+                    "result": "1-4", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "malec", 
+                        "md"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-4", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "reg", 
+                        "pah", 
+                        "søder"
+                    ], 
+                    "result": "1-3", 
+                    "user": "andrezinho"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "1-2", 
+                    "user": "Juchomako2"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "rr"
+                    ], 
+                    "halftime": "0-3", 
+                    "result": "1-4", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "0-0", 
+                    "result": "0-0", 
+                    "user": "Bananskrue"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-1", 
+                    "user": "Zzyzx"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "nielsen"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-3", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-2", 
+                    "user": "Numskull"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "nielsen", 
+                        "nielsen"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "1-4", 
+                    "user": "AJ"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "2-2", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "rr"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-3", 
+                    "user": "Megafritz"
+                }
+            ], 
+            "date": "2015-02-12", 
+            "game": "Bodø/Glimt - RBK", 
+            "goals": [
+                "Skjelvik"
+            ], 
+            "halftime": "0-1", 
+            "result": "2-1"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mikkelsen", 
+                        "mgp"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-0", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "pah", 
+                        "fm"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "3-0", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "1-1", 
+                    "result": "2-1", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mgp"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-2", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "sæter", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-1", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "4-1", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "1-2", 
+                    "user": "Gænser"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm"
+                    ], 
+                    "result": "2-0", 
+                    "user": "moomoo"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "3-1", 
+                    "user": "Jangusk"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "md"
+                    ], 
+                    "result": "2-0", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "tm"
+                    ], 
+                    "result": "1-1", 
+                    "user": "josinho"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "5-1", 
+                    "user": "Mikkelsen"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "result": "3-1", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "fm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-1", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-1", 
+                    "user": "AJ"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mikkelsen", 
+                        "fm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "sidebob"
+                }, 
+                {
+                    "goals": [
+                        "Malec", 
+                        "Malec", 
+                        "Malec", 
+                        "Ørn", 
+                        "Jensen", 
+                        "Riski"
+                    ], 
+                    "result": "6-2", 
+                    "user": "FetterTor"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "fm"
+                    ], 
+                    "result": "3-2", 
+                    "user": "libido"
+                }, 
+                {
+                    "goals": [
+                        "Malec", 
+                        "Malec", 
+                        "Malec", 
+                        "Mikkelsen", 
+                        "Helland", 
+                        "Ørn", 
+                        "Svensson"
+                    ], 
+                    "halftime": "3-0", 
+                    "result": "7-0", 
+                    "user": "Svangen"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "tm", 
+                        "rr"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-0", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "fm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "4-1", 
+                    "user": "OrionPax"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-0", 
+                    "user": "hellvikrunner"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "fm"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-1", 
+                    "user": "Numskull"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "mikkelsen", 
+                        "mj"
+                    ], 
+                    "result": "5-1", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj", 
+                        "fm"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-1", 
+                    "user": "Megafritz"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "fm", 
+                        "fm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "Kleviño"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "helmersen", 
+                        "pah"
+                    ], 
+                    "result": "3-0", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "Malec", 
+                        "Helland", 
+                        "Mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-1", 
+                    "user": "rbkweb.no"
+                }
+            ], 
+            "date": "2015-02-21", 
+            "game": "RBK - GIF Sundsvall", 
+            "goals": [
+                "Eyjolfsson", 
+                "Helland", 
+                "Riski"
+            ], 
+            "halftime": "0-0", 
+            "result": "3-1"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [], 
+                    "result": "4-0", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "tobias", 
+                        "fm"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-0", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "pah"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "1-1", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "2-0", 
+                    "result": "6-0", 
+                    "user": "Mikkelsen"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "mgp", 
+                        "fm", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "6-0", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "pah", 
+                        "md", 
+                        "tobias"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-1", 
+                    "user": "Numskull"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mgp"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-0", 
+                    "user": "henningb"
+                }, 
+                {
+                    "goals": [
+                        "skjelvik", 
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-0", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "3-1", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mikkelsen", 
+                        "sæter"
+                    ], 
+                    "result": "4-0", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "sæter"
+                    ], 
+                    "result": "2-1", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "skjelvik"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-1", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "rr", 
+                        "emil", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "4-0", 
+                    "result": "7-1", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "Helland", 
+                        "Mikkelsen", 
+                        "Malec"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "4-1", 
+                    "user": "danielsk"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "pah"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "2-0", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "tm", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-0", 
+                    "user": "AJ"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "rr", 
+                        "tm", 
+                        "pah", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "5-0", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "pah", 
+                        "reg", 
+                        "skjelvik"
+                    ], 
+                    "result": "5-1", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "rr", 
+                        "sæter"
+                    ], 
+                    "result": "3-0", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "tm", 
+                        "rr", 
+                        "pah"
+                    ], 
+                    "result": "4-1", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "emil", 
+                        "emil", 
+                        "tm", 
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "6-0", 
+                    "user": "oddarild"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah"
+                    ], 
+                    "result": "2-0", 
+                    "user": "Kleviño"
+                }
+            ], 
+            "date": "2015-02-12", 
+            "game": "RBK - Ostersund", 
+            "goals": [
+                "Sæter", 
+                "Jensen", 
+                "Selnæs", 
+                "Emil", 
+                "Sæter", 
+                "Malec", 
+                "Rønning"
+            ], 
+            "halftime": "4-0", 
+            "result": "7-0"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "pah", 
+                        "rr", 
+                        "tm", 
+                        "fm"
+                    ], 
+                    "result": "4-1", 
+                    "user": "Brego"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-1", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "tm"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-0", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "3-2", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "10-0", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "3-1", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "reg"
+                    ], 
+                    "result": "4-1", 
+                    "user": "NC"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "hou", 
+                        "mikkelsen", 
+                        "mj"
+                    ], 
+                    "result": "5-2", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj", 
+                        "pvr"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-0", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "mikkelsen", 
+                        "mj", 
+                        "oks"
+                    ], 
+                    "halftime": "3-1", 
+                    "result": "6-2", 
+                    "user": "Numskull"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "result": "4-1", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "tm", 
+                        "mikkelsen"
+                    ], 
+                    "result": "3-0", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "reg", 
+                        "rr"
+                    ], 
+                    "result": "4-1", 
+                    "user": "O-Rex"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "3-2", 
+                    "user": "RBKSandvika"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "mj"
+                    ], 
+                    "result": "2-1", 
+                    "user": "libido"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-1", 
+                    "user": "Sjiraff"
+                }, 
+                {
+                    "goals": [
+                        "pah"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "1-2", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "tm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "dembaba"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mikkelsen", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "3-1", 
+                    "user": "AJ"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "js", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "4-2", 
+                    "user": "danielsk"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "hou"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-1", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "4-1", 
+                    "user": "Kleviño"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "tm", 
+                        "pah", 
+                        "hou"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "5-1", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-2", 
+                    "user": "josinho"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "2-1", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "nielsen", 
+                        "reg", 
+                        "rr", 
+                        "helmersen"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-0", 
+                    "user": "Troillanpåtopp"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "3-2", 
+                    "user": "Megafritz"
+                }, 
+                {
+                    "goals": [
+                        "sæter", 
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "3-0", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mikkelsen", 
+                        "mj"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "4-1", 
+                    "user": "rbkweb.no"
+                }
+            ], 
+            "date": "2015-03-05", 
+            "game": "RBK - Ranheim", 
+            "goals": [
+                "Malec", 
+                "Gamst", 
+                "Helland", 
+                "Helland", 
+                "Riski"
+            ], 
+            "halftime": "1-0", 
+            "result": "5-0"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "reg"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-3", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "rr", 
+                        "mj"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "1-4", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj", 
+                        "fm"
+                    ], 
+                    "result": "1-4", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "helmersen"
+                    ], 
+                    "result": "1-3", 
+                    "user": "Brego"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "pah"
+                    ], 
+                    "halftime": "1-2", 
+                    "result": "2-3", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "mj"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-1", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "0-3", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "tm", 
+                        "helmersen"
+                    ], 
+                    "result": "1-4", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "0-3", 
+                    "user": "danielsk"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "oks", 
+                        "tm", 
+                        "nielsen"
+                    ], 
+                    "result": "0-4", 
+                    "user": "sidebob"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "reg"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "0-2", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "0-0", 
+                    "result": "0-0", 
+                    "user": "lerka"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "1-4", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "rr", 
+                        "hou", 
+                        "pah", 
+                        "pah"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-5", 
+                    "user": "moomoo"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "fm", 
+                        "pah"
+                    ], 
+                    "result": "1-3", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "mikkelsen", 
+                        "pah"
+                    ], 
+                    "result": "2-3", 
+                    "user": "treinar"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "0-2", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "pah"
+                    ], 
+                    "result": "1-2", 
+                    "user": "O-Rex"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "rr"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-2", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "pah", 
+                        "mj", 
+                        "tm"
+                    ], 
+                    "result": "0-5", 
+                    "user": "Noah FC"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj", 
+                        "reg"
+                    ], 
+                    "result": "0-4", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "result": "0-3", 
+                    "user": "trogor"
+                }, 
+                {
+                    "goals": [
+                        "mj"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "1-1", 
+                    "user": "Mustrum Ridcully"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "md"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-3", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "rr", 
+                        "pah", 
+                        "tm"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "0-4", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "0-3", 
+                    "user": "Jangusk"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "md", 
+                        "fm", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-4", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "2-2", 
+                    "user": "Numskull"
+                }
+            ], 
+            "date": "2015-03-12", 
+            "game": "Haugesund - RBK", 
+            "goals": [
+                "Strandberg"
+            ], 
+            "halftime": "0-1", 
+            "result": "0-1"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "mj", 
+                        "tm"
+                    ], 
+                    "result": "2-1", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "mj"
+                    ], 
+                    "result": "2-1", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-1", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "reg", 
+                        "mj", 
+                        "rr", 
+                        "pah"
+                    ], 
+                    "result": "4-0", 
+                    "user": "O-Rex"
+                }, 
+                {
+                    "goals": [
+                        "mj"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "1-0", 
+                    "user": "Mikkelsen"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "rr"
+                    ], 
+                    "result": "3-1", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "pah", 
+                        "mikkelsen", 
+                        "fm", 
+                        "mj"
+                    ], 
+                    "result": "6-0", 
+                    "user": "KitWalker"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj", 
+                        "mj"
+                    ], 
+                    "result": "4-0", 
+                    "user": "Thulian"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj"
+                    ], 
+                    "result": "3-0", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-0", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "tm", 
+                        "tm", 
+                        "js"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-1", 
+                    "user": "NC"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "pah", 
+                        "mikkelsen", 
+                        "js"
+                    ], 
+                    "result": "5-1", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "2-0", 
+                    "user": "Kalkunen"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-0", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "rr", 
+                        "pah"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-1", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-0", 
+                    "user": "RBKSandvika"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "ss"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "2-1", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "rr"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-0", 
+                    "user": "libido"
+                }, 
+                {
+                    "goals": [
+                        "nielsen", 
+                        "js"
+                    ], 
+                    "result": "2-0", 
+                    "user": "lerka"
+                }, 
+                {
+                    "goals": [
+                        "js", 
+                        "mj", 
+                        "tm"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "3-0", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "reg", 
+                        "fm", 
+                        "mikkelsen", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "4-1", 
+                    "user": "gucci"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "4-1", 
+                    "user": "Jangusk"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-1", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mj"
+                    ], 
+                    "result": "3-1", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "skjelvik", 
+                        "pah"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-1", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "pah", 
+                        "tm", 
+                        "tm", 
+                        "js"
+                    ], 
+                    "result": "5-1", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "fm", 
+                        "mj"
+                    ], 
+                    "result": "4-0", 
+                    "user": "Kleviño"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "fm", 
+                        "tm"
+                    ], 
+                    "result": "3-2", 
+                    "user": "Brego"
+                }, 
+                {
+                    "goals": [
+                        "oks", 
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "3-0", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [
+                        "emil", 
+                        "fm"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-2", 
+                    "user": "STRANDerGUD"
+                }
+            ], 
+            "date": "2015-03-16", 
+            "game": "RBK - Stabæk", 
+            "goals": [
+                "Helland", 
+                "Helland", 
+                "Emil", 
+                "Selnæs"
+            ], 
+            "halftime": "2-0", 
+            "result": "4-0"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "emil", 
+                        "tm", 
+                        "pah"
+                    ], 
+                    "result": "1-3", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "1-4", 
+                    "user": "Vegard2711"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "mikkelsen"
+                    ], 
+                    "halftime": "0-2", 
+                    "result": "1-3", 
+                    "user": "Mikkelsen"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "tm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-2", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "mj"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-1", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "emil"
+                    ], 
+                    "result": "1-2", 
+                    "user": "Brego"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj"
+                    ], 
+                    "result": "1-3", 
+                    "user": "AlexanderHallberg"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "fm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-2", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "js", 
+                        "reg"
+                    ], 
+                    "result": "0-3", 
+                    "user": "Spurven"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "Emil"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "1-2", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "md"
+                    ], 
+                    "result": "1-1", 
+                    "user": "Cyrilp"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen"
+                    ], 
+                    "result": "1-1", 
+                    "user": "lerka"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "fm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-2", 
+                    "user": "HOFFA"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "1-2", 
+                    "user": "O-Rex"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mikkelsen", 
+                        "oks"
+                    ], 
+                    "result": "1-4", 
+                    "user": "Largactyl"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mj", 
+                        "tm"
+                    ], 
+                    "result": "0-3", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "emil"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "0-3", 
+                    "user": "RBKSandvika"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "md"
+                    ], 
+                    "result": "0-2", 
+                    "user": "gollumLAD"
+                }, 
+                {
+                    "goals": [
+                        "tm"
+                    ], 
+                    "result": "1-1", 
+                    "user": "NC"
+                }, 
+                {
+                    "goals": [
+                        "Mikkelsen"
+                    ], 
+                    "result": "1-1", 
+                    "user": "otters"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "rr"
+                    ], 
+                    "result": "0-3", 
+                    "user": "vegran"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mikkelsen", 
+                        "fm"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-4", 
+                    "user": "larsarus"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "2-4", 
+                    "user": "steinmetz"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "0-0", 
+                    "result": "1-0", 
+                    "user": "STRANDerGUD"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "pah"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "1-2", 
+                    "user": "Whoppa"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "oks"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "0-3", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "2-2", 
+                    "user": "Hjelde"
+                }, 
+                {
+                    "goals": [], 
+                    "halftime": "0-0", 
+                    "result": "0-0", 
+                    "user": "1960"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "result": "1-3", 
+                    "user": "toreinar"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "0-1", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "1-4", 
+                    "user": "jacsonø"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "Helland", 
+                        "Malec"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "1-3", 
+                    "user": "Noah FC"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "0-2", 
+                    "user": "Jangusk"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "emil"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "Numskull"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm"
+                    ], 
+                    "result": "0-2", 
+                    "user": "Kleviño"
+                }, 
+                {
+                    "goals": [
+                        "tm"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "2-1", 
+                    "user": "libido"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "result": "1-3", 
+                    "user": "möllenbergs"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "mj", 
+                        "Sæter"
+                    ], 
+                    "result": "1-3", 
+                    "user": "Thulian"
+                }, 
+                {
+                    "goals": [
+                        "ss", 
+                        "mj"
+                    ], 
+                    "halftime": "0-0", 
+                    "result": "0-2", 
+                    "user": "Knowrud"
+                }, 
+                {
+                    "goals": [
+                        "mj", 
+                        "pah"
+                    ], 
+                    "result": "1-2", 
+                    "user": "gonagetcha"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "tm", 
+                        "mj"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "1-3", 
+                    "user": "Megafritz"
+                }
+            ], 
+            "date": "2015-03-22", 
+            "game": "Viking - RBK", 
+            "goals": [
+                "Helland", 
+                "Rønning"
+            ], 
+            "halftime": "3-1", 
+            "result": "4-2"
+        }, 
+        {
+            "bets": [
+                {
+                    "goals": [
+                        "mj", 
+                        "pah", 
+                        "tm", 
+                        "mgp"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-0", 
+                    "user": "2mas"
+                }, 
+                {
+                    "goals": [
+                        "Helland", 
+                        "Selnæs", 
+                        "Mikkelsen", 
+                        "Søderlund"
+                    ], 
+                    "halftime": "2-1", 
+                    "result": "4-1", 
+                    "user": "Attaboy"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "pah", 
+                        "mj", 
+                        "mj", 
+                        "tm"
+                    ], 
+                    "result": "5-1", 
+                    "user": "Jakob"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "mikkelsen", 
+                        "emil"
+                    ], 
+                    "halftime": "0-1", 
+                    "result": "3-2", 
+                    "user": "kentosd"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "pah", 
+                        "mj", 
+                        "en"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "4-2", 
+                    "user": "gisp!"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "oks", 
+                        "mgp", 
+                        "mj", 
+                        "pah", 
+                        "pah"
+                    ], 
+                    "result": "6-0", 
+                    "user": "SuperTimCahill"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "fm", 
+                        "søder"
+                    ], 
+                    "halftime": "1-0", 
+                    "result": "3-1", 
+                    "user": "stolavs"
+                }, 
+                {
+                    "goals": [
+                        "mgp", 
+                        "mj", 
+                        "pah", 
+                        "en", 
+                        "oks"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "5-0", 
+                    "user": "Megafritz"
+                }, 
+                {
+                    "goals": [
+                        "en", 
+                        "tm"
+                    ], 
+                    "result": "2-1", 
+                    "user": "Brego"
+                }, 
+                {
+                    "goals": [], 
+                    "result": "5-0", 
+                    "user": "hellvikrunner"
+                }, 
+                {
+                    "goals": [
+                        "mikkelsen", 
+                        "tm", 
+                        "søder", 
+                        "mgp"
+                    ], 
+                    "halftime": "2-0", 
+                    "result": "4-0", 
+                    "user": "hoboj0e"
+                }, 
+                {
+                    "goals": [
+                        "pah", 
+                        "søder"
+                    ], 
+                    "halftime": "1-1", 
+                    "result": "2-1", 
+                    "user": "RBKSandvika"
+                }, 
+                {
+                    "goals": [
+                        "søder", 
+                        "mj", 
+                        "pah"
+                    ], 
+                    "halftime": "2-1", 
+                    "result": "3-1", 
+                    "user": "hentesveis"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "en", 
+                        "en", 
+                        "mikkelsen", 
+                        "mj"
+                    ], 
+                    "result": "5-0", 
+                    "user": "MariusV"
+                }, 
+                {
+                    "goals": [
+                        "tm", 
+                        "en", 
+                        "mgp", 
+                        "mikkelsen"
+                    ], 
+                    "result": "4-1", 
+                    "user": "toreinar"
+                }
+            ], 
+            "date": "2015-03-27", 
+            "game": "RBK - Kristiansund", 
+            "goals": [
+                "Malec", 
+                "Reitan", 
+                "Helland"
+            ], 
+            "halftime": "1-0", 
+            "result": "3-1"
+        }
+    ], 
+    "players": {
+        "Alas": {
+            "aliases": [
+                "Alas"
+            ], 
+            "name": "Jaime Alas", 
+            "shortname": "Alas"
+        }, 
+        "Berntsen": {
+            "aliases": [
+                "Daniel", 
+                "Berntsen", 
+                "DB"
+            ], 
+            "image": "img/face-berntsen.png", 
+            "name": "Daniel Berntsen", 
+            "shortname": "Berntsen"
+        }, 
+        "Bråthen": {
+            "aliases": [
+                "Brathen", 
+                "Braathen", 
+                "EMB"
+            ], 
+            "name": "Erik Mellevold Bråthen", 
+            "shortname": "Bråthen"
+        }, 
+        "Chibuike": {
+            "aliases": [
+                "John", 
+                "Chibbe", 
+                "Chibuike", 
+                "JC"
+            ], 
+            "image": "img/face-chibbe.png", 
+            "name": "John Chibuike", 
+            "shortname": "Chibuike"
+        }, 
+        "Dockal": {
+            "aliases": [
+                "Borek", 
+                "BD"
+            ], 
+            "name": "Bo&rcaron;ek Do&ccaron;kal", 
+            "shortname": "Dockal"
+        }, 
+        "Dorsin": {
+            "aliases": [
+                "Micke", 
+                "MD", 
+                "3"
+            ], 
+            "image": "img/face-dorsin.png", 
+            "name": "Micke Dorsin", 
+            "shortname": "Dorsin"
+        }, 
+        "Emil": {
+            "aliases": [
+                "EN", 
+                "Nielsen"
+            ], 
+            "name": "Emil Nielsen", 
+            "shortname": "Nielsen"
+        }, 
+        "Eyjolfsson": {
+            "aliases": [
+                "HOE", 
+                "Orn", 
+                "Ørn", 
+                "Holmar", 
+                "25"
+            ], 
+            "image": "img/face-holmar.png", 
+            "name": "Holmar Orn Eyjolfsson", 
+            "shortname": "Holmar"
+        }, 
+        "Gamboa": {
+            "aliases": [
+                "Christian", 
+                "Søtnos", 
+                "CG"
+            ], 
+            "image": "img/face-gamboa.png", 
+            "name": "Cristian Gamboa", 
+            "shortname": "Gamboa"
+        }, 
+        "Gamst": {
+            "aliases": [
+                "Morten", 
+                "Pedersen", 
+                "MGP", 
+                "Gam", 
+                "8"
+            ], 
+            "image": "img/face-gamst.png", 
+            "name": "Morten Gamst Pedersen", 
+            "shortname": "Gamst Pedersen"
+        }, 
+        "Helland": {
+            "aliases": [
+                "Hel", 
+                "Pål-Andre", 
+                "PAH", 
+                "23"
+            ], 
+            "image": "img/face-helland.png", 
+            "name": "Pål Andre Helland", 
+            "shortname": "Helland"
+        }, 
+        "Helmersen": {
+            "aliases": [
+                "Helm"
+            ], 
+            "name": "Andreas Helmersen", 
+            "shortname": "Helmersen"
+        }, 
+        "JIH": {
+            "name": "Jon Inge Høiland", 
+            "shortname": "Høiland"
+        }, 
+        "Jensen": {
+            "aliases": [
+                "Mike", 
+                "Fisse", 
+                "MJ", 
+                "7"
+            ], 
+            "image": "img/face-jensen.png", 
+            "name": "Mike Jensen", 
+            "shortname": "Jensen"
+        }, 
+        "Lundal": {
+            "aliases": [
+                "Martin", 
+                "ML"
+            ], 
+            "name": "Martin Lundal", 
+            "shortname": "Lundal"
+        }, 
+        "Lunna": {
+            "aliases": [
+                "Hansen", 
+                "ALH", 
+                "12"
+            ], 
+            "image": "img/face-lunna.png", 
+            "name": "Alexander Lund Hansen", 
+            "shortname": "Lund Hansen"
+        }, 
+        "Malec": {
+            "aliases": [
+                "Tomas", 
+                "TM", 
+                "Mal", 
+                "10"
+            ], 
+            "image": "img/face-malec.png", 
+            "name": "Tomas Malec", 
+            "shortname": "Malec"
+        }, 
+        "Midtsjø": {
+            "aliases": [
+                "Fre", 
+                "Fredrik", 
+                "Midtsjø", 
+                "Midt", 
+                "Midtsjoe", 
+                "FM"
+            ], 
+            "image": "img/face-midtsjo.png", 
+            "name": "Fredrik Midtsjø", 
+            "shortname": "Midtsjø"
+        }, 
+        "Mikkel Jensen": {
+            "aliases": [], 
+            "name": "Mikkel Jensen", 
+            "shortname": "Mikkel Jensen"
+        }, 
+        "Mikkelsen": {
+            "aliases": [
+                "Tobias", 
+                "Mik", 
+                "Tob", 
+                "11"
+            ], 
+            "image": "img/face-mikkelsen.png", 
+            "name": "Tobias Mikkelsen", 
+            "shortname": "Mikkelsen"
+        }, 
+        "Moe": {
+            "aliases": [
+                "Brede", 
+                "BM"
+            ], 
+            "name": "Brede Moe", 
+            "shortname": "Moe"
+        }, 
+        "Reginiussen": {
+            "aliases": [
+                "Reginiussen", 
+                "Toreg", 
+                "Tore", 
+                "Reg", 
+                "TR", 
+                "4"
+            ], 
+            "image": "img/face-reginiussen.png", 
+            "name": "Tore Reginiussen", 
+            "shortname": "Reginiussen"
+        }, 
+        "Riski": {
+            "aliases": [
+                "Riku", 
+                "RR", 
+                "9"
+            ], 
+            "image": "img/face-riski.png", 
+            "name": "Riku Riski", 
+            "shortname": "Riski"
+        }, 
+        "Rønning": {
+            "aliases": [
+                "PVR", 
+                "Verner", 
+                "Ronning", 
+                "Roenning"
+            ], 
+            "image": "img/face-ronning.png", 
+            "name": "Per Verner Rønning", 
+            "shortname": "Rønning"
+        }, 
+        "Selnæs": {
+            "aliases": [
+                "Ole", 
+                "OKS", 
+                "20"
+            ], 
+            "image": "img/face-selnas.png", 
+            "name": "Ole Kristian Selnæs", 
+            "shortname": "Selnæs"
+        }, 
+        "Skjelvik": {
+            "aliases": [
+                "Sk", 
+                "Skj", 
+                "Skje", 
+                "Jørgen", 
+                "Jorgen", 
+                "JS", 
+                "16"
+            ], 
+            "image": "img/face-skjelvik.png", 
+            "name": "Jørgen Skjelvik", 
+            "shortname": "Skjelvik"
+        }, 
+        "Steiring": {
+            "aliases": [
+                "Stei", 
+                "Per-Magnus"
+            ], 
+            "image": "img/dummy.png", 
+            "name": "Per-Magnus Steiring", 
+            "shortname": "Steiring"
+        }, 
+        "Strand": {
+            "aliases": [
+                "MS"
+            ], 
+            "image": "img/dummy.png", 
+            "name": "Morten Strand", 
+            "shortname": "Strand"
+        }, 
+        "Strandberg": {
+            "aliases": [
+                "Stefan", 
+                "SS", 
+                "24"
+            ], 
+            "image": "img/face-strandberg.png", 
+            "name": "Stefan Strandberg", 
+            "shortname": "Strandberg"
+        }, 
+        "Stubhaug": {
+            "aliases": [
+                "Stub", 
+                "Lars", 
+                "LS"
+            ], 
+            "image": "img/face-stubhaug.png", 
+            "name": "Lars Stubhaug", 
+            "shortname": "Stubhaug"
+        }, 
+        "Svensson": {
+            "aliases": [
+                "Jonas", 
+                "JS", 
+                "22"
+            ], 
+            "image": "img/face-svensson.png", 
+            "name": "Jonas Svensson", 
+            "shortname": "Svensson"
+        }, 
+        "Sæter": {
+            "aliases": [
+                "Sæt", 
+                "Saeter", 
+                "Sæter", 
+                "Hou", 
+                "JHS"
+            ], 
+            "image": "img/face-saeter.png", 
+            "name": "John Hou Sæter", 
+            "shortname": "Sæter"
+        }, 
+        "Søderlund": {
+            "aliases": [
+                "Alex", 
+                "Sød", 
+                "Søder", 
+                "Soderlund", 
+                "Soederlund", 
+                "15"
+            ], 
+            "image": "img/face-soderlund.png", 
+            "name": "Alexander Søderlund", 
+            "shortname": "Søderlund"
+        }, 
+        "Sørloth": {
+            "aliases": [
+                "Soerloth", 
+                "Sorloth", 
+                "Sør", 
+                "37"
+            ], 
+            "image": "img/face-sorloth.png", 
+            "name": "Alexander Sørloth", 
+            "shortname": "Sørloth"
+        }, 
+        "Sørmo": {
+            "aliases": [
+                "Bent", 
+                "Soermo", 
+                "Sormo", 
+                "BS", 
+                "31"
+            ], 
+            "image": "img/face-soermo.png", 
+            "name": "Bent Sørmo", 
+            "shortname": "Sørmo"
+        }, 
+        "Witry": {
+            "aliases": [
+                "Wit", 
+                "Aslak", 
+                "Fonn Witry", 
+                "Fonn", 
+                "AFW", 
+                "34"
+            ], 
+            "image": "img/dummy.png", 
+            "name": "Aslak Fonn Witry", 
+            "shortname": "Fonn Witry"
+        }, 
+        "default": {
+            "aliases": [
+                "dummy"
+            ], 
+            "image": "img/dummy.png"
+        }, 
+        "Ørlund": {
+            "aliases": [
+                "Örlund", 
+                "Orlund", 
+                "Oerlund", 
+                "DØ", 
+                "1"
+            ], 
+            "image": "img/face-orlund.png", 
+            "name": "Daniel Örlund", 
+            "shortname": "Örlund"
+        }
+    }, 
+    "teams": {
+        "AIK": {
+            "logo": "http://imgur.com/UICelzp.png"
+        }, 
+        "Aalesund": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/403.png"
+        }, 
+        "Astra": {
+            "logo": "http://imgur.com/DtsLZzH.png"
+        }, 
+        "Bodø/Glimt": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/307.png"
+        }, 
+        "Brann": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/302.png"
+        }, 
+        "Costuleni": {
+            "logo": "http://imgur.com/DMnqUkM.png"
+        }, 
+        "Crusaders": {
+            "logo": "http://www.rbkweb.no/images/motstandere/crusaders.png"
+        }, 
+        "Djurgården": {
+            "logo": "http://imgur.com/IfvT6sA.png", 
+            "name": "Djurgården"
+        }, 
+        "GIF Sundsvall": {
+            "logo": "http://www.rbkweb.no/images/motstandere/gif.gif"
+        }, 
+        "Haugesund": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/306.png"
+        }, 
+        "Hønefoss": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/327.png", 
+            "name": "Hønefoss"
+        }, 
+        "Jelgava": {
+            "logo": "http://imgur.com/7dW0fmP.jpg", 
+            "name": "FK Jelgava"
+        }, 
+        "Kalmar": {
+            "logo": "http://imgur.com/43GRfqC.png"
+        }, 
+        "Karabukspor": {
+            "logo": "http://imgur.com/54s1ti0.jpg", 
+            "name": "Karabükspor"
+        }, 
+        "Kolstad": {
+            "logo": "http://imgur.com/uEXf5Bn.png"
+        }, 
+        "Kristiansund": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/411.png"
+        }, 
+        "Levanger": {
+            "logo": "http://i.imgur.com/r6j063i.jpg"
+        }, 
+        "Lillestrøm": {
+            "aliases": [
+                "LSK", 
+                "Lillestrom", 
+                "Lillestroem"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/308.png", 
+            "name": "Lillestrøm"
+        }, 
+        "Molde": {
+            "aliases": [
+                "MFK"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/309.png"
+        }, 
+        "Odd": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/311.png"
+        }, 
+        "Orkla": {
+            "logo": "http://imgur.com/Kc0lPjC.png"
+        }, 
+        "Ostersund": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/303.png", 
+            "name": "Östersund"
+        }, 
+        "RBK": {
+            "aliases": [
+                "Rosenborg"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png", 
+            "name": "Rosenborg"
+        }, 
+        "Ranheim": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/414.png"
+        }, 
+        "Sandnes Ulf": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/496.png"
+        }, 
+        "Sarpsborg 08": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/541.png"
+        }, 
+        "Sligo": {
+            "logo": "http://imgur.com/W9ORqTZ.jpg"
+        }, 
+        "Sogndal": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/326.png"
+        }, 
+        "St. Johnstone": {
+            "logo": "http://i.imgur.com/1C5FDip.jpg"
+        }, 
+        "Stabæk": {
+            "aliases": [
+                "Stabak", 
+                "Stabaek"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/312.png", 
+            "name": "Stabæk"
+        }, 
+        "Start": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/305.png"
+        }, 
+        "Steinkjer": {
+            "logo": "http://profile.ak.fbcdn.net/hprofile-ak-snc7/c227.40.506.506/s100x100/404270_289125891149925_1697390848_n.jpg"
+        }, 
+        "Strindheim": {
+            "logo": "http://strindheimtoppfotball.no/wp-content/uploads/2013/03/Strindheim_Idrettslag-100x94.png"
+        }, 
+        "Strømsgodset": {
+            "aliases": [
+                "Godset", 
+                "Stromsgodset", 
+                "Stroemsgodset"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/328.png", 
+            "name": "Strømsgodset"
+        }, 
+        "Tromsø": {
+            "aliases": [
+                "Tromso", 
+                "Tromsoe", 
+                "TIL"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/315.png", 
+            "name": "Tromsø"
+        }, 
+        "Viking": {
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/303.png"
+        }, 
+        "Vålerenga": {
+            "aliases": [
+                "VIF", 
+                "Vaalerenga", 
+                "Enga"
+            ], 
+            "logo": "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/314.png", 
+            "name": "Vålerenga"
+        }
+    }
+}

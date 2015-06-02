@@ -1,0 +1,20 @@
+RESULTATTIPS
+- commitmeldinger med autentisert bruker
+- legge inn matchbetting-tråd-url og scrape innlegg derfra med parsing
+- match-category (Friendly, TL, Cup, EL, ...)
+- stats/bets/results intra-navigation
+
+- bet-liste målforskjell / rød/grønn/gul farvekoding (ring med pluss/minus-tallet i?)
+
+
+- players-editor
+- headshots av juniorene (Hou, Strand, Witry, ...) Storevik Sørmo 
+- headshots av trenerene
+- forskjell på default (har ikke) og unknown (kjenner ikke) dummy icon
+
+- teams-editor
+
+LAGOPPSTILLING:
+- benken
+- bane-underlag?
+
