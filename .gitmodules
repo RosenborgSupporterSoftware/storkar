@@ -1,0 +1,3 @@
+[submodule "src/presto"]
+	path = src/presto
+	url = git@github.com:larsjaas/presto.git

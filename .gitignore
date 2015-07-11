@@ -1,2 +1,3 @@
 .DS_Store
-/*.html
+storkar-access.log
+storkar-errors.log
