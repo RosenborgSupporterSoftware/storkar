@@ -1,0 +1,41 @@
+(define *initialized* #f)
+(define *players* '())
+
+(define (update-player id data)
+  (set! *players* (update-alist *players* id data)))
+
+(define (load-players path)
+  (let iter ((files (directory-files path)))
+    (cond ((not (null? files))
+            (let ((file (path-join path (car files))))
+              (if (file-regular? file)
+                  (let ((id (basename (car files)))
+                        (data (with-input-from-file file read)))
+                    ;(display "loaded player: ")
+                    ;(display (cdr (assoc "name" data)))
+                    ;(display " - ")
+                    ;(display (cdr (assoc "uuid" data)))
+                    ;(newline)
+                    (update-player id data))))
+            (iter (cdr files))))))
+
+(define (player-db-initialized?)
+  *initialized*)
+
+(define (player-db-initialize)
+  (cond ((not *initialized*)
+          (set! *initialized* #t)
+          (load-players "data/players")))
+  #t)
+
+(define (get-players)
+  (let iter ((players '())
+             (stored *players*))
+    (cond ((null? stored)
+            (reverse players))
+          (else
+             (iter (cons (car (cdr (car stored))) players) (cdr stored))))))
+
+(define (get-player uuid)
+  (let ((data (assoc uuid *players*)))
+    (if (pair? data) (cdr data) #f)))
