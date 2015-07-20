@@ -1,4 +1,5 @@
 (("name" . "Per-Magnus Steiring")
  ("aliases" . ("Per" "Per-Magnus" "Steiring" "PMS"))
  ("shortname" . "Steiring")
+ ("headshot-20x30-url" . "http://i.imgur.com/4DgXMFs.png")
  ("uuid" . "36078250-5f0e-4a21-83b1-482ddef728dd"))

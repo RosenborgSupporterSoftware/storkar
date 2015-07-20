@@ -1,4 +1,6 @@
 (("name" . "Jørgen Skjelvik")
+ ("number" . 16)
  ("aliases" . ("Jørgen" "Skjelvik"))
  ("shortname" . "Skjelvik")
+ ("headshot-20x30-url" . "http://i.imgur.com/JViyXEj.png")
  ("uuid" . "43644ae4-380b-4883-b63a-7ff2b0f2d7a6"))

@@ -1,4 +1,6 @@
 (("name" . "Andreas Klausen Helmersen")
+ ("number" . 36)
  ("aliases" . ("Andreas" "Helmersen" "Klausen" "AKH"))
  ("shortname" . "Helmersen")
+ ("headshot-20x30-url" . "http://i.imgur.com/JCOikU1.png")
  ("uuid" . "73d04265-c942-46e5-8a5d-39343f7d7707"))

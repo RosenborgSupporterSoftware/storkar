@@ -1,4 +1,6 @@
 (("name" . "Holmar Örn Eyjolfsson")
+ ("number" . 5)
  ("aliases" . ("Holmar" "Ørn" "Örn" "HOE"))
  ("shortname" . "Eyjolfsson")
+ ("headshot-20x30-url" . "http://i.imgur.com/LrSXJDb.png")
  ("uuid" . "a66a3fde-883c-4948-9b39-de0f52883238"))

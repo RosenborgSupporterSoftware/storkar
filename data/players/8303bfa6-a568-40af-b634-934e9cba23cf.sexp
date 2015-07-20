@@ -1,4 +1,5 @@
 (("name" . "Ole Kristian Selnæs")
+ ("number" . 20)
  ("aliases" . ("OKS" "Selnæs"))
  ("shortname" . "Selnæs")
  ("headshot-20x30-url" . "http://i.imgur.com/zoWagga.png")

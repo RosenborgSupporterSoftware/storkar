@@ -1,4 +1,6 @@
 (("name" . "Alexander Toft Søderlund")
+ ("number" . 15)
  ("aliases" . ("Søderlund" "Toft" "Søder" "Sød" "AS"))
  ("shortname" . "Søderlund")
+ ("headshot-20x30-url" . "http://i.imgur.com/9LMOiiP.png")
  ("uuid" . "93062719-d73c-4131-92b3-e724813cfae2"))

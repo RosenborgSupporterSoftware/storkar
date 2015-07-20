@@ -1,4 +1,6 @@
 (("name" . "André Hansen")
+ ("number" . 1)
  ("aliases" . ("AH"))
  ("shortname" . "Hansen")
+ ("headshot-20x30-url" . "http://i.imgur.com/B9uCLui.png")
  ("uuid" . "cd3afab3-0ad9-4b71-bfd8-d3e67a0db375"))

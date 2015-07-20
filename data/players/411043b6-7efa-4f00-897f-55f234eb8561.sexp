@@ -1,4 +1,6 @@
 (("name" . "Riku Riski")
+ ("number" . 9)
  ("aliases" . ("Riku" "Riski" "Risku" "RR"))
  ("shortname" . "Riski")
+ ("headshot-20x30-url" . "http://i.imgur.com/vPaHgpd.png")
  ("uuid" . "411043b6-7efa-4f00-897f-55f234eb8561"))

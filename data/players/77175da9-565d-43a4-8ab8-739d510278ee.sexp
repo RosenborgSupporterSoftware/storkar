@@ -1,4 +1,6 @@
 (("name" . "Morten Gamst Pedersen")
+ ("number" . 8)
  ("aliases" . ("Morten" "Gamst" "Pedersen" "Gamsten" "MGP"))
  ("shortname" . "Gamst")
+ ("headshot-20x30-url" . "http://i.imgur.com/n50CdPy.png")
  ("uuid" . "77175da9-565d-43a4-8ab8-739d510278ee"))

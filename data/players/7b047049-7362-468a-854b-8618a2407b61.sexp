@@ -1,4 +1,6 @@
 (("name" . "Tore Reginiussen")
+ ("number" . 4)
  ("aliases" . ("Tore" "Reg" "TR" "ToReg" "Reginiussen"))
  ("shortname" . "Reginiussen")
+ ("headshot-20x30-url" . "http://i.imgur.com/bCmfhhu.png")
  ("uuid" . "7b047049-7362-468a-854b-8618a2407b61"))

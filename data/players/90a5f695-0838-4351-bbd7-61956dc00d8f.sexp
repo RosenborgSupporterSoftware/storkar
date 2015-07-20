@@ -1,4 +1,7 @@
 (("name" . "Pål Andre Helland")
+ ("number" . 23)
  ("aliases" . ("Pål" "Helland" "PAH"))
  ("shortname" . "Helland")
+ ("headshot-20x30-url" . "http://i.imgur.com/wC7rg1N.png")
+ ("rbkweb-discussion" . "http://www.rbkweb.no/forum/viewtopic.php?t=2605")
  ("uuid" . "90a5f695-0838-4351-bbd7-61956dc00d8f"))

@@ -1,4 +1,6 @@
 (("name" . "Fredrik Midtsjø")
+ ("number" . 21)
  ("aliases" . ("Fredrik" "Midtsjø" "FM"))
  ("shortname" . "Midtsjø")
+ ("headshot-20x30-url" . "http://i.imgur.com/OvAFiI7.png")
  ("uuid" . "3507f4e7-feda-4570-9d64-e678736a4cd2"))

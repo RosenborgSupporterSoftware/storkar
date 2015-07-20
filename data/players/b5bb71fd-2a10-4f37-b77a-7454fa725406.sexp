@@ -1,4 +1,6 @@
 (("name" . "Tomas Malec")
+ ("number" . 10)
  ("aliases" . ("Tomas" "Malec"))
  ("shortname" . "Malec")
+ ("headshot-20x30-url" . "http://i.imgur.com/r1bfLIg.png")
  ("uuid" . "b5bb71fd-2a10-4f37-b77a-7454fa725406"))

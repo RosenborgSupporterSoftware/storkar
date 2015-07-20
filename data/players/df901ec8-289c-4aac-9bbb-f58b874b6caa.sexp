@@ -1,4 +1,6 @@
 (("name" . "Tobias Pilegaard Mikkelsen")
+ ("number" . 11)
  ("aliases" . ("Tobias" "Pilegaard" "Mikkelsen" "Mik"))
  ("shortname" . "Mikkelsen")
+ ("headshot-20x30-url" . "http://i.imgur.com/15MebqH.png")
  ("uuid" . "df901ec8-289c-4aac-9bbb-f58b874b6caa"))

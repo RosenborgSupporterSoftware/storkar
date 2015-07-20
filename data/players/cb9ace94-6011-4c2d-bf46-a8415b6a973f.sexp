@@ -1,4 +1,6 @@
 (("name" . "John Hou Sæter")
+ ("number" . 32)
  ("aliases" . ("Sæter" "Hou" "JHS" "John"))
  ("shortname" . "Sæter")
+ ("headshot-20x30-url" . "http://i.imgur.com/aJJ7AfA.png")
  ("uuid" . "cb9ace94-6011-4c2d-bf46-a8415b6a973f"))

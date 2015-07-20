@@ -1,4 +1,6 @@
 (("name" . "Mikael Dorsin")
+ ("number" . 3)
  ("aliases" . ("Micke Dorsin" "Micke" "MD" "Dorsin"))
  ("shortname" . "Dorsin")
+ ("headshot-20x30-url" . "http://i.imgur.com/LWegIcK.png")
  ("uuid" . "8f3f3a1c-1f95-4e1e-96f1-ec28e4324ef4"))

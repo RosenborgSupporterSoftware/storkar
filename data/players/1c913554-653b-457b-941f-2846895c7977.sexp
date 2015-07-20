@@ -1,4 +1,6 @@
 (("name" . "Alexander Lund Hansen")
+ ("number" . 12)
  ("aliases" . ("Lunna" "ALH"))
  ("shortname" . "Lunna")
+ ("headshot-20x30-url" . "http://i.imgur.com/bjKeaEF.png")
  ("uuid" . "1c913554-653b-457b-941f-2846895c7977"))
