@@ -30,7 +30,9 @@ function($, _, Backbone, Layout)
             'headshot-40x60-url': '',
             'headshot-80x120-url': '',
             'teamid': '',
-            'active': true
+            'active': true,
+            'country': '',
+            'links': []
         },
 
         uuid: function() {
@@ -71,7 +73,16 @@ function($, _, Backbone, Layout)
 
         active: function() {
             return this.attributes['active'];
+        },
+
+        country: function() {
+            return this.attributes['country'];
+        },
+
+        links: function() {
+            return this.attributes['links'];
         }
+
     });
 
     Player.Collection = Backbone.Collection.extend({
@@ -102,7 +113,6 @@ function($, _, Backbone, Layout)
 
         initialize: function(options) {
             Backbone.Layout.prototype.initialize.call(this, options);
-            $(this.el).addClass("player");
             this.render();
         },
 
@@ -126,7 +136,7 @@ function($, _, Backbone, Layout)
         initialize: function(options) {
             this.model = options.collection.findWhere({uuid: options.uuid});
             Backbone.Layout.prototype.initialize.call(this, options);
-            $(this.el).addClass("player");
+            $(this.el).addClass("item");
         },
 
         serialize: function() {
@@ -167,7 +177,7 @@ function($, _, Backbone, Layout)
             var App = require('app');
             var thiz = this;
             App.players.each(function(item) {
-                thiz.insertView("ul.players",
+                thiz.insertView("ul.items",
                                 new Player.ListItem({
                                     uuid: item.uuid(),
                                     collection: App.players
@@ -254,7 +264,7 @@ function($, _, Backbone, Layout)
                 attrs['aliases'] = aliases;
             var numberstr = $('#number').val();
             var number = this.model.number();
-            if (numberstr) number = parseInt(numberstr);
+            if (numberstr) number = parseInt(numberstr, 10);
             if (number != this.model.number())
                 attrs['number'] = number;
             var headshot30 = $('#headshot30').val();

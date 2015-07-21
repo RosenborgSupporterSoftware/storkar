@@ -11,12 +11,17 @@ function($, _, Backbone, Router, Layout) {
     var App = {};
 
     App._cacheTemplates = [
+        'misc/frontpage.html',
         'player/frontpage.html',
         'player/list.html',
         'player/listitem.html',
         'player/details.html',
         'player/editor.html',
-        'misc/frontpage.html'
+        'team/frontpage.html',
+        'team/list.html',
+        'team/listitem.html',
+        'team/details.html',
+        'team/editor.html'
     ];
 
     App.players = null;

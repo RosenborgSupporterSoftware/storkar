@@ -3,9 +3,10 @@ define([
     'underscore',
     'backbone',
     'modules/misc',
-    'modules/player'
+    'modules/player',
+    'modules/team'
 ],
-function($, _, Backbone, Misc, Player) {
+function($, _, Backbone, Misc, Player, Team) {
     var AppRouter = Backbone.Router.extend({
 
         initialize: function(options) {
@@ -18,10 +19,12 @@ function($, _, Backbone, Misc, Player) {
             'players': 'listPlayers',
             'player/:uuid': 'viewPlayer',
             'player/:uuid/edit': 'editPlayer',
-            'teams': 'listTeams', // team/:uuid
-            'leagues': 'listLeagues', // league/:uuid
-            'matches': 'listLeagueMatches', // match/:uuid
-            '*actions': 'defaultAction' // -> main
+            'teams': 'listTeams',
+            'team/:uuid': 'viewTeam',
+            'team/:uuid/edit': 'editTeam',
+            'leagues': 'listLeagues',
+            'matches': 'listLeagueMatches',
+            '*actions': 'defaultAction'
         },
 
         listview: null,
@@ -116,7 +119,7 @@ function($, _, Backbone, Misc, Player) {
         editPlayerAsync: function(uuid) {
             this.updateListView(Player.List, "players", {});
             var App = require('app');
-            this.updateDetailView(Player.Editor, "playeredit-" + uuid,
+            this.updateDetailView(Player.Editor, "playereditor-" + uuid,
                                   {uuid:uuid, collection:App.players});
         },
 
@@ -137,6 +140,52 @@ function($, _, Backbone, Misc, Player) {
 
         listTeams: function() {
             this.updateSection("teams");
+            this.updateListView(Team.List, "teams", {});
+            this.updateDetailView(Team.FrontPage, "teams", {});
+        },
+
+        viewTeamAsync: function(uuid) {
+            this.updateListView(Team.List, "teams", {});
+            var App = require('app');
+            this.updateDetailView(Team.Details, "teamview-" + uuid,
+                                  {uuid:uuid, collection:App.teams});
+        },
+
+        viewTeam: function(uuid) {
+            this.updateSection("teams");
+            var thiz = this;
+            var App = require('app');
+            if (!App.teams) {
+                App.teams = new Team.Collection();
+                App.teams.fetch().done(function() {
+                    App.teams.sort();
+                    thiz.viewTeamAsync(uuid);
+                });
+            } else {
+                thiz.viewTeamAsync(uuid);
+            }
+        },
+
+        editTeamAsync: function(uuid) {
+            this.updateListView(Team.List, "teams", {});
+            var App = require('app');
+            this.updateDetailView(Team.Editor, "teameditor-" + uuid,
+                                  {uuid:uuid, collection:App.teams});
+        },
+
+        editTeam: function(uuid) {
+            this.updateSection("teams");
+            var thiz = this;
+            var App = require('app');
+            if (!App.teams) {
+                App.teams = new Team.Collection();
+                App.teams.fetch().done(function() {
+                    App.teams.sort();
+                    thiz.editTeamAsync(uuid);
+                });
+            } else {
+                thiz.editTeamAsync(uuid);
+            }
         },
 
         listLeagues: function() {
