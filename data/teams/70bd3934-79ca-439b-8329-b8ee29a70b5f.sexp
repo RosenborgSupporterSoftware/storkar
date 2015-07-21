@@ -1,0 +1,6 @@
+(("uuid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
+ ("name" . "Rosenborg Ballklub")
+ ("shortname" . "Rosenborg")
+ ("abbreviation" . "RBK")
+ ("country" . "NO")
+ ("logo-120-url" . "http://www.altomfotball.no/jsport/multimedia/laglogo/150x88/313.png"))

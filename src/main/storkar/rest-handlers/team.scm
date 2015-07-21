@@ -1,0 +1,52 @@
+(import (chibi)
+        (chibi string)
+        (presto alist)
+        (presto json)
+        (presto uuid)
+        (storkar team-db))
+
+(define (initialize)
+  (if (not (team-db-initialized?))
+      (team-db-initialize))
+  #t)
+
+(define (get-rest-path)
+  "/rest/team")
+
+(define (do-team-action verb uuid content)
+  (cond ((string=? "PATCH" verb)
+          (let* ((team (get-team uuid))
+                 (patched (patch-alist team content)))
+            (set-team uuid patched)
+            patched))
+        ((string=? "PUT" verb)
+          (cond ((string=? "new" uuid)
+                  (let ((uuid (gen-uuid)))
+                    (set-team uuid (update-alist content '("uuid" . uuid)))
+                    (get-team uuid)))
+                (else
+                  (let ((team (get-team uuid)))
+                    (set-team uuid content)
+                    content))))
+        ((string=? "GET" verb)
+          (get-team uuid))
+        ((string=? "DELETE" verb)
+          (delete-team uuid))
+        (else
+          (display "UNHANDLED ")
+          (display verb) (display " ") (display uuid) (newline)
+          '()
+          )))
+
+(define (rest-request request)
+  (let ((pathelts (string-split (request 'get-path) #\/)))
+    (cond ((and (equal? pathelts '("" "rest" "team"))
+                (string=? "GET" (request 'get-method)))
+            (get-all-teams))
+          ((= 4 (length pathelts))
+            (do-team-action (request 'get-method)
+                            (list-ref pathelts 3)
+                            (json->sexp (request 'get-body))))
+          (else
+            '())))) ; FIXME: respond with error
+

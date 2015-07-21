@@ -1,0 +1,5 @@
+(define-library (storkar team-db)
+  (import (chibi) (chibi filesystem) (chibi config)
+          (presto config) (presto alist) (presto fileutils))
+  (export team-db-initialize team-db-initialized? get-all-teams get-team set-team delete-team)
+  (include "team-db.scm"))
