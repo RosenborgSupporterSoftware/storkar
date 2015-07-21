@@ -1,0 +1,20 @@
+<div align="center">
+
+<h1><%= model.name() %></h1>
+<img src="<%= model.headshot_20x30_url() %>"/>
+<table>
+  <tr>
+    <td>Trøye</td><td><%= model.number() %></td>
+  </tr>
+  <tr>
+    <td>Trøyenavn</td><td><%= model.shortname() %></td>
+  </tr>
+  <tr>
+    <td>Aliaser</td><td><%= model.aliases() %></td>
+  </tr>
+</table>
+</div>
+
+<div align="right">
+  <a class="button button-rounded button-small" id="edit" alt="[Edit]"><i class="fa fa-edit"></i> Edit</a>
+</div>
