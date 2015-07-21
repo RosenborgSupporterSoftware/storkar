@@ -6,11 +6,33 @@
         data-main="/js/main"
         type="application/javascript">
 </script>
+<link rel="stylesheet" type="text/css" href="/css/storkar.css">
+<link rel="stylesheet" type="text/css" href="/css/libs/font-awesome-4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/libs/buttons/css/buttons.css">
 </head>
 <body>
-<div id="container">
-<div id="menu"></div>
-<div id="content"></div>
+<div id="body">
+  <div id="header" class="inverse frame row">
+    <div id="menu">
+      <ul>
+        <li><a id="menumain" href="#main"><i class="fa fa-home"></i> Dashboard</a></li>
+        <li><a id="menuplayers" href="#players"><i class="fa fa-user"></i> Players</a></li>
+        <li><a id="menuteams" href="#teams"><i class="fa fa-users"></i> Teams</a></li>
+        <li><a id="menuleagues" href="#leagues"><i class="fa fa-list"></i> Leagues</a></li>
+        <li><a id="menumatches" href="#matches"><i class="fa fa-ticket"></i> Matches</a></li>
+      </ul>
+    </div>
+    <img src="/gfx/tophatguy_black.png" height="80" style="position:absolute; left:15px;"/>
+    <h1 align="center">STORKAR</h1>
+    <h2 align="center">System for Tips Om Rosenborg KAmpeneResultat
+  </div>
+  <div id="content">
+    <div id="listview" class="frame contentcol"></div>
+    <div id="separator" class="inverse frame contentcol"></div>
+    <div id="detailview" class="frame contentcol"></div>
+  </div>
+  <div id="footer" class="inverse frame row">
+    <p>&copy; 2015 - larsarus</p></div>
 </div>
 </body>
 </html>
