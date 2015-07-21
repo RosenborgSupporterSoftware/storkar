@@ -1,8 +1,12 @@
 (define *initialized* #f)
+(define *basepath* "data/players")
 (define *players* '())
 
-(define (update-player id data)
-  (set! *players* (update-alist *players* id data)))
+; FIXME: check filetimestamp with load-time to see if there are updated
+; player data files on disk? (to consider)
+
+(define (update-player uuid data)
+  (set! *players* (update-alist *players* uuid data)))
 
 (define (load-players path)
   (let iter ((files (directory-files path)))
@@ -25,17 +29,33 @@
 (define (player-db-initialize)
   (cond ((not *initialized*)
           (set! *initialized* #t)
-          (load-players "data/players")))
+          (load-players *basepath*)))
   #t)
 
-(define (get-players)
+(define (get-all-players)
   (let iter ((players '())
              (stored *players*))
     (cond ((null? stored)
             (reverse players))
           (else
-             (iter (cons (car (cdr (car stored))) players) (cdr stored))))))
+             (iter (cons (cdr (car stored)) players) (cdr stored))))))
 
 (define (get-player uuid)
   (let ((data (assoc uuid *players*)))
     (if (pair? data) (cdr data) #f)))
+
+(define (set-player uuid player)
+  (display uuid) (newline)
+  (display player) (newline)
+  (let ((path (path-join *basepath* (string-append uuid ".sexp"))))
+    (if (file-exists? path) (delete-file path))
+    (with-output-to-file
+      path
+      (lambda () (display player) (newline)))) ; FIXME: prettify sexp as well
+  (set! *players* (update-alist *players* uuid player)))
+
+(define (delete-player uuid)
+  (let ((path (path-join *basepath* (string-append uuid ".sexp"))))
+    (if (file-exists? path) (delete-file path)))
+  (set! *players* (alist-unlink *players* uuid)))
+

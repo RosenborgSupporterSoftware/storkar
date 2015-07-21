@@ -1,4 +1,8 @@
 (import (chibi)
+        (chibi string)
+        (presto alist)
+        (presto json)
+        (presto uuid)
         (storkar player-db))
 
 (define (initialize)
@@ -6,26 +10,43 @@
       (player-db-initialize))
   #t)
 
-(define (string-starts-with prefix str)
-  (let ((plen (string-length prefix))
-        (slen (string-length str)))
-    (cond ((>= slen plen)
-            (string=? prefix (substring str 0 plen)))
-          (else
-            #f))))
-
-(define (get-request request)
-  (cond ((string-starts-with "/rest/player" (request 'get-path))
-          (get-players))
-        (else
-          '())))
-
-(define (put-request request)
-  #f)
-
-(define (post-request request)
-  #f)
-
 (define (get-rest-path)
   "/rest/player")
+
+(define (do-player-action verb uuid content)
+  (cond ((string=? "PATCH" verb)
+          (let* ((player (get-player uuid))
+                 (patched (patch-alist player content)))
+            (set-player uuid patched)
+            patched))
+        ((string=? "PUT" verb)
+          (cond ((string=? "new" uuid)
+                  (let ((uuid (gen-uuid)))
+                    (set-player uuid (update-alist content '("uuid" . uuid)))
+                    (get-player uuid)))
+                (else
+                  (let ((player (get-player uuid)))
+                    (set-player uuid content)
+                    content))))
+        ((string=? "GET" verb)
+          (get-player uuid))
+        ((string=? "DELETE" verb)
+          (delete-player uuid))
+        (else
+          (display "UNHANDLED ")
+          (display verb) (display " ") (display uuid) (newline)
+          '()
+          )))
+
+(define (rest-request request)
+  (let ((pathelts (string-split (request 'get-path) #\/)))
+    (cond ((and (equal? pathelts '("" "rest" "player"))
+                (string=? "GET" (request 'get-method)))
+            (get-all-players))
+          ((= 4 (length pathelts))
+            (do-player-action (request 'get-method)
+                              (list-ref pathelts 3)
+                              (json->sexp (request 'get-body))))
+          (else
+            '())))) ; FIXME: respond with error
 
