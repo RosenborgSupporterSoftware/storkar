@@ -45,8 +45,8 @@
     (if (pair? data) (cdr data) #f)))
 
 (define (set-player uuid player)
-  (display uuid) (newline)
-  (display player) (newline)
+  ;(display uuid) (newline)
+  ;(display player) (newline)
   (let ((path (path-join *basepath* (string-append uuid ".sexp"))))
     (if (file-exists? path) (delete-file path))
     (with-output-to-file
