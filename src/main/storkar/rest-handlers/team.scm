@@ -16,7 +16,7 @@
 (define (do-team-action verb uuid content)
   (cond ((string=? "PATCH" verb)
           (let* ((team (get-team uuid))
-                 (patched (patch-alist team content)))
+                 (patched (patch-alist (if team team '()) content)))
             (set-team uuid patched)
             patched))
         ((string=? "PUT" verb)
@@ -46,7 +46,9 @@
           ((= 4 (length pathelts))
             (do-team-action (request 'get-method)
                             (list-ref pathelts 3)
-                            (json->sexp (request 'get-body))))
+                            (if (request 'get-body)
+                                (json->sexp (request 'get-body))
+                                '())))
           (else
             '())))) ; FIXME: respond with error
 

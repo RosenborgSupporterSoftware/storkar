@@ -16,7 +16,7 @@
 (define (do-player-action verb uuid content)
   (cond ((string=? "PATCH" verb)
           (let* ((player (get-player uuid))
-                 (patched (patch-alist player content)))
+                 (patched (patch-alist (if player player '()) content)))
             (set-player uuid patched)
             patched))
         ((string=? "PUT" verb)
@@ -46,7 +46,9 @@
           ((= 4 (length pathelts))
             (do-player-action (request 'get-method)
                               (list-ref pathelts 3)
-                              (json->sexp (request 'get-body))))
+                              (if (request 'get-body)
+                                  (json->sexp (request 'get-body))
+                                  '())))
           (else
             '())))) ; FIXME: respond with error
 
