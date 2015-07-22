@@ -41,8 +41,11 @@
              (iter (cons (cdr (car stored)) players) (cdr stored))))))
 
 (define (get-player uuid)
-  (let ((data (assoc uuid *players*)))
-    (if (pair? data) (cdr data) #f)))
+  (cond ((string=? uuid "new")
+          `(("uuid" . ,(gen-uuid))))
+        (else
+          (let ((data (assoc uuid *players*)))
+            (if (pair? data) (cdr data) #f)))))
 
 (define (set-player uuid player)
   ;(display uuid) (newline)
