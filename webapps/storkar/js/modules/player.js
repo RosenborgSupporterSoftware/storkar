@@ -166,6 +166,7 @@ function($, _, Backbone, Layout)
                 this.render();
             }
             this.listenTo(this.collection, 'change', thiz.render);
+            this.listenTo(this.collection, 'update', thiz.render);
         },
 
         close: function() {
@@ -184,6 +185,15 @@ function($, _, Backbone, Layout)
                                 }));
             }, thiz);
             return true;
+        },
+
+        events: {
+            "click #new": "newPlayer"
+        },
+
+        newPlayer: function() {
+            var App = require('app');
+            App.router.navigate("#player/new/edit", {trigger: true});
         }
 
     });
@@ -229,9 +239,21 @@ function($, _, Backbone, Layout)
         model: null,
 
         initialize: function(options) {
-            this.model = options.collection.findWhere({uuid: options.uuid});
+            var thiz = this;
             Backbone.Layout.prototype.initialize.call(this, options);
-            this.render();
+            this.model = options.collection.findWhere({uuid: options.uuid});
+            if (this.model) {
+                this.render();
+            } else {
+                this.model = new Player.Model();
+                this.model.set('uuid', options.uuid);
+                this.model.fetch().done(function() {
+                    var App = require('app');
+                    App.router.navigate("#player/" + thiz.model.uuid() + "/edit",
+                                        {trigger: false, replace: true});
+                    thiz.render();
+                });
+            }
         },
 
         close: function() {
@@ -246,11 +268,13 @@ function($, _, Backbone, Layout)
         events: {
             "click #save": "save",
             "click #reset": "resetEditor",
-            "click #abort": "abortEditor"
+            "click #abort": "abortEditor",
+            "click #delete": "deleteEditor"
         },
 
         save: function() {
             var attrs = {};
+            attrs['uuid'] = this.model.uuid();
             var name = $('#name').val();
             if (name != this.model.name())
                 attrs['name'] = name;
@@ -260,7 +284,8 @@ function($, _, Backbone, Layout)
             var aliases = this.model.aliases();
             var aliasesstr = $('#aliases').val();
             if (aliasesstr) aliases = aliasesstr.split(',');
-            if (aliases != this.model.aliases())
+
+            if (aliases != this.model.aliases()) // FIXME: does not work
                 attrs['aliases'] = aliases;
             var numberstr = $('#number').val();
             var number = this.model.number();
@@ -285,6 +310,12 @@ function($, _, Backbone, Layout)
                 attrs['active'] = active;
 
             this.model.save(attrs, {patch: true});
+            this.render();
+
+            var App = require('app');
+            if (!App.players.findWhere({uuid: this.model.uuid()})) {
+                App.players.add(this.model);
+            }
         },
 
         resetEditor: function() {
@@ -294,6 +325,10 @@ function($, _, Backbone, Layout)
         abortEditor: function() {
             var app = require('app');
             app.router.navigate('#player/' + this.model.uuid(), {trigger: true});
+        },
+
+        deleteEditor: function() {
+            console.log("delete not implemented");
         },
 
         serialize: function() {

@@ -152,6 +152,7 @@ function($, _, Backbone)
                 this.render();
             }
             this.listenTo(this.collection, 'change', thiz.render);
+            this.listenTo(this.collection, 'update', thiz.render);
         },
 
         close: function() {
@@ -170,7 +171,16 @@ function($, _, Backbone)
                                 }));
             }, thiz);
             return true;
-        }
+        },
+
+        events: {
+            "click #new": "newTeam"
+        },
+
+        newTeam: function() {
+            var App = require('app');
+            App.router.navigate("#team/new/edit", {trigger: true});
+        },
     });
 
     Team.Details = Backbone.Layout.extend({
@@ -214,9 +224,22 @@ function($, _, Backbone)
         model: null,
 
         initialize: function(options) {
-            this.model = options.collection.findWhere({uuid: options.uuid});
+            var thiz = this;
             Backbone.Layout.prototype.initialize.call(this, options);
-            this.render();
+            this.model = options.collection.findWhere({uuid: options.uuid});
+            if (this.model) {
+                this.render();
+            } else {
+                // try 
+                this.model = new Team.Model();
+                this.model.set('uuid', options.uuid);
+                this.model.fetch().done(function() {
+                    var App = require('app');
+                    App.router.navigate("#team/" + thiz.model.uuid() + "/edit",
+                                        {trigger: false, replace: true});
+                    thiz.render();
+                });
+            }
         },
 
         close: function() {
@@ -231,10 +254,30 @@ function($, _, Backbone)
         events: {
             "click #save": "save",
             "click #reset": "resetEditor",
-            "click #abort": "abortEditor"
+            "click #abort": "abortEditor",
+            "click #delete": "deleteEditor"
         },
 
         save: function() {
+            var attrs = {};
+            attrs['uuid'] = this.model.uuid();
+            var name = $("#name").val();
+            if (name != this.model.name())
+                attrs['name'] = name;
+            var shortname = $("#shortname").val();
+            if (shortname != this.model.shortname())
+                attrs['shortname'] = shortname;
+            var abbreviation = $("#abbreviation").val();
+            if (abbreviation != this.model.abbreviation())
+                attrs['abbreviation'] = abbreviation;
+
+            this.model.save(attrs, {patch: true});
+            this.render();
+
+            var App = require('app');
+            if (!App.teams.findWhere({uuid: this.model.uuid()})) {
+                App.teams.add(this.model);
+            }
         },
 
         resetEditor: function() {
@@ -244,6 +287,10 @@ function($, _, Backbone)
         abortEditor: function() {
             var app = require('app');
             app.router.navigate("#team/" + this.model.uuid(), {trigger: true});
+        },
+
+        deleteEditor: function() {
+            console.log("delete not implemented");
         },
 
         serialize: function() {
