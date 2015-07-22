@@ -1,0 +1,8 @@
+(define-library (storkar sexp-db)
+  (import (chibi)
+          (chibi filesystem)
+          (presto alist)
+          (presto fileutils)
+          (presto uuid))
+  (export make-sexp-db)
+  (include "sexp-db.scm"))
