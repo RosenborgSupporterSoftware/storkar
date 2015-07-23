@@ -11,6 +11,9 @@
   (set! *initialized* #t)
   #t)
 
+(define (get-team-sexp-db)
+  *team-db*)
+
 (define (get-all-teams)
   (*team-db* 'get-all))
 

@@ -1,5 +1,6 @@
-(define-library (storkar team-db)
+(define-library (storkar league-db)
   (import (chibi)
           (storkar sexp-db))
-  (export team-db-initialize team-db-initialized? get-all-teams get-team set-team delete-team)
-  (include "team-db.scm"))
+  (export league-db-initialize league-db-initialized? get-league-sexp-db
+          get-all-leagues get-league set-league delete-league)
+  (include "league-db.scm"))

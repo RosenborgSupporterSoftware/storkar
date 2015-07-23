@@ -1,13 +1,13 @@
 (import (chibi)
-        (storkar team-db)
+        (storkar league-db)
         (storkar sexp-db-rest-wrapper))
 
 (define *rest-wrapper* #f)
 
 (define (initialize)
-  (if (not (team-db-initialized?))
-      (team-db-initialize))
-  (set! *rest-wrapper* (make-sexp-db-rest-wrapper "/rest/team" (get-team-sexp-db)))
+  (if (not (league-db-initialized?))
+      (league-db-initialize))
+  (set! *rest-wrapper* (make-sexp-db-rest-wrapper "/rest/league" (get-league-sexp-db)))
   #t)
 
 (define (get-rest-path)

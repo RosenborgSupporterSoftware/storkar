@@ -11,6 +11,9 @@
   (set! *initialized* #t)
   #t)
 
+(define (get-league-sexp-db)
+  *league-db*)
+
 (define (get-all-leagues)
   (*league-db* 'get-all))
 

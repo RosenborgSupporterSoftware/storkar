@@ -11,6 +11,9 @@
   (set! *initialized* #t)
   #t)
 
+(define (get-match-sexp-db)
+  *match-db*)
+
 (define (get-all-matches)
   (*match-db* 'get-all))
 
