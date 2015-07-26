@@ -1,0 +1,5 @@
+(("uuid" . "25192b88-3f72-4734-ba93-b1fdd6912165")
+ ("name" . "Start Idrettsklubb")
+ ("shortname" . "Start")
+ ("abbreviation" . "STA")
+ )
