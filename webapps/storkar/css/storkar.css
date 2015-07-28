@@ -43,6 +43,9 @@ body {
     width:25%;
     float:left;
 }
+#listview ul:nth-child(even) {
+    background: #f8f8f8;
+}
 #separator {
     width:1px;
     left:25%;
