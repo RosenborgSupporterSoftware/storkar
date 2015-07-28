@@ -1,17 +1,29 @@
-define(
-    "main",
-[
+require.config({
+    baseUrl: '/js/',
+    paths: {
+        jquery: 'libs/jquery/jquery',
+        underscore: 'libs/lodash/lodash',
+        lodash: 'libs/lodash/lodash',
+        backbone: 'libs/backbone/backbone',
+        layoutmanager: 'libs/layoutmanager/backbone.layoutmanager'
+    }
+});
+
+define([
+    'jquery',
+    'underscore',
     'backbone',
+    'layoutmanager',
     'app',
     'router'
 ],
-function(Backbone, App, AppRouter)
+function($, _, Backbone, Layout, App, Router)
 {
     var promise = App.initialize();
 
     $.when(promise).then(function() {
-        var app_router = new AppRouter();
-        App.router = app_router;
+        var router = new Router();
+        App.router = router;
         Backbone.history.start({pushState: false, root: '/'});
     });
 });

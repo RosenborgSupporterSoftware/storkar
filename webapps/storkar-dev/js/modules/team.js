@@ -1,9 +1,11 @@
 define([
+    'jquery',
     'underscore',
     'backbone',
+    'layoutmanager',
     'storkar'
 ],
-function(_, Backbone, Storkar)
+function($, _, Backbone, Layout, Storkar)
 {
     var Team = {};
 

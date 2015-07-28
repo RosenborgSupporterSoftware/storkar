@@ -1,10 +1,11 @@
 define([
+    'jquery',
     'underscore',
     'backbone',
     'layoutmanager',
     'storkar'
 ],
-function(_, Backbone, Layout, Storkar)
+function($, _, Backbone, Layout, Storkar)
 {
     var Player = {};
 

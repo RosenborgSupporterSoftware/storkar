@@ -1,9 +1,10 @@
-define(
-    "storkar",
-[
-    'backbone'
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'layoutmanager'
 ],
-function(Backbone)
+function($, _, Backbone, Layout)
 {
     Storkar = {};
 

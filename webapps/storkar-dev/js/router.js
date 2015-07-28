@@ -1,6 +1,6 @@
-define(
-    "router",
-[
+define([
+    'jquery',
+    'underscore',
     'backbone',
     'modules/misc',
     'modules/player',
@@ -8,8 +8,8 @@ define(
     'modules/league',
     'modules/match'
 ],
-function(Backbone, Misc, Player, Team, League, Match) {
-    var AppRouter = Backbone.Router.extend({
+function($, _, Backbone, Misc, Player, Team, League, Match) {
+    var Router = Backbone.Router.extend({
 
         initialize: function(options) {
             Backbone.Router.prototype.initialize.call(this, options);
@@ -307,5 +307,5 @@ function(Backbone, Misc, Player, Team, League, Match) {
         }
     });
 
-    return AppRouter;
+    return Router;
 });

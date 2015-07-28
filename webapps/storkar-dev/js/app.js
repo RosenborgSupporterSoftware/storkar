@@ -1,11 +1,11 @@
-define(
-    "app",
-[
+define([
+    'jquery',
+    'underscore',
     'backbone',
     'router',
     'layoutmanager'
 ],
-function(Backbone, Router, Layout) {
+function($, _, Backbone, Router, Layout) {
 
     var App = {};
 
