@@ -1,9 +1,13 @@
 <li class="logo">
-    <img height=16 src="<%= model.headshot_20x30_url() %>">
+    <img height=16 style="margin-top:2px;" src="<%= model.headshot_20x30_url() %>">
 </li>
 <li class="number">
     <%= model.number() %>
 </li>
 <li class="name">
-    <a class="namelink" href="#player/<%= model.uuid() %>"><%= model.shortname() %></a>
+    <%= model.shortname() %>
 </li>
+<li class="name">
+  <img src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%= model.country().toLowerCase() %>_30.png" height="13" alt="<%- model.country() %>" />
+</li>
+

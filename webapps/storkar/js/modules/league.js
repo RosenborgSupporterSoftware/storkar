@@ -5,11 +5,11 @@ define([
 ],
 function(_, Backbone, Storkar)
 {
-    var Team = {};
+    var League = {};
 
-    Team.Model = Backbone.Model.extend({
+    League.Model = Backbone.Model.extend({
         url: function() {
-            return "/rest/team/" + this.uuid();
+            return "/rest/league/" + this.uuid();
         },
 
         isNew: function() {
@@ -25,10 +25,7 @@ function(_, Backbone, Storkar)
             'name': '',
             'shortname': '',
             'abbreviation': '',
-            'country': '',
-            'logo-30-url': '',
-            'logo-60-url': '',
-            'logo-120-url': '',
+            'active': true,
             'links': []
         },
 
@@ -48,32 +45,19 @@ function(_, Backbone, Storkar)
             return this.attributes['abbreviation'];
         },
 
-        country: function() {
-            return this.attributes['country'];
-        },
-
-        logo_120_url: function() {
-            return this.attributes['logo-120-url'];
-        },
-
-        logo_60_url: function() {
-            return this.attributes['logo-60-url'];
-        },
-
-        logo_30_url: function() {
-            return this.attributes['logo-30-url'];
+        active: function() {
+            return this.attributes['active'];
         },
 
         links: function() {
             return this.attributes['links'];
         }
-
     });
 
-    Team.Collection = Backbone.Collection.extend({
-        url: "/rest/team",
+    League.Collection = Backbone.Collection.extend({
+        url: "/rest/league",
 
-        model: Team.Model,
+        model: League.Model,
 
         comparator: function(m1, m2) {
             if (m1.attributes['name'] && m2.attributes['name']) {
@@ -92,27 +76,29 @@ function(_, Backbone, Storkar)
         }
     });
 
-    Team.FrontPage = Backbone.Layout.extend({
-        template: "team/frontpage.html",
+    League.FrontPage = Storkar.Layout.extend({
+        template: "league/frontpage.html",
 
         initialize: function(options) {
-            Backbone.Layout.prototype.initialize.call(this, options);
+            Storkar.Layout.prototype.initialize.call(this, options);
             this.render();
         },
 
         close: function() {
-            this.remove();
-            this.unbind();
+            Storkar.Layout.prototype.close.call(this);
         },
 
         beforeRender: function() {
             return true;
+        },
+
+        detailActions: {
         }
 
     });
 
-    Team.ListItem = Backbone.Layout.extend({
-        template: "team/listitem.html",
+    League.ListItem = Backbone.Layout.extend({
+        template: "league/listitem.html",
 
         tagName: "ul",
 
@@ -121,19 +107,18 @@ function(_, Backbone, Storkar)
         model: null,
 
         initialize: function(options) {
-            Backbone.Layout.prototype.initialize.call(this, options);
             this.model = options.collection.findWhere({uuid: options.uuid});
+            Backbone.Layout.prototype.initialize.call(this, options);
             $(this.el).attr("id", this.model.uuid());
         },
 
         serialize: function() {
             return { model: this.model };
         }
-
     });
 
-    Team.List = Storkar.ListLayout.extend({
-        template: "team/list.html",
+    League.List = Storkar.ListLayout.extend({
+        template: "league/list.html",
 
         collection: null,
 
@@ -141,15 +126,15 @@ function(_, Backbone, Storkar)
             Storkar.ListLayout.prototype.initialize.call(this, options);
             var thiz = this;
             var App = require('app');
-            if (!App.teams) {
-                App.teams = new Team.Collection();
-                this.collection = App.teams;
+            if (!App.leagues) {
+                App.leagues = new League.Collection();
+                this.collection = App.leagues;
                 this.collection.fetch().done(function() {
-                    App.teams.sort();
+                    App.leagues.sort();
                     thiz.render();
                 });
             } else {
-                this.collection = App.teams;
+                this.collection = App.leagues;
                 this.render();
             }
             this.listenTo(this.collection, 'change', thiz.render);
@@ -163,94 +148,106 @@ function(_, Backbone, Storkar)
         beforeRender: function() {
             var thiz = this;
             var App = require('app');
-            App.teams.each(function(item) {
+            App.leagues.each(function(item) {
                 this.insertView("ul.items",
-                                new Team.ListItem({
+                                new League.ListItem({
                                     uuid: item.uuid(),
-                                    collection: App.teams
+                                    collection: App.leagues
                                 }));
             }, thiz);
             return true;
         },
 
         listActions: {
-            "new":    "newTeam",
+            "new": "newLeague",
             "reload": "reloadList"
         },
 
         select: function(uuid) {
             var App = require('app');
-            App.router.navigate("#team/" + uuid, {trigger: true});
+            App.router.navigate("#league/" + uuid, {trigger: true});
         },
 
-        newTeam: function() {
+        newLeague: function() {
             var App = require('app');
-            App.router.navigate("#team/new/edit", {trigger: true});
+            App.router.navigate("#league/new/edit", {trigger: true});
         },
 
         reloadList: function() {
         }
-
     });
 
-    Team.Details = Storkar.Layout.extend({
-        template: "team/details.html",
+    League.Details = Storkar.Layout.extend({
+        template: "league/details.html",
 
         model: null,
 
         initialize: function(options) {
             Storkar.Layout.prototype.initialize.call(this, options);
+            var thiz = this;
             this.model = options.collection.findWhere({uuid: options.uuid});
-            this.render();
+            if (this.model) {
+                this.render();
+            } else {
+                // try 
+                this.model = new League.Model();
+                this.model.set('uuid', options.uuid);
+                this.model.fetch().done(function() {
+                    var App = require('app');
+                    App.router.navigate("#league/" + thiz.model.uuid() + "/edit",
+                                        {trigger: false, replace: true});
+                    App.router.detailviewname = "leagueeditor-" + thiz.model.uuid();
+                    thiz.render();
+                });
+            }
         },
 
         close: function() {
             Storkar.Layout.prototype.close.call(this);
         },
 
-        beforeRender: function() {
-            return true;
-        },
-
         detailActions: {
-            "edit": "editTeam",
-            "delete": "deleteTeam"
+            "edit": "editModel",
+            "delete": "deleteModel"
         },
 
-        editTeam: function() {
+        editModel: function() {
             var App = require('app');
-            App.router.navigate("#team/" + this.model.uuid() + "/edit", {trigger: true});
+            App.router.navigate("#league/" + this.model.uuid() + "/edit",
+                                { trigger: true });
         },
 
-        deleteTeam: function() {
+        deleteModel: function() {
             this.showAlert("Delete not enabled/implemented yet.");
+            var App = require('app');
+            App.router.navigate("#leagues", { trigger: true });
         },
 
         serialize: function() {
             return { model: this.model };
         }
-
     });
 
-    Team.Editor = Storkar.Layout.extend({
-        template: "team/editor.html",
+    League.Editor = Storkar.Layout.extend({
+        template: "league/editor.html",
 
         model: null,
 
         initialize: function(options) {
             Storkar.Layout.prototype.initialize.call(this, options);
+            var thiz = this;
             this.model = options.collection.findWhere({uuid: options.uuid});
             if (this.model) {
                 this.render();
             } else {
-                this.model = new Team.Model();
+                // try 
+                this.model = new League.Model();
                 this.model.set('uuid', options.uuid);
-                var thiz = this;
                 this.model.fetch().done(function() {
                     var App = require('app');
-                    App.router.navigate("#team/" + thiz.model.uuid() + "/edit",
+                    App.router.navigate("#league/" + thiz.model.uuid() + "/edit",
                                         {trigger: false, replace: true});
-                    App.router.detailviewname = "teameditor-" + thiz.model.uuid();
+                    App.router.detailviewname = "leagueeditor-" + thiz.model.uuid();
                     thiz.render();
                 });
             }
@@ -288,8 +285,8 @@ function(_, Backbone, Storkar)
             this.render();
 
             var App = require('app');
-            if (!App.teams.findWhere({uuid: this.model.uuid()})) {
-                App.teams.add(this.model);
+            if (!App.leagues.findWhere({uuid: this.model.uuid()})) {
+                App.leagues.add(this.model);
             }
         },
 
@@ -298,14 +295,13 @@ function(_, Backbone, Storkar)
         },
 
         abortEditor: function() {
-            var app = require('app');
-            app.router.navigate("#team/" + this.model.uuid(), {trigger: true});
+            window.history.back();
+            //var app = require('app');
+            //app.router.navigate("#league/" + this.model.uuid(), {trigger: true});
         },
 
         deleteModel: function() {
             this.showAlert("Delete not enabled/implemented yet.");
-            var App = require('app');
-            App.router.navigate("#teams", {trigger: true});
         },
 
         serialize: function() {
@@ -314,5 +310,5 @@ function(_, Backbone, Storkar)
 
     });
 
-    return Team;
+    return League;
 });

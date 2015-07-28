@@ -1,21 +1,11 @@
-require.config({
-    paths: {
-        jquery: 'libs/jquery/jquery',
-        underscore: 'libs/lodash/lodash',
-        lodash: 'libs/lodash/lodash',
-        backbone: 'libs/backbone/backbone',
-        layoutmanager: 'libs/layoutmanager/backbone.layoutmanager'
-    }
-});
-
-define([
-    'jquery',
-    'underscore',
+define(
+    "main",
+[
     'backbone',
     'app',
     'router'
 ],
-function($, _, Backbone, App, AppRouter)
+function(Backbone, App, AppRouter)
 {
     var promise = App.initialize();
 

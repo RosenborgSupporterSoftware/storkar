@@ -1,28 +1,32 @@
 define([
-    'jquery',
     'underscore',
     'backbone',
-    'layoutmanager'
+    'storkar'
 ],
-function($, _, Backbone, Layout)
+function(_, Backbone, Storkar)
 {
     var Misc = {};
 
-    Misc.FrontPage = Backbone.Layout.extend({
+    Misc.FrontPage = Storkar.Layout.extend({
         template: "misc/frontpage.html",
 
         collection: null,
 
         initialize: function(options) {
             console.log("main.frontpage.initialize()");
-            Backbone.Layout.prototype.initialize.call(this, options);
+            Storkar.Layout.prototype.initialize.call(this, options);
             $("#listview").html("");
             this.render();
         },
 
         close: function() {
-            this.remove();
-            this.unbind();
+            Storkar.Layout.prototype.close.call(this);
+        },
+
+        listActions: {
+        },
+
+        detailActions: {
         },
 
         beforeRender: function() {

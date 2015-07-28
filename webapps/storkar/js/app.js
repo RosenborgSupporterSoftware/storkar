@@ -1,12 +1,11 @@
-define([
-    'jquery',
-    'underscore',
+define(
+    "app",
+[
     'backbone',
     'router',
     'layoutmanager'
 ],
-
-function($, _, Backbone, Router, Layout) {
+function(Backbone, Router, Layout) {
 
     var App = {};
 
@@ -21,7 +20,17 @@ function($, _, Backbone, Router, Layout) {
         'team/list.html',
         'team/listitem.html',
         'team/details.html',
-        'team/editor.html'
+        'team/editor.html',
+        'league/frontpage.html',
+        'league/list.html',
+        'league/listitem.html',
+        'league/details.html',
+        'league/editor.html',
+        'match/frontpage.html',
+        'match/list.html',
+        'match/listitem.html',
+        'match/details.html',
+        'match/editor.html'
     ];
 
     App.players = null;

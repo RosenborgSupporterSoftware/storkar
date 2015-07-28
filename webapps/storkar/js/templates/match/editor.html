@@ -1,3 +1,5 @@
+<h1 align="center"><%= model.name() %></h1>
+
 <h1 align="center"><img src="<%= model.logo_30_url() %>"/> <%= model.name() %></h1>
 
 <div align="center">
@@ -28,3 +30,11 @@
   </tr>
 </table>
 </div>
+
+<div align="center">
+  <a id="save" class="button button-rounded button-small" title="[Save]"><i class="fa fa-save"> Save</i></a>
+  <a id="reset" class="button button-rounded button-small" title="[Reset]"><i class="fa fa-eraser"> Reset</i></a>
+  <a id="abort" class="button button-rounded button-small" title="[Abort]"><i class="fa fa-remove"> Abort</i></a>
+  <a id="delete" class="button button-rounded button-small" title="[Delete]"><i class="fa fa-trash"> Delete</i></a>
+</div>
+

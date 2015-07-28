@@ -1,10 +1,10 @@
 define([
-    'jquery',
     'underscore',
     'backbone',
-    'layoutmanager'
+    'layoutmanager',
+    'storkar'
 ],
-function($, _, Backbone, Layout)
+function(_, Backbone, Layout, Storkar)
 {
     var Player = {};
 
@@ -24,14 +24,16 @@ function($, _, Backbone, Layout)
         defaults: {
             'uuid': '',
             'name': '',
+            'fullname': '',
             'shortname': '',
             'aliases': [],
             'headshot-20x30-url': '',
             'headshot-40x60-url': '',
             'headshot-80x120-url': '',
+            'headshot-160x240-url': '',
             'teamid': '',
             'active': true,
-            'country': '',
+            'country': 'NO',
             'links': []
         },
 
@@ -43,8 +45,8 @@ function($, _, Backbone, Layout)
             return this.attributes['name'];
         },
 
-        number: function() {
-            return this.attributes['number'];
+        fullname: function() {
+            return this.attributes['fullname'];
         },
 
         shortname: function() {
@@ -53,6 +55,10 @@ function($, _, Backbone, Layout)
 
         aliases: function() {
             return this.attributes['aliases'];
+        },
+
+        number: function() {
+            return this.attributes['number'];
         },
 
         headshot_20x30_url: function() {
@@ -65,6 +71,10 @@ function($, _, Backbone, Layout)
 
         headshot_80x120_url: function() {
             return this.attributes['headshot-80x120-url'];
+        },
+
+        headshot_160x240_url: function() {
+            return this.attributes['headshot-160x240-url'];
         },
 
         teamid: function() {
@@ -80,9 +90,8 @@ function($, _, Backbone, Layout)
         },
 
         links: function() {
-            return this.attributes['links'];
+            return this.attributes['links'] || [];
         }
-
     });
 
     Player.Collection = Backbone.Collection.extend({
@@ -131,12 +140,14 @@ function($, _, Backbone, Layout)
 
         tagName: "ul",
 
+        className: "item",
+
         model: null,
 
         initialize: function(options) {
-            this.model = options.collection.findWhere({uuid: options.uuid});
             Backbone.Layout.prototype.initialize.call(this, options);
-            $(this.el).addClass("item");
+            this.model = options.collection.findWhere({uuid: options.uuid});
+            $(this.el).attr("id", this.model.uuid());
         },
 
         serialize: function() {
@@ -145,13 +156,13 @@ function($, _, Backbone, Layout)
 
     });
 
-    Player.List = Backbone.Layout.extend({
+    Player.List = Storkar.ListLayout.extend({
         template: "player/list.html",
 
         collection: null,
 
         initialize: function(options) {
-            Backbone.Layout.prototype.initialize.call(this, options);
+            Storkar.ListLayout.prototype.initialize.call(this, options);
             var thiz = this;
             var App = require('app');
             if (!App.players) {
@@ -170,8 +181,7 @@ function($, _, Backbone, Layout)
         },
 
         close: function() {
-            this.remove();
-            this.unbind();
+            Storkar.ListLayout.prototype.close.call(this);
         },
 
         beforeRender: function() {
@@ -187,60 +197,90 @@ function($, _, Backbone, Layout)
             return true;
         },
 
-        events: {
-            "click #new": "newPlayer"
+        listActions: {
+            "new":    "newPlayer",
+            "reload": "reloadList"
+            // "filter": "filterList"
+        },
+
+        select: function(uuid) {
+            //console.log("select item " + uuid);
+            var App = require('app');
+            App.router.navigate("#player/" + uuid, {trigger: true});
         },
 
         newPlayer: function() {
             var App = require('app');
             App.router.navigate("#player/new/edit", {trigger: true});
+        },
+
+        reloadList: function() {
+            this.showAlert("Reload not implemented yet.");
+        },
+
+        filterList: function() {
+            this.showAlert("Filter not implemented yet.");
         }
 
     });
 
-    Player.Details = Backbone.Layout.extend({
+    Player.Details = Storkar.Layout.extend({
         template: "player/details.html",
 
         model: null,
 
         initialize: function(options) {
+            Storkar.Layout.prototype.initialize.call(this, options);
             this.model = options.collection.findWhere({uuid: options.uuid});
-            Backbone.Layout.prototype.initialize.call(this, options);
             this.render();
         },
 
         close: function() {
-            this.remove();
-            this.unbind();
+            Storkar.Layout.prototype.close.call(this);
         },
 
         beforeRender: function() {
             return true;
         },
 
-        events: {
-            "click #edit": "editPlayer"
+        detailActions: {
+            "delete": "deletePlayer",
+            "edit": "editPlayer"
         },
 
         editPlayer: function() {
             var App = require('app');
-            App.router.navigate("player/" + this.model.uuid() + "/edit", {trigger: true});
+            var url = "#player/" + this.model.uuid() + "/edit";
+            //console.log("URL: " + url);
+            App.router.navigate("#player/" + this.model.uuid() + "/edit", {trigger: true});
+        },
+
+        deletePlayer: function() {
+            this.showAlert("Delete not enabled/implemented yet.");
+            var App = require('app');
+            App.router.navigate("#players", {trigger: true});
         },
 
         serialize: function() {
-            return { model: this.model };
+            var info = { teamname: "" };
+            var App = require('app');
+            if (this.model.teamid() !== "" && App.teams !== null) {
+                var team = App.teams.findWhere({ uuid: this.model.teamid() });
+                if (team) info.teamname = team.name();
+            }
+            return { model: this.model, info: info };
         }
 
     });
 
-    Player.Editor = Backbone.Layout.extend({
+    Player.Editor = Storkar.Layout.extend({
         template: "player/editor.html",
 
         model: null,
 
         initialize: function(options) {
             var thiz = this;
-            Backbone.Layout.prototype.initialize.call(this, options);
+            Storkar.Layout.prototype.initialize.call(this, options);
             this.model = options.collection.findWhere({uuid: options.uuid});
             if (this.model) {
                 this.render();
@@ -251,14 +291,14 @@ function($, _, Backbone, Layout)
                     var App = require('app');
                     App.router.navigate("#player/" + thiz.model.uuid() + "/edit",
                                         {trigger: false, replace: true});
+                    App.router.detailviewname = "playereditor-" + thiz.model.uuid();
                     thiz.render();
                 });
             }
         },
 
         close: function() {
-            this.remove();
-            this.unbind();
+            Storkar.Layout.prototype.close.call(this);
         },
 
         beforeRender: function() {
@@ -266,15 +306,45 @@ function($, _, Backbone, Layout)
         },
 
         events: {
-            "click #save": "save",
-            "click #reset": "resetEditor",
-            "click #abort": "abortEditor",
-            "click #delete": "deleteEditor"
+            "focusout #newlink": "newLinkFocus",
+            "keypress #newlink": "newLinkEnter",
         },
 
-        save: function() {
+        newLinkEnter: function(event) {
+            if (event.which !== 13) return;
+            if (this.$(event.target).val() !== "") {
+                this.addLinkInputField();
+            }
+        },
+
+        newLinkFocus: function(event) {
+            if (this.$(event.target).val() !== "") {
+                this.addLinkInputField();
+            }
+        },
+
+        addLinkInputField: function() {
+            var n = 1;
+            while (this.$("#link" + n).length) { n = n + 1; }
+            var $lastlink = this.$("#newlink");
+            $lastlink.closest("table").append("<tr><td>" + (n+1) + "</td><td><input id=\"newlink\" type=\"text\" size=\"60\"></input></td></tr>");
+            $lastlink.attr("id", "link"+n);
+            this.$("#newlink").focus();
+        },
+
+        detailActions: {
+            "save": "saveModel",
+            "reset": "resetEditor",
+            "delete": "deleteModel",
+            "return": "returnBack"
+        },
+
+        saveModel: function() {
             var attrs = {};
             attrs['uuid'] = this.model.uuid();
+            var fullname = $('#fullname').val();
+            if (fullname != this.model.fullname())
+                attrs['fullname'] = fullname;
             var name = $('#name').val();
             if (name != this.model.name())
                 attrs['name'] = name;
@@ -301,14 +371,37 @@ function($, _, Backbone, Layout)
             var headshot120 = $('#headshot120').val();
             if (headshot120 != this.model.headshot_80x120_url())
                 attrs['headshot-80x120-url'] = headshot120;
+            var headshot240 = $('#headshot240').val();
+            if (headshot240 != this.model.headshot_160x240_url())
+                attrs['headshot-160x240-url'] = headshot240;
             var teamid = $('#team').val();
             // FIXME: don't send before we're using uuid here
             //if (teamid !== this.model.teamid())
             //    attrs['teamid'] = teamid;
-            var active = $('#active').val() === "true";
+            var active = $('#active').is(':checked');
             if (active != this.model.active())
                 attrs['active'] = active;
 
+            var links = [];
+            for (var i = 1; ; i = i + 1) {
+                var $linkinput = this.$('#link'+i);
+                if ($linkinput.length) {
+                    var linktext = $linkinput.val();
+                    if (linktext !== "") {
+                        links.push(linktext);
+                    }
+                }
+                else {
+                    break;
+                }
+            }
+            var linktext = $('#newlink').val();
+            if (linktext !== "") {
+                links.push(linktext);
+            }
+            if (links != this.model.links()) { // FIXME: does not work
+                attrs['links'] = links;
+            }
             this.model.save(attrs, {patch: true});
             this.render();
 
@@ -322,17 +415,24 @@ function($, _, Backbone, Layout)
             this.render();
         },
 
-        abortEditor: function() {
-            var app = require('app');
-            app.router.navigate('#player/' + this.model.uuid(), {trigger: true});
+        deleteModel: function() {
+            this.showAlert("Delete not enabled/implemented yet.");
+            var App = require('app');
+            App.router.navigate("#players", {trigger: true});
         },
 
-        deleteEditor: function() {
-            console.log("delete not implemented");
+        returnBack: function() {
+            window.history.back();
         },
 
         serialize: function() {
-            return { model: this.model };
+            var info = { teamname: "" };
+            var App = require('app');
+            if (this.model.teamid() !== "" && App.teams !== null) {
+                var team = App.teams.findWhere({ uuid: this.model.teamid() });
+                if (team) info.teamname = team.name();
+            }
+            return { model: this.model, info: info };
         }
 
     });
