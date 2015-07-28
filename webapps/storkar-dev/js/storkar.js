@@ -108,7 +108,7 @@ function(Backbone)
         },
 
         listItemClick: function(event) {
-            var target = $(event.target).parent();
+            var target = $(event.target).closest("ul");
             if (target) {
                 this.setSelection(target.attr("id"));
             }
