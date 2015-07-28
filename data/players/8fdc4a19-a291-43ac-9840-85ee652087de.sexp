@@ -6,4 +6,5 @@
  ("headshot-20x30-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/14_bjoerdal_20x30.png")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/14_bjoerdal_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/14_bjoerdal_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/14_bjoerdal_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/14_bjoerdal_160x240.png")
+ ("links"))

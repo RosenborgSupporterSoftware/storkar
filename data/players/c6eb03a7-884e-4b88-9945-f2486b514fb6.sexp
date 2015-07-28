@@ -7,4 +7,6 @@
  ("uuid" . "c6eb03a7-884e-4b88-9945-f2486b514fb6")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/7_jensen_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/7_jensen_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/7_jensen_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/7_jensen_160x240.png")
+ ("fullname" . "Mike Lindemann Jensen")
+ ("links" "http://www.rbk.no/player-profiles/playerID/11681"))

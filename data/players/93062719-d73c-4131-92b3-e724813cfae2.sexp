@@ -1,4 +1,4 @@
-(("name" . "Alexander Toft Søderlund")
+(("name" . "Alexander Søderlund")
  ("number" . 15)
  ("aliases" "Søderlund" "Toft" "Søder" "Sød" "AS")
  ("shortname" . "Søderlund")
@@ -6,4 +6,6 @@
  ("uuid" . "93062719-d73c-4131-92b3-e724813cfae2")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/15_soederlund_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/15_soederlund_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/15_soederlund_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/15_soederlund_160x240.png")
+ ("fullname" . "Alexander Toft Søderlund")
+ ("links" "http://www.rbk.no/player-profiles/playerID/78614"))

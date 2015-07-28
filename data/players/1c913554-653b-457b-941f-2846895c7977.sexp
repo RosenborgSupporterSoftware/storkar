@@ -6,4 +6,6 @@
  ("uuid" . "1c913554-653b-457b-941f-2846895c7977")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/12_hansen_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/12_hansen_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/12_hansen_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/12_hansen_160x240.png")
+ ("fullname" . "Alexander Lund Hansen")
+ ("links" "http://www.rbk.no/player-profiles/playerID/7896"))
