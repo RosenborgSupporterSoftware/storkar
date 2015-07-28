@@ -15,13 +15,16 @@ define([
     'backbone',
     'layoutmanager',
     'app',
-    'router'
+    'router',
+    'modules/team'
 ],
-function($, _, Backbone, Layout, App, Router)
+function($, _, Backbone, Layout, App, Router, Team)
 {
     var promise = App.initialize();
+    App.teams = new Team.Collection();
+    var teamsfetched = App.teams.fetch();
 
-    $.when(promise).then(function() {
+    $.when(promise, teamsfetched).then(function() {
         var router = new Router();
         App.router = router;
         Backbone.history.start({pushState: false, root: '/'});
