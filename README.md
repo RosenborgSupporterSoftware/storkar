@@ -16,4 +16,4 @@ Pek til slutt en webbrowser på http://loopback:1917/
 
 # Screenshots
 
-![Storkar Players-view](rosenborgsupportersoftware.github.io/images/storkar_players.jpg)
+![Storkar Players-view](http://rosenborgsupportersoftware.github.io/images/storkar_players.jpg)
