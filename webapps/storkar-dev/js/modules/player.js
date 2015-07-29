@@ -377,8 +377,9 @@ function($, _, Backbone, Layout, Storkar)
                 attrs['headshot-160x240-url'] = headshot240;
             var teamid = $('#team').val();
             // FIXME: don't send before we're using uuid here
-            //if (teamid !== this.model.teamid())
-            //    attrs['teamid'] = teamid;
+            console.log("team: " + teamid);
+            if (teamid !== this.model.teamid())
+                attrs['teamid'] = teamid;
             var active = $('#active').is(':checked');
             if (active != this.model.active())
                 attrs['active'] = active;
@@ -433,7 +434,7 @@ function($, _, Backbone, Layout, Storkar)
                 var team = App.teams.findWhere({ uuid: this.model.teamid() });
                 if (team) info.teamname = team.name();
             }
-            return { model: this.model, info: info };
+            return { model: this.model, info: info, teams: App.teams };
         }
 
     });
