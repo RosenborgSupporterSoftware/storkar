@@ -7,4 +7,7 @@
  ("uuid" . "526814ae-2f8b-4bed-84f0-24aa9ea557dd")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/17_nielsen_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/17_nielsen_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/17_nielsen_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/17_nielsen_160x240.png")
+ ("fullname" . "Emil Nielsen")
+ ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
+ ("links"))

@@ -6,4 +6,7 @@
  ("uuid" . "77175da9-565d-43a4-8ab8-739d510278ee")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/8_pedersen_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/8_pedersen_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/8_pedersen_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/8_pedersen_160x240.png")
+ ("fullname" . "Morten Gamst Pedersen")
+ ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
+ ("links"))

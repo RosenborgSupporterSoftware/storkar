@@ -1,1 +1,7 @@
-(("uuid" . "ef8cb4fe-e621-4104-a19e-6b06ecab481e") ("name" . "Alexander Sørloth") ("shortname" . "Sørloth") ("aliases" "Sør" "Sor" "Sorloth"))
+(("uuid" . "ef8cb4fe-e621-4104-a19e-6b06ecab481e")
+ ("name" . "Alexander Sørloth")
+ ("shortname" . "Sørloth")
+ ("aliases" "Sør" "Sor" "Sorloth")
+ ("links")
+ ("fullname" . "Alexander Sørloth")
+ ("teamid" . "c2904f34-1d5b-4c64-bf22-acbed4d6056c"))

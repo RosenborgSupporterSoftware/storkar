@@ -6,4 +6,7 @@
  ("uuid" . "3507f4e7-feda-4570-9d64-e678736a4cd2")
  ("headshot-40x60-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/21_midtsjoe_40x60.png")
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/21_midtsjoe_80x120.png")
- ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/21_midtsjoe_160x240.png"))
+ ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/21_midtsjoe_160x240.png")
+ ("fullname" . "Fredrik Midtsjø")
+ ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
+ ("links"))

@@ -9,4 +9,5 @@
  ("headshot-80x120-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/3_dorsin_80x120.png")
  ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/3_dorsin_160x240.png")
  ("fullname" . "Mikael Frank Dorsin")
- ("links" "http://www.rbk.no/player-profiles/playerID/7901" "http://www.rbkweb.no/forum/viewtopic.php?t=1706"))
+ ("links" "http://www.rbk.no/player-profiles/playerID/7901" "http://www.rbkweb.no/forum/viewtopic.php?t=1706")
+ ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f"))
