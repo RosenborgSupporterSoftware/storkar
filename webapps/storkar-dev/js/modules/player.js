@@ -308,7 +308,7 @@ function($, _, Backbone, Layout, Storkar)
 
         events: {
             "focusout #newlink": "newLinkFocus",
-            "keypress #newlink": "newLinkEnter",
+            "keypress #newlink": "newLinkEnter"
         },
 
         newLinkEnter: function(event) {
@@ -385,10 +385,11 @@ function($, _, Backbone, Layout, Storkar)
                 attrs['active'] = active;
 
             var links = [];
+            var linktext = null;
             for (var i = 1; ; i = i + 1) {
                 var $linkinput = this.$('#link'+i);
                 if ($linkinput.length) {
-                    var linktext = $linkinput.val();
+                    linktext = $linkinput.val();
                     if (linktext !== "") {
                         links.push(linktext);
                     }
@@ -397,7 +398,7 @@ function($, _, Backbone, Layout, Storkar)
                     break;
                 }
             }
-            var linktext = $('#newlink').val();
+            linktext = $('#newlink').val();
             if (linktext !== "") {
                 links.push(linktext);
             }
