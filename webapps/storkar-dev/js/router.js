@@ -97,7 +97,7 @@ function($, _, Backbone, Misc, Player, Team, League, Match) {
 
         dashboard: function() {
             this.updateSection("main");
-            this.updateListView(null, "", {});
+            this.updateListView(Misc.NoList, "nolist", {});
             this.updateDetailView(Misc.FrontPage, "dashboard", {});
         },
 

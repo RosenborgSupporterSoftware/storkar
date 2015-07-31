@@ -11,6 +11,7 @@ function($, _, Backbone, Router, Layout) {
 
     App._cacheTemplates = [
         'misc/frontpage.html',
+        'misc/nolist.html',
         'player/frontpage.html',
         'player/list.html',
         'player/listitem.html',

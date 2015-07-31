@@ -9,13 +9,23 @@ function($, _, Backbone, Layout, Storkar)
 {
     var Misc = {};
 
+    Misc.NoList = Storkar.Layout.extend({
+        template: "misc/nolist.html",
+
+        initialize: function(options) {
+            Storkar.ListLayout.prototype.initialize.call(this, options);
+        },
+
+        listActions: {
+        }
+    });
+
     Misc.FrontPage = Storkar.Layout.extend({
         template: "misc/frontpage.html",
 
         collection: null,
 
         initialize: function(options) {
-            console.log("main.frontpage.initialize()");
             Storkar.Layout.prototype.initialize.call(this, options);
             $("#listview").html("");
             this.render();
@@ -23,9 +33,6 @@ function($, _, Backbone, Layout, Storkar)
 
         close: function() {
             Storkar.Layout.prototype.close.call(this);
-        },
-
-        listActions: {
         },
 
         detailActions: {
