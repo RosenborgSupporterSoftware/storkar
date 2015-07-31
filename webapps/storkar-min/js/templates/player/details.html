@@ -1,0 +1,54 @@
+<div align="center"><h1 style="margin-bottom:0;"><%-model.name()%></h1><h4 style="margin-top:0;font-size:75%;"><font color="#ddd"><tt>{<%-model.uuid()%>}</tt></font></h4><h2>Personalia</h2><table width="400"><tr><td rowspan="6"><img width="80"height="120"src="<%= model.headshot_80x120_url() %>"alt="<%- model.headshot_80x120_url() %>"/></td><td>Fullt navn:<%-model.fullname()%></td></tr><tr><td>Navn:<%-model.name()%>-Land:<img height="12"src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%- model.country().toLowerCase() %>_30.png"alt=[<%-model.country()%>" /></td>
+  </tr>
+  <tr>
+    <td> Kortnavn: <%- model.shortname() %></td>
+  </tr>
+  <tr>
+    <td> Klubb: <%- info.teamname %> - Trøye: <%- model.number() %></td>
+  </tr>
+  <tr>
+    <td> Aliaser: <%- model.aliases().join(",") %></td>
+  </tr>
+</table>
+
+<h2>Portrettbilder</h2>
+<div id="player-headshots" align="center">
+<table>
+  <% if ( model.headshot_20x30_url() != "" ) { %>
+  <tr>
+    <td align="center"> 20x30 </td><td> <a target="_blank" href="<%=model.headshot_20x30_url()%>"><%- model.headshot_20x30_url() %></a></td>
+  </tr>
+  <% }
+     if ( model.headshot_40x60_url() != "" ) { %>
+  <tr>
+    <td align="center"> 40x60 </td><td> <a target="_blank" href="<%=model.headshot_40x60_url()%>"><%- model.headshot_40x60_url() %></a></td>
+  </tr>
+  <% }
+     if ( model.headshot_80x120_url() != "" ) { %>
+  <tr>
+    <td align="center"> 80x120 </td><td> <a target="_blank" href="<%=model.headshot_80x120_url()%>"><%- model.headshot_80x120_url() %></a></td>
+  </tr>
+  <% }
+     if ( model.headshot_160x240_url() != "" ) { %>
+  <tr>
+    <td align="center"> 160x240 </td><td> <a target="_blank" href="<%=model.headshot_160x240_url()%>"><%- model.headshot_160x240_url() %></a></td>
+  </tr>
+  <% } %>
+</table>
+</div>
+
+<% if (model.links().length != 0) { %>
+<h2> Linker </h2>
+<div id="player-links" align="center">
+<table>
+<% for (var linkidx in model.links()) { %>
+<tr>
+  <td><%- parseInt(linkidx,10)+1 %></td>
+  <td><a href="<%=model.links()[linkidx]%>" target="_blank"><%- model.links()[linkidx] %></a></td>
+</tr>
+<% } %>
+</table>
+</div>
+<% } %>
+<p></p>
+</div>
