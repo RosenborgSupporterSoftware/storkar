@@ -12,6 +12,10 @@ Start deretter webappen med følgende kommando:
 
  $ ./storkar.sh
 
+eller start den minifiserte versjonen av webapp'en med
+
+ $ ./storkar.sh --profile=min
+
 Pek til slutt en webbrowser på http://loopback:1917/
 
 # Screenshots
