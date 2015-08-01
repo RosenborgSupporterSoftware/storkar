@@ -1,3 +1,5 @@
 .DS_Store
-storkar-access.log
-storkar-errors.log
+/storkar-access.log
+/storkar-errors.log
+/js
+/css
