@@ -24,6 +24,7 @@ function($, _, Backbone, Layout, Storkar)
 
         defaults: {
             'uuid': '',
+            'fullname': '',
             'name': '',
             'shortname': '',
             'abbreviation': '',
@@ -31,6 +32,7 @@ function($, _, Backbone, Layout, Storkar)
             'logo-30-url': '',
             'logo-60-url': '',
             'logo-120-url': '',
+            'active': true,
             'links': []
         },
 
@@ -38,8 +40,16 @@ function($, _, Backbone, Layout, Storkar)
             return this.attributes['uuid'];
         },
 
+        fullname: function() {
+            return this.attributes['fullname'];
+        },
+
         name: function() {
             return this.attributes['name'];
+        },
+
+        fullname: function() {
+            return this.attributes['fullname'];
         },
 
         shortname: function() {
@@ -54,16 +64,20 @@ function($, _, Backbone, Layout, Storkar)
             return this.attributes['country'];
         },
 
-        logo_120_url: function() {
-            return this.attributes['logo-120-url'];
+        logo_30_url: function() {
+            return this.attributes['logo-30-url'];
         },
 
         logo_60_url: function() {
             return this.attributes['logo-60-url'];
         },
 
-        logo_30_url: function() {
-            return this.attributes['logo-30-url'];
+        logo_120_url: function() {
+            return this.attributes['logo-120-url'];
+        },
+
+        active: function() {
+            return this.attributes['active'];
         },
 
         links: function() {
@@ -78,6 +92,12 @@ function($, _, Backbone, Layout, Storkar)
         model: Team.Model,
 
         comparator: function(m1, m2) {
+            if (m1.attributes['country'] !== m2.attributes['country']) {
+                if (m1.attributes['country'] == 'NO')
+                    return -1;
+                if (m2.attributes['country'] == 'NO')
+                    return 1;
+            }
             if (m1.attributes['name'] && m2.attributes['name']) {
                 return m1.attributes['name'].localeCompare(m2.attributes['name']);
             } else if (m1.attributes['name']) {
@@ -266,6 +286,51 @@ function($, _, Backbone, Layout, Storkar)
             return true;
         },
 
+        events: {
+            "focusout #newlink": "newLinkFocus",
+            "keypress #newlink": "newLinkEnter",
+            "keydown #newlink": "newLinkTAB"
+        },
+
+        newLinkEnter: function(event) {
+            if (event.which !== 13) return;
+            console.log("newLinkEnter()");
+            if (this.$(event.target).val() !== "") {
+                this.addLinkInputField();
+                this.$("#newlink").focus();
+            }
+        },
+
+        setFocusElement: false,
+
+        newLinkTAB: function(event) {
+            if (event.keyCode !== 9) return;
+            console.log("newLinkTAB()");
+            if (this.$(event.target).val() !== "") {
+                this.addLinkInputField();
+                this.setFocusElement = "#newlink";
+            }
+        },
+
+        newLinkFocus: function(event) {
+            if (this.$(event.target).val() !== "") {
+                console.log("newLinkFocusOut()");
+                this.addLinkInputField();
+                if (this.setFocusElement) {
+                    this.$(this.setFocusElement).focus();
+                    this.setFocusElement = false;
+                }
+            }
+        },
+
+        addLinkInputField: function() {
+            var n = 1;
+            while (this.$("#link" + n).length) { n = n + 1; }
+            var $lastlink = this.$("#newlink");
+            $lastlink.closest("table").append("<tr><td>" + (n+1) + "</td><td><input id=\"newlink\" type=\"text\" size=\"60\"></input></td></tr>");
+            $lastlink.attr("id", "link"+n);
+        },
+
         detailActions: {
             "save": "saveModel",
             "reset": "resetEditor",
@@ -276,6 +341,11 @@ function($, _, Backbone, Layout, Storkar)
         saveModel: function() {
             var attrs = {};
             attrs['uuid'] = this.model.uuid();
+
+            var fullname = $("#fullname").val();
+            if (fullname != this.model.fullname())
+                attrs['fullname'] = fullname;
+
             var name = $("#name").val();
             if (name != this.model.name())
                 attrs['name'] = name;
@@ -285,6 +355,45 @@ function($, _, Backbone, Layout, Storkar)
             var abbreviation = $("#abbreviation").val();
             if (abbreviation != this.model.abbreviation())
                 attrs['abbreviation'] = abbreviation;
+            var country = $("#country").val();
+            if (country != this.model.country())
+                attrs['country'] = country;
+
+            var logo_30 = $("#logo30").val();
+            if (logo_30 != this.model.logo_30_url())
+                attrs['logo-30-url'] = logo_30;
+            var logo_60 = $("#logo60").val();
+            if (logo_60 != this.model.logo_60_url())
+                attrs['logo-60-url'] = logo_60;
+            var logo_120 = $("#logo120").val();
+            if (logo_120 != this.model.logo_120_url())
+                attrs['logo-120-url'] = logo_120;
+
+            var active = $('#active').is(':checked');
+            if (active != this.model.active())
+                attrs['active'] = active;
+
+            var links = [];
+            var linktext = null;
+            for (var i = 1; ; i = i + 1) {
+                var $linkinput = this.$('#link'+i);
+                if ($linkinput.length) {
+                    linktext = $linkinput.val();
+                    if (linktext !== "") {
+                        links.push(linktext);
+                    }
+                }
+                else {
+                    break;
+                }
+            }
+            linktext = $('#newlink').val();
+            if (linktext !== "") {
+                links.push(linktext);
+            }
+            if (links != this.model.links()) { // FIXME: does not work
+                attrs['links'] = links;
+            }
 
             this.model.save(attrs, {patch: true});
             this.render();

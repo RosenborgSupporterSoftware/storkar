@@ -1,30 +1,63 @@
-<h1 align="center"><img src="<%= model.logo_30_url() %>"/> <%= model.name() %></h1>
+<h1 align="center"><img height="24" src="<%= model.logo_30_url() %>"/> <%= model.name() %> <img height="24" src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%= model.country().toLowerCase() %>_30.png" /></h1>
 
 <div align="center">
-<table>
+<table width="90%">
   <tr>
-    <td>Name:</td>
+    <td>Fullt navn:</td>
+    <td><input id="fullname" type="text" size="60" value="<%= model.fullname() %>"></input></td>
+  </tr>
+  <tr>
+    <td>Navn:</td>
     <td><input id="name" type="text" size="60" value="<%= model.name() %>"></input></td>
   </tr>
   <tr>
-    <td>Shortname:</td>
+    <td>Kort-navn:</td>
     <td><input id="shortname" type="text" size="60" value="<%= model.shortname() %>"></input></td>
   </tr>
   <tr>
-    <td>Abbreviation:</td>
+    <td>Forkortelse:</td>
     <td><input id="abbreviation" type="text" size="60" value="<%= model.abbreviation() %>"></input></td>
   </tr>
   <tr>
-    <td>Logo 30:</td>
+    <td>Land:</td>
+    <td><input id="country" type="text" size="10" value="<%= model.country() %>"></input></td>
+  </tr>
+  <tr>
+    <td>Active:</td>
+    <td><input id="active" type="checkbox" <%= model.active() ? "checked" : "" %>></input></td>
+  </tr>
+</table>
+
+<h2> Logofiler </h2>
+<table width="90%">
+  <tr>
+    <td>Logo y=30:</td>
     <td><input id="logo30" type="text" size="60" value="<%= model.logo_30_url() %>"></input></td>
   </tr>
   <tr>
-    <td>Logo 60:</td>
+    <td>Logo y=60:</td>
     <td><input id="logo60" type="text" size="60" value="<%= model.logo_60_url() %>"></input></td>
   </tr>
   <tr>
-    <td>Logo 120:</td>
+    <td>Logo y=120:</td>
     <td><input id="logo120" type="text" size="60" value="<%= model.logo_120_url() %>"></input></td>
   </tr>
 </table>
+
+
+<h2> Linker </h2>
+<table>
+<% for (var linkidx in model.links()) { %>
+  <tr>
+    <td><%- parseInt(linkidx,10) + 1 %></td>
+    <td><input id="link<%- (parseInt(linkidx,10)+1) %>" type="text" size="60" value="<%- model.links()[linkidx] %>"></input></td>
+  </tr>
+<% } %>
+  <tr>
+    <td><%- (model.links().length || 0) + 1 %></td>
+    <td><input id="newlink" type="text" size="60" value=""></input></td>
+  </tr>
+</table>
+
+<p></p>
 </div>

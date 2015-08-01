@@ -7,15 +7,68 @@
 <p>
 <table style="margin:20px;">
   <tr>
-    <td>Short Name:</td>
-    <td><%= model.shortname() %></td>
+    <td>Fullt navn:</td>
+    <td><%- model.fullname() %></td>
   </tr>
   <tr>
-    <td>Abbreviation:</td>
-    <td><%= model.abbreviation() %></td>
+    <td>Navn:</td>
+    <td><%- model.name() %></td>
   </tr>
   <tr>
-    <td>Country:</td>
-    <td><%= model.country() %></td>
+    <td>Kort-navn:</td>
+    <td><%- model.shortname() %></td>
+  </tr>
+  <tr>
+    <td>Forkortelse:</td>
+    <td><%- model.abbreviation() %></td>
+  </tr>
+  <tr>
+    <td>Land:</td>
+    <td>
+      <% if (model.country() !== "") { %>
+        <img height="12" src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%- model.country().toLowerCase() %>_30.png" alt="[<%- model.country() %>]" />
+      <% } %>
+    </td>
   </tr>
 </table>
+
+<div align="center">
+  <h2>Logofiler</h2>
+  <table width="90%">
+    <% if (model.logo_30_url() && model.logo_30_url() !== "") { %>
+    <tr>
+      <td align="center">y=30</td>
+      <td><a target="_blank" href="<%= model.logo_30_url() %>"><%- model.logo_30_url() %></a></td>
+    </tr>
+    <% }
+       if (model.logo_60_url() && model.logo_60_url() !== "") { %>
+    <tr>
+      <td align="center">y=60</td>
+      <td><a target="_blank" href="<%= model.logo_60_url() %>"><%- model.logo_60_url() %></a></td>
+    </tr>
+    <% }
+       if (model.logo_120_url() && model.logo_120_url() !== "") { %>
+    <tr>
+      <td align="center">y=120</td>
+      <td><a target="_blank" href="<%= model.logo_120_url() %>"><%- model.logo_120_url() %></a></td>
+    </tr>
+    <% } %>
+  </table>
+</div>
+
+<% if (model.links() && model.links().length && model.links().length > 0) { %>
+<div align="center">
+  <h2>Linker</h2>
+  <ul>
+    <% for (var idx = 0; idx < model.links().length; idx = idx + 1) { %>
+    <li><a href="<%= model.links()[idx] %>" target="_blank"><%- model.links()[idx] %></a>
+    <% } %>
+  </ul>
+</div>
+<% } %>
+
+<!-- Tabs for
+  - player list
+  - best formation, formation editor
+  - match history/list
+-->
