@@ -308,19 +308,35 @@ function($, _, Backbone, Layout, Storkar)
 
         events: {
             "focusout #newlink": "newLinkFocus",
-            "keypress #newlink": "newLinkEnter"
+            "keypress #newlink": "newLinkEnter",
+            "keydown #newlink": "newLinkTAB"
         },
 
         newLinkEnter: function(event) {
             if (event.which !== 13) return;
             if (this.$(event.target).val() !== "") {
                 this.addLinkInputField();
+                this.$("#newlink").focus();
+            }
+        },
+
+        setFocusElement: false,
+
+        newLinkTAB: function(event) {
+            if (event.which !== 9) return;
+            if (this.$(event.target).val() !== "") {
+                this.addLinkInputField();
+                this.setFocusElement = "#newlink";
             }
         },
 
         newLinkFocus: function(event) {
             if (this.$(event.target).val() !== "") {
                 this.addLinkInputField();
+                if (this.setFocusElement) {
+                    this.$(this.setFocusElement).focus();
+                    this.setFocusElement = false;
+                }
             }
         },
 
@@ -330,7 +346,6 @@ function($, _, Backbone, Layout, Storkar)
             var $lastlink = this.$("#newlink");
             $lastlink.closest("table").append("<tr><td>" + (n+1) + "</td><td><input id=\"newlink\" type=\"text\" size=\"60\"></input></td></tr>");
             $lastlink.attr("id", "link"+n);
-            this.$("#newlink").focus();
         },
 
         detailActions: {
