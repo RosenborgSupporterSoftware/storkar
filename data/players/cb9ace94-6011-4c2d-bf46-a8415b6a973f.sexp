@@ -9,4 +9,4 @@
  ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/32_saeter_160x240.png")
  ("fullname" . "John Hou Sæter")
  ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
- ("links"))
+ ("links" "http://www.rbkweb.no/forum/viewtopic.php?t=6432"))
