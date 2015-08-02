@@ -1,18 +1,19 @@
+<div align="center">
 <h1 align="center"><%= model.name() %></h1>
 
 <p align="center">
-<img src="<%= model.logo_120_url() %>">
-</p>
-
-<p>
-<table style="margin:20px;">
+<h2 align="center">Lag-info</h2>
+<table width="500" style="margin:20px;">
   <tr>
+    <td rowspan="4" valign="middle">
+       <img src="<%= model.logo_120_url() %>">
+    </td>
     <td>Fullt navn:</td>
-    <td><%- model.fullname() %></td>
+    <td colspan="3"><%- model.fullname() %></td>
   </tr>
   <tr>
     <td>Navn:</td>
-    <td><%- model.name() %></td>
+    <td colspan="3"><%- model.name() %></td>
   </tr>
   <tr>
     <td>Kort-navn:</td>
@@ -21,20 +22,18 @@
   <tr>
     <td>Forkortelse:</td>
     <td><%- model.abbreviation() %></td>
-  </tr>
-  <tr>
     <td>Land:</td>
     <td>
       <% if (model.country() !== "") { %>
-        <img height="12" src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%- model.country().toLowerCase() %>_30.png" alt="[<%- model.country() %>]" />
+        <img height="12" src="http://rosenborgsupportersoftware.github.io/media/flags/flag_<%- model.country().toLowerCase() %>_30.png" title="[<%- model.country() %>]" />
       <% } %>
     </td>
   </tr>
 </table>
 
-<div align="center">
-  <h2>Logofiler</h2>
-  <table width="90%">
+<h2>Logofiler</h2>
+<div id="team-logos" align="center">
+  <table>
     <% if (model.logo_30_url() && model.logo_30_url() !== "") { %>
     <tr>
       <td align="center">y=30</td>
@@ -57,15 +56,19 @@
 </div>
 
 <% if (model.links() && model.links().length && model.links().length > 0) { %>
-<div align="center">
-  <h2>Linker</h2>
-  <ul>
+<h2>Linker</h2>
+<div id="team-links" align="center">
+  <table>
     <% for (var idx = 0; idx < model.links().length; idx = idx + 1) { %>
-    <li><a href="<%= model.links()[idx] %>" target="_blank"><%- model.links()[idx] %></a>
+    <tr>
+      <td><%- parseInt(idx,10)+1 %></td>
+      <td><a href="<%= model.links()[idx] %>" target="_blank"><%- model.links()[idx] %></a></td>
+    </tr>
     <% } %>
-  </ul>
+  </table>
 </div>
 <% } %>
+</div>
 
 <!-- Tabs for
   - player list

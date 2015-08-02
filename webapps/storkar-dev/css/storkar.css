@@ -180,6 +180,12 @@ body {
 #player-links {
     font-size: 75%;
 }
+#team-logos {
+    font-size: 75%;
+}
+#team-links {
+    font-size: 75%;
+}
 #alertspan {
     position:absolute;
     left:25%;
