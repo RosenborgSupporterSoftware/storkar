@@ -9,4 +9,5 @@
  ("headshot-160x240-url" . "http://rosenborgsupportersoftware.github.io/media/players/rbk/16_skjelvik_160x240.png")
  ("fullname" . "Jørgen Skjelvik")
  ("teamid" . "70bd3934-79ca-439b-8329-b8ee29a70b5f")
- ("links"))
+ ("links" "http://www.rbkweb.no/forum/viewtopic.php?t=6311")
+ ("active" . #t))
