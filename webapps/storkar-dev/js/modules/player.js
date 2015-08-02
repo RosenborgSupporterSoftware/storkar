@@ -24,17 +24,18 @@ function($, _, Backbone, Layout, Storkar)
 
         defaults: {
             'uuid': '',
-            'name': '',
             'fullname': '',
+            'name': '',
+            'country': 'NO',
             'shortname': '',
+            'teamid': '',
+            'number': '',
             'aliases': [],
+            'active': true,
             'headshot-20x30-url': '',
             'headshot-40x60-url': '',
             'headshot-80x120-url': '',
             'headshot-160x240-url': '',
-            'teamid': '',
-            'active': true,
-            'country': 'NO',
             'links': []
         },
 
@@ -42,24 +43,36 @@ function($, _, Backbone, Layout, Storkar)
             return this.attributes['uuid'];
         },
 
+        fullname: function() {
+            return this.attributes['fullname'];
+        },
+
         name: function() {
             return this.attributes['name'];
         },
 
-        fullname: function() {
-            return this.attributes['fullname'];
+        country: function() {
+            return this.attributes['country'];
         },
 
         shortname: function() {
             return this.attributes['shortname'];
         },
 
-        aliases: function() {
-            return this.attributes['aliases'];
+        teamid: function() {
+            return this.attributes['teamid'];
         },
 
         number: function() {
             return this.attributes['number'];
+        },
+
+        aliases: function() {
+            return this.attributes['aliases'];
+        },
+
+        active: function() {
+            return this.attributes['active'];
         },
 
         headshot_20x30_url: function() {
@@ -76,18 +89,6 @@ function($, _, Backbone, Layout, Storkar)
 
         headshot_160x240_url: function() {
             return this.attributes['headshot-160x240-url'];
-        },
-
-        teamid: function() {
-            return this.attributes['teamid'];
-        },
-
-        active: function() {
-            return this.attributes['active'];
-        },
-
-        country: function() {
-            return this.attributes['country'];
         },
 
         links: function() {
@@ -378,6 +379,9 @@ function($, _, Backbone, Layout, Storkar)
             if (numberstr) number = parseInt(numberstr, 10);
             if (number != this.model.number())
                 attrs['number'] = number;
+            var country = $('#country').val();
+            if (country != this.model.country())
+                attrs['country'] = country;
             var headshot30 = $('#headshot30').val();
             if (headshot30 != this.model.headshot_20x30_url())
                 attrs['headshot-20x30-url'] = headshot30;
@@ -391,12 +395,10 @@ function($, _, Backbone, Layout, Storkar)
             if (headshot240 != this.model.headshot_160x240_url())
                 attrs['headshot-160x240-url'] = headshot240;
             var teamid = $('#team').val();
-            // FIXME: don't send before we're using uuid here
-            console.log("team: " + teamid);
             if (teamid !== this.model.teamid())
                 attrs['teamid'] = teamid;
             var active = $('#active').is(':checked');
-            if (active != this.model.active())
+            if (active !== this.model.active())
                 attrs['active'] = active;
 
             var links = [];
@@ -420,6 +422,7 @@ function($, _, Backbone, Layout, Storkar)
             if (links != this.model.links()) { // FIXME: does not work
                 attrs['links'] = links;
             }
+
             this.model.save(attrs, {patch: true});
             this.render();
 
