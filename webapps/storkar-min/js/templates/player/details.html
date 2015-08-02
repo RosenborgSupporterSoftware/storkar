@@ -14,22 +14,22 @@
 <h2>Portrettbilder</h2>
 <div id="player-headshots" align="center">
 <table>
-  <% if ( model.headshot_20x30_url() != "" ) { %>
+  <% if ( model.headshot_20x30_url() && model.headshot_20x30_url() !== "" ) { %>
   <tr>
     <td align="center"> 20x30 </td><td> <a target="_blank" href="<%=model.headshot_20x30_url()%>"><%- model.headshot_20x30_url() %></a></td>
   </tr>
   <% }
-     if ( model.headshot_40x60_url() != "" ) { %>
+     if ( model.headshot_40x60_url() && model.headshot_40x60_url() !== "" ) { %>
   <tr>
     <td align="center"> 40x60 </td><td> <a target="_blank" href="<%=model.headshot_40x60_url()%>"><%- model.headshot_40x60_url() %></a></td>
   </tr>
   <% }
-     if ( model.headshot_80x120_url() != "" ) { %>
+     if ( model.headshot_80x120_url() && model.headshot_80x120_url() !== "" ) { %>
   <tr>
     <td align="center"> 80x120 </td><td> <a target="_blank" href="<%=model.headshot_80x120_url()%>"><%- model.headshot_80x120_url() %></a></td>
   </tr>
   <% }
-     if ( model.headshot_160x240_url() != "" ) { %>
+     if ( model.headshot_160x240_url() && model.headshot_160x240_url() != "" ) { %>
   <tr>
     <td align="center"> 160x240 </td><td> <a target="_blank" href="<%=model.headshot_160x240_url()%>"><%- model.headshot_160x240_url() %></a></td>
   </tr>
